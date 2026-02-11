@@ -141,7 +141,7 @@
                 height: 100px;
                 top: 60%;
                 right: 15%;
-                animation: float 15s ease-in-out infinite;
+                animation: float2 15s ease-in-out infinite;
             }
 
             .planet-earth {
@@ -149,12 +149,21 @@
                 height: 120px;
                 top: 25%;
                 left: 12%;
-                animation: float 18s ease-in-out infinite;
+                animation: float2 18s ease-in-out infinite;
             }
 
             @keyframes float {
-                0%, 100% { transform: translateY(0px) rotate(0deg); }
-                50% { transform: translateY(-30px) rotate(5deg); }
+                0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+                25% { transform: translateY(-20px) translateX(-15px) rotate(10deg); }
+                50% { transform: translateY(-40px) translateX(0px) rotate(20deg); }
+                75% { transform: translateY(-60px) translateX(15px) rotate(30deg); }
+            }
+
+            @keyframes float2 {
+                0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+                25% { transform: translateY(-20px) translateX(15px) rotate(-10deg); }
+                50% { transform: translateY(-40px) translateX(0px) rotate(-20deg); }
+                75% { transform: translateY(-60px) translateX(-15px) rotate(-30deg); }
             }
 
             .glow-ring {
@@ -306,7 +315,34 @@
                 transform: translateY(-3px);
             }
 
-            @media (max-width: 768px) {
+            /* Responsive Design */
+            @media (max-width: 1399px) {
+                .glow-ring {
+                    width: 1000px;
+                    height: 1000px;
+                }
+            }
+
+            @media (max-width: 1199px) {
+                .glow-ring {
+                    width: 850px;
+                    height: 850px;
+                }
+            }
+
+            @media (max-width: 1023px) {
+                .glow-ring {
+                    width: 690px;
+                    height: 690px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .glow-ring {
+                    width: 570px;
+                    height: 570px;
+                }
+
                 .logo {
                     font-size: 2.5rem;
                     letter-spacing: 4px;
@@ -344,13 +380,53 @@
                 }
             }
 
-            @media (max-width: 479px) {
-                .planet-jupiter,
-                .planet-uranus,
-                .planet-mars,
-                .planet-earth,
+            @media (max-width: 639px) {
                 .glow-ring {
-                    animation: none !important;
+                    width: 420px;
+                    height: 420px;
+                }
+
+                .hide-mobile {
+                    display: none;
+                }
+
+                .btn,
+                .btn:visited {
+                    background: rgba(51, 102, 153, 0.75);
+                    color: #000000;
+                }
+
+                .btn:hover,
+                .btn:focus,
+                .btn:active {
+                    background: #336699;
+                    color: #0a0e27;
+                }
+
+                .btn:visited:hover,
+                .btn:visited:focus,
+                .btn:visited:active {
+                    background: #336699;
+                    color: #0a0e27;
+                }
+            }
+
+            @media (max-width: 479px) {
+                .glow-ring {
+                    width: 280px;
+                    height: 280px;
+                }
+
+                .ai-table th,
+                .ai-table td {
+                    padding: 10px;
+                }
+            }
+
+            @media (max-width: 319px) {
+                .glow-ring {
+                    width: 200px;
+                    height: 200px;
                 }
             }
         </style>
