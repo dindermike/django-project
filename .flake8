@@ -1,0 +1,4 @@
+# Flake8 Configuration
+[flake8]
+exclude = .git, __pycache__, .env, .env.example, build, dist, practice_env/
+max-line-length = 120
