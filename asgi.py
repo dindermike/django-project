@@ -1,5 +1,5 @@
 """
-ASGI config for Liine project.
+ASGI config for Demo Django Project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

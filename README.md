@@ -60,7 +60,7 @@ Connect pgAdmin on Windows to your Docker PostgreSQL:
 1. Open pgAdmin
 2. Register/Create New Server with These Settings:
    - **General Tab:**
-     - Name: *Docker - Liine*
+     - Name: *Docker - Demo Django Project*
 
    - **Connection Tab:**
      - Host: *localhost*

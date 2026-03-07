@@ -1,5 +1,5 @@
 """
-WSGI config for Liine project.
+WSGI config for Demo Django Project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
