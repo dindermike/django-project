@@ -3,6 +3,7 @@ django-environ
 django-filter
 django-rest-framework
 flake8
+gunicorn
 markdown
 python-dotenv
 psycopg2-binary
