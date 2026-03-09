@@ -17,11 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from mikedinder.views import RestaurantSearchView
+from mikedinder.views import LandingView, RestaurantSearchView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/v1/restaurants/search/', RestaurantSearchView.as_view(), name='restaurant-search'),
+
+    path('', LandingView.as_view(), name='home'),
 ]

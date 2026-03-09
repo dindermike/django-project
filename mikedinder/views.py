@@ -1,9 +1,16 @@
 from django.http import JsonResponse
+from django.views.generic import TemplateView
 from rest_framework.views import APIView
 
 from .models import Restaurant
-# from .serializers import BookSerializer
 from .utils import RestaurantSearchService
+
+
+class LandingView(TemplateView):
+    """
+    Home/Landing Page
+    """
+    template_name = 'home.html'
 
 
 class RestaurantSearchView(APIView):
