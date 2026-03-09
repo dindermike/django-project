@@ -34,7 +34,8 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
     'localhost',
-    '44.206.196.183'  # Production URL
+    '44.206.196.183',        # Production Server IP
+    'django.mikedinder.com'  # Production URL
 ]
 
 
@@ -132,8 +133,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
