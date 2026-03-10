@@ -1,0 +1,9 @@
+[Unit]
+Description=Gunicorn socket for Django
+
+[Socket]
+ListenStream=/run/gunicorn-django.sock
+SocketUser=www-data
+
+[Install]
+WantedBy=sockets.target

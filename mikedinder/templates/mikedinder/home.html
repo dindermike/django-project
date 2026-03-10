@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Django Framework — A comprehensive guide to the history, ecosystem, and usage of the Django web framework." />
+
+        <title>Django: The Framework for Perfectionists with Deadlines</title>
+
+        <!-- All Browser Legacy Support -->
+        <link rel="icon" type="image/x-icon" href="{% static '/mikedinder/images/favicon.ico' %}">
+
+        <!-- Fallback for browsers that don't support SVG favicons -->
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static '/mikedinder/images/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static '/mikedinder/images/favicon-16x16.png' %}">
+
+        <!-- Apple Touch Icons (iOS/iPadOS home screen) -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static '/mikedinder/images/apple-touch-icon.png' %}">
+
+        <!-- Android Chrome -->
+        <link rel="icon" type="image/png" sizes="192x192" href="{% static '/mikedinder/images/android-chrome-192x192.png' %}">
+        <link rel="icon" type="image/png" sizes="512x512" href="{% static '/mikedinder/images/android-chrome-512x512.png' %}">
+
+        <!-- Skip to Main Content for Screen Readers -->
+        <a class="skip-link" href="#main-content">Skip to Main Content</a>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+        <!-- Robots Meta Tag -->
+        <meta name="robots" content="index, follow" />
+
+        <!-- Open Graph Meta Tags for Social Media -->
+        <meta property="og:title" content="Mike Dinder's Personal Project - Django" />
+        <meta property="og:description" content="A personal project dedicated to Django." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://django.mikedinder.com" />
+        <meta property="og:image" content="{% static '/mikedinder/images/Mars_social.png' %}" />
+
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mike Dinder's Personal Project - Django" />
+        <meta name="twitter:description" content="A personal project dedicated to Django." />
+        <meta name="twitter:image" content="{% static '/mikedinder/images/Mars_social.png' %}" />
+
+        <!-- Theme Color for Mobile Browsers -->
+        <meta name="theme-color" content="#030918" />
+
+        <!-- Home Page CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/home.css' %}" />
+    </head>
+
+    <body>
+        <!-- SKIP LINK is in <head> already via CSS -->
+
+        <!-- LOADER -->
+        {% include "mikedinder/common/loader.html" %}
+
+        <!-- CURSOR -->
+        {% include "mikedinder/common/cursor.html" %}
+
+        <!-- SPACE BACKGROUND -->
+        {% include "mikedinder/common/space_bkgd.html" %}
+
+        <!-- HEADER -->
+        {% include "mikedinder/home/header.html" %}
+
+        <!-- MAIN CONTENT -->
+        <main id="main-content">
+            <!-- HERO SECTION -->
+            {% include "mikedinder/home/section-1.html" %}
+
+            <div class="section-divider" aria-hidden="true"></div>
+
+            <!-- HISTORY SECTION -->
+            {% include "mikedinder/home/section-2.html" %}
+
+            <div class="section-divider" aria-hidden="true"></div>
+
+            <!-- COMPANIES SECTION -->
+            {% include "mikedinder/home/section-3.html" %}
+
+            <div class="section-divider" aria-hidden="true"></div>
+
+            <!-- ECOSYSTEM SECTION -->
+            {% include "mikedinder/home/section-4.html" %}
+
+            <div class="section-divider" aria-hidden="true"></div>
+
+            <!-- STATISTICS SECTION -->
+            {% include "mikedinder/home/section-5.html" %}
+
+            <div class="section-divider" aria-hidden="true"></div>
+
+            <!-- PAGES SECTION -->
+            {% include "mikedinder/home/section-6.html" %}
+        </main><!-- /main-content -->
+
+        <!-- FOOTER -->
+        {% include "mikedinder/common/footer.html" %}
+
+        <!-- JavaScript Import -->
+        <script src="{% static '/mikedinder/js/home.js' %}"></script>
+    </body>
+</html>

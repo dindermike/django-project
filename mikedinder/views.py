@@ -10,7 +10,7 @@ class LandingView(TemplateView):
     """
     Home/Landing Page
     """
-    template_name = 'home.html'
+    template_name = 'mikedinder/home.html'
 
 
 class RestaurantSearchView(APIView):

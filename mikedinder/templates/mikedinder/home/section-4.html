@@ -1,0 +1,610 @@
+<!-- ==================== SECTION 3: ECOSYSTEM ==================== -->
+<section id="ecosystem" aria-labelledby="ecosystem-heading">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-eyebrow" aria-hidden="true">// SECTION 03</span>
+
+            <h2 class="section-title" id="ecosystem-heading">
+                The Django <span class="accent">Ecosystem</span>
+            </h2>
+
+            <p class="section-subtitle">
+                Django is more than a framework &mdash; it's a universe of patterns, packages, and practices for building every kind of web application imaginable.
+            </p>
+        </div>
+
+        <div class="eco-nav" role="tablist" aria-label="Filter ecosystem categories">
+            <button class="active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button data-filter="core" role="tab" aria-selected="false">Core</button>
+            <button data-filter="api" role="tab" aria-selected="false">APIs</button>
+            <button data-filter="packages" role="tab" aria-selected="false">Packages</button>
+            <button data-filter="databases" role="tab" aria-selected="false">Databases</button>
+            <button data-filter="infra" role="tab" aria-selected="false">Infrastructure</button>
+            <button data-filter="frontend" role="tab" aria-selected="false">Frontend</button>
+        </div>
+
+        <div class="eco-grid" id="eco-grid" role="list">
+            <!-- CORE -->
+            <div class="eco-card" data-category="core" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🗂️</div>
+                    <div>
+                        <h3>Django Models &amp; ORM</h3>
+                        <span class="eco-tag">CORE &bull; DATABASE LAYER</span>
+                    </div>
+                </div>
+
+                <p>
+                    The Django Object-Relational Mapper (ORM) allows you to define your database schema as Python classes &mdash; called Models. Each model maps to a database table. You interact with the database using Python instead of raw SQL: <code>User.objects.filter(age__gte=18)</code>. The ORM supports complex queries, annotations, aggregations, select_related/prefetch_related for performance, F() expressions, Q() objects for OR logic, and raw SQL escape hatches. Migrations track schema changes over time, allowing collaborative team development without manual SQL migrations.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">QuerySets</span><span class="tag">Migrations</span><span class="tag">Relationships</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="core" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🔗</div>
+                    <div>
+                        <h3>Django URLs, Reverse URLs &amp; Namespaces</h3>
+                        <span class="eco-tag">CORE &bull; ROUTING</span>
+                    </div>
+                </div>
+
+                <p>
+                    Django's URL dispatcher maps URL patterns to Python view functions or class-based views. Modern Django uses <code>path()</code> with typed converters (<code>&lt;int:pk&gt;</code>, <code>&lt;slug:slug&gt;</code>) and <code>re_path()</code> for regex. Reverse URLs (<code>reverse('blog:post-detail', args=[pk])</code>) let you generate URLs dynamically &mdash; your templates never hardcode paths. URL namespaces (<code>app_name</code>) prevent naming collisions in large applications with multiple apps, enabling clean URL organization and modularity.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">path()</span><span class="tag">reverse()</span><span class="tag">Namespaces</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="core" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">👁️</div>
+                    <div>
+                        <h3>Django Views (FBVs &amp; CBVs)</h3>
+                        <span class="eco-tag">CORE &bull; LOGIC LAYER</span>
+                    </div>
+                </div>
+
+                <p>
+                    Views are the business logic layer. Function-Based Views (FBVs) are simple Python functions that receive an HttpRequest and return an HttpResponse &mdash; perfect for straightforward logic. Class-Based Views (CBVs) provide reusable, mixins-powered views: <code>ListView</code>, <code>DetailView</code>, <code>CreateView</code>, <code>UpdateView</code>, <code>DeleteView</code>, and more. CBVs eliminate boilerplate via inheritance and composition. Decorators (<code>@login_required</code>, <code>@permission_required</code>) and CBV mixins provide elegant access control at the view level.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">FBV</span><span class="tag">CBV</span><span class="tag">Mixins</span><span class="tag">Decorators</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="core" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">📄</div>
+                    <div>
+                        <h3>Django Templates</h3>
+                        <span class="eco-tag">CORE &bull; PRESENTATION LAYER</span>
+                    </div>
+                </div>
+
+                <p>
+                    Django's built-in template language (DTL) provides a powerful yet intentionally logic-light syntax for rendering HTML. Template tags (<code>{% verbatim %}{% for %}{% endverbatim %}</code>, <code>{% verbatim %}{% if %}{% endverbatim %}</code>, <code>{% verbatim %}{% block %}{% endverbatim %}</code>), filters (<code>{% verbatim %}{{ value|date:"Y-m-d" }}{% endverbatim %}</code>), and template inheritance (<code>{% verbatim %}{% extends "base.html" %}{% endverbatim %}</code>) enable DRY layout design. Jinja2 can be plugged in as an alternative engine. Django's template system enforces separation of concerns &mdash; keeping business logic in views, not templates &mdash; while still providing enough power for dynamic HTML generation, static file handling, and i18n support.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">DTL</span><span class="tag">Inheritance</span><span class="tag">Filters</span><span class="tag">Jinja2</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="core" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">📝</div>
+                    <div>
+                        <h3>Django Forms</h3>
+                        <span class="eco-tag">CORE &bull; INPUT HANDLING</span>
+                    </div>
+                </div>
+
+                <p>
+                    Django's Forms library handles the full lifecycle of user input: rendering HTML form fields, validating submitted data, and converting to Python types. <code>ModelForm</code> automatically generates a form from a model, reducing code dramatically. Custom validators, widget customization, formsets for multiple-object editing, and form wizards for multi-step workflows are all built-in. Form rendering in Django 4.1&plus; uses the template engine, enabling fully customized form layouts via template overrides &mdash; a major improvement in design flexibility.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">ModelForm</span><span class="tag">Validation</span><span class="tag">Formsets</span><span class="tag">Widgets</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="core" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">⚡</div>
+                    <div>
+                        <h3>Django Signals</h3>
+                        <span class="eco-tag">CORE &bull; EVENT SYSTEM</span>
+                    </div>
+                </div>
+
+                <p>
+                    Django's signals framework implements a publisher-subscriber pattern for decoupled intra-application communication. Built-in signals include <code>pre_save</code>, <code>post_save</code>, <code>pre_delete</code>, <code>post_delete</code>, <code>m2m_changed</code>, and <code>request_started/finished</code>. You can define custom signals for domain events. Common use cases include: sending emails after user registration, invalidating caches on model save, creating related objects automatically, and logging audit trails &mdash; all without tight coupling between components. Signal handlers are registered with <code>@receiver</code> decorators.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">post_save</span><span class="tag">@receiver</span><span class="tag">Decoupling</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="core" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🛡️</div>
+                    <div>
+                        <h3>The Django Admin Panel</h3>
+                        <span class="eco-tag">CORE &bull; MANAGEMENT UI</span>
+                    </div>
+                </div>
+
+                <p>
+                    Django's automatic admin interface is one of its most celebrated features &mdash; a complete, production-ready CRUD management UI generated from your models with zero additional code. Register models with <code>admin.site.register()</code> or extend <code>ModelAdmin</code> for custom list displays, filters, search, inline editing, and actions. The admin supports custom views, dashboard widgets, and third-party themes like Jazzmin, Unfold, or Django Suit. It's used by content teams, data analysts, and operations staff who need database access without developer intervention.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">ModelAdmin</span><span class="tag">Inline Editing</span><span class="tag green">Auto-Generated</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="core" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🔒</div>
+                    <div>
+                        <h3>Security in Django</h3>
+                        <span class="eco-tag">CORE &bull; SECURITY LAYER</span>
+                    </div>
+                </div>
+
+                <p>
+                    Django ships with robust security by default. CSRF protection via <code>{% verbatim %}{% csrf_token %}{% endverbatim %}</code> and middleware prevents cross-site request forgery. SQL injection is prevented by the ORM's parameterized queries. XSS protection via automatic HTML escaping in templates. Clickjacking protection with <code>X-Frame-Options</code>. Content Security Policy support. Secure password hashing (PBKDF2, bcrypt, Argon2). The <code>SECRET_KEY</code> for session signing. HTTPS enforcement with <code>SECURE_SSL_REDIRECT</code>. <code>django.middleware.security.SecurityMiddleware</code> provides HSTS headers, X-Content-Type-Options, and Referrer-Policy out of the box.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">CSRF</span><span class="tag">XSS</span><span class="tag">HSTS</span><span class="tag gold">SQL Injection</span>
+                </div>
+            </div>
+
+            <!-- API -->
+            <div class="eco-card" data-category="api" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🔌</div>
+                    <div>
+                        <h3>Django REST Framework (DRF)</h3>
+                        <span class="eco-tag">API &bull; REST</span>
+                    </div>
+                </div>
+
+                <p>
+                    The de-facto standard for building RESTful APIs with Django. DRF provides Serializers (model-to-JSON conversion with validation), ViewSets (CRUD endpoints with minimal code), Routers (automatic URL generation), Authentication backends (Token, Session, JWT via simplejwt), Permission classes, Pagination, Filtering, and Throttling. With <code>ModelSerializer</code> and a <code>ModelViewSet</code>, a full REST API for a model can be created in under 20 lines of code. DRF powers APIs for mobile apps, SPAs, and third-party integrations at massive scale.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">Serializers</span><span class="tag">ViewSets</span><span class="tag">JWT</span><span class="tag green">REST</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="api" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🌐</div>
+                    <div>
+                        <h3>DRF Browsable API</h3>
+                        <span class="eco-tag">API &bull; DEVELOPER TOOLS</span>
+                    </div>
+                </div>
+
+                <p>
+                    One of DRF's most delightful features &mdash; a fully interactive, human-readable web interface for your API endpoints, generated automatically. When you navigate to an API endpoint in a browser, DRF renders an HTML page showing the endpoint's documentation, accepted methods, serializer schema, and forms for POST/PUT/PATCH operations. It uses content negotiation (<code>Accept: text/html</code> vs <code>application/json</code>) to serve either the browsable UI or raw JSON. Invaluable for development and testing without external tools like Postman.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">Content Negotiation</span><span class="tag">Interactive</span><span class="tag green">Zero Config</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="api" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">◈</div>
+                    <div>
+                        <h3>GraphQL with graphene-django</h3>
+                        <span class="eco-tag">API &bull; GRAPHQL</span>
+                    </div>
+                </div>
+
+                <p>
+                    For applications needing flexible, client-driven data fetching, <code>graphene-django</code> integrates the Graphene library to expose a GraphQL API from your Django models. You define GraphQL Types mapped to Django models, Queries for reading data, Mutations for writes, and Subscriptions for real-time updates. The <code>/graphql</code> endpoint serves GraphiQL &mdash; an interactive query editor. Strawberry-django is a modern alternative using Python type annotations. GraphQL excels for mobile APIs, highly complex relational data fetching, and BFF (Backend for Frontend) architectures.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">graphene-django</span><span class="tag">Strawberry</span><span class="tag purple">GraphiQL</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="api" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">📡</div>
+                    <div>
+                        <h3>SOAP APIs with Django</h3>
+                        <span class="eco-tag">API &bull; ENTERPRISE INTEGRATION</span>
+                    </div>
+                </div>
+
+                <p>
+                    While less common in modern greenfield projects, SOAP (Simple Object Access Protocol) APIs are still prevalent in enterprise environments &mdash; banking, healthcare, government, and legacy ERP systems. The <code>spyne</code> library integrates with Django to build SOAP web services, auto-generating WSDL definitions. <code>zeep</code> is used as a SOAP client when consuming external SOAP services. Django handles the HTTP transport layer while spyne manages XML serialization, service definitions, and protocol negotiation for WSDL-compliant enterprise integrations.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">spyne</span><span class="tag">WSDL</span><span class="tag gold">Enterprise</span>
+                </div>
+            </div>
+
+            <!-- PACKAGES -->
+            <div class="eco-card" data-category="packages" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🐛</div>
+                    <div>
+                        <h3>Django Debug Toolbar</h3>
+                        <span class="eco-tag">PACKAGES &bull; DEVELOPER TOOLS</span>
+                    </div>
+                </div>
+
+                <p>
+                    The <code>django-debug-toolbar</code> injects a collapsible side panel into your HTML responses during development, providing real-time profiling data: SQL queries executed (with execution times and EXPLAIN output), template context variables and render times, cache hits/misses, signal connections fired, session data, request/response headers, static files, and a complete settings dump. It's indispensable for identifying N&plus;1 query problems, slow templates, and cache effectiveness. Entirely disabled in production via the <code>DEBUG</code> flag.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">SQL Profiling</span><span class="tag">N&plus;1 Detection</span><span class="tag green">Dev Only</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="packages" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🔄</div>
+                    <div>
+                        <h3>Django Channels</h3>
+                        <span class="eco-tag">PACKAGES &bull; ASYNC / WEBSOCKETS</span>
+                    </div>
+                </div>
+
+                <p>
+                    Django Channels extends Django to handle WebSockets, long-polling, and other asynchronous protocols &mdash; things traditional Django's synchronous HTTP couldn't handle. Channels introduces Consumers (analogous to views for async connections), Channel Layers (backed by Redis for multi-process message passing), and a routing system for protocol types. Use cases include live chat applications, real-time notifications, collaborative document editing, live sports scores, multiplayer games, and dashboard streaming. Channels uses ASGI and is fully compatible with Django's authentication system.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">WebSockets</span><span class="tag">Channel Layers</span><span class="tag purple">ASGI</span><span class="tag">Real-Time</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="packages" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">📰</div>
+                    <div>
+                        <h3>Django CMS</h3>
+                        <span class="eco-tag">PACKAGES &bull; CONTENT MANAGEMENT</span>
+                    </div>
+                </div>
+
+                <p>
+                    Django CMS is a mature, enterprise-grade content management system built on Django. It provides an inline editing interface (edit content directly on the page), a hierarchical page tree, plugin system for reusable content blocks, multi-language support, versioning, and a rich permissions system. Unlike WordPress, Django CMS gives developers full Python/Django control over the codebase while providing content editors a polished UI. Used by large organizations for multilingual corporate websites, educational platforms, and publishing systems.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">Inline Editing</span><span class="tag">Plugins</span><span class="tag">i18n</span><span class="tag gold">Enterprise</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="packages" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">📜</div>
+                    <div>
+                        <h3>Building PDFs with Django</h3>
+                        <span class="eco-tag">PACKAGES &bull; DOCUMENT GENERATION</span>
+                    </div>
+                </div>
+
+                <p>
+                    Django integrates seamlessly with PDF generation libraries. <code>WeasyPrint</code> converts HTML/CSS templates into pixel-perfect PDFs &mdash; you design your invoice or report in HTML, then render it as PDF using the same Django template engine. <code>ReportLab</code> provides programmatic PDF creation for complex layouts. <code>xhtml2pdf</code> is another popular option. Common use cases: invoice generation, legal documents, certificates, payslips, reports, and receipts. The pattern: render a Django template to HTML string → pass to WeasyPrint → return as <code>HttpResponse</code> with <code>application/pdf</code> content type.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">WeasyPrint</span><span class="tag">ReportLab</span><span class="tag">Invoices</span><span class="tag green">Template-Driven</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="packages" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🌿</div>
+                    <div>
+                        <h3>django-cte (Common Table Expressions)</h3>
+                        <span class="eco-tag">PACKAGES &bull; ADVANCED SQL</span>
+                    </div>
+                </div>
+
+                <p>
+                    The <code>django-cte</code> package (<code>django-cte</code> by dimagi) adds support for PostgreSQL Common Table Expressions (CTEs) &mdash; also known as <code>WITH</code> queries &mdash; to Django's ORM. CTEs enable recursive queries (ideal for hierarchical/tree data like org charts, threaded comments, category trees), complex query factoring, and query optimization through materialization hints. Without this package, recursive CTEs require raw SQL. <code>django-cte</code> provides <code>With</code> and <code>CTEQuerySet</code> that integrate cleanly with Django's existing queryset API, preserving chainability and compatibility with DRF.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">Recursive SQL</span><span class="tag">WITH Queries</span><span class="tag purple">PostgreSQL</span><span class="tag">Tree Data</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="packages" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🔧</div>
+                    <div>
+                        <h3>Django Extensions (django-extensions)</h3>
+                        <span class="eco-tag">PACKAGES &bull; DEVELOPER TOOLS</span>
+                    </div>
+                </div>
+
+                <p>
+                    <code>django-extensions</code> is a power-user toolkit adding over 60 management commands and model mixins. Highlights include: <code>shell_plus</code> (auto-imports all models), <code>runserver_plus</code> (Werkzeug debugger integration), <code>graph_models</code> (generates ER diagrams from models), <code>show_urls</code> (lists all URL patterns), <code>sqldiff</code> (detects schema drift), <code>reset_db</code> (drops and recreates the database), <code>TimeStampedModel</code> and <code>UUIDModel</code> abstract mixins, and <code>export_emails</code>. Nearly every serious Django project installs django-extensions in development.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">shell_plus</span><span class="tag">graph_models</span><span class="tag green">Management Cmds</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="packages" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🖼️</div>
+                    <div>
+                        <h3>Pillow (Django Image Processing)</h3>
+                        <span class="eco-tag">PACKAGES &bull; MEDIA HANDLING</span>
+                    </div>
+                </div>
+
+                <p>
+                    Pillow is the Python Imaging Library fork that Django's <code>ImageField</code> depends on for image validation and processing. Beyond just storing uploads, Pillow enables: resizing and thumbnailing (<code>image.thumbnail((300,300))</code>), format conversion (PNG → WebP), cropping and watermarking, color manipulation, EXIF data reading, and image optimization. Common patterns include generating thumbnails on upload via signals, creating social media preview images, processing user avatars, and building image transformation pipelines. Django Storages &plus; Pillow &plus; S3 is the standard production media stack.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">ImageField</span><span class="tag">Thumbnails</span><span class="tag">WebP</span><span class="tag gold">EXIF</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="packages" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🔍</div>
+                    <div>
+                        <h3>django-filter</h3>
+                        <span class="eco-tag">PACKAGES &bull; QUERYING</span>
+                    </div>
+                </div>
+
+                <p>
+                    <code>django-filter</code> provides a declarative filtering system for Django views and DRF APIs. Define a <code>FilterSet</code> class with filter fields mapping to model fields and lookup types (<code>exact</code>, <code>icontains</code>, <code>gte</code>, <code>range</code>), then connect it to a view. DRF integration via <code>DjangoFilterBackend</code> enables URL-based filtering (<code>/api/products/?category=electronics&price__gte=100</code>) automatically. Supports custom filter methods, combined filters, and form rendering for browsable API filtering. Essential for any API with searchable, sortable, filterable resources.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">FilterSet</span><span class="tag">DRF Integration</span><span class="tag">URL Params</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="packages" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🌿</div>
+                    <div>
+                        <h3>django-environ</h3>
+                        <span class="eco-tag">PACKAGES &bull; CONFIGURATION</span>
+                    </div>
+                </div>
+
+                <p>
+                    <code>django-environ</code> implements the Twelve-Factor App methodology for Django configuration, loading settings from environment variables and <code>.env</code> files. <code>env('DATABASE_URL')</code> automatically parses <code>postgres://user:pass@host/db</code> into Django's <code>DATABASES</code> dictionary. Type casting handles booleans, integers, lists, and tuples. It keeps secrets out of source code (no committed passwords), enables environment-specific configurations (dev/staging/production), and simplifies Docker/Kubernetes deployments where config is injected via environment variables. The standard for 12-factor Django applications.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">12-Factor</span><span class="tag">.env Files</span><span class="tag">DATABASE_URL</span><span class="tag green">Secrets</span>
+                </div>
+            </div>
+
+            <!-- DATABASES -->
+            <div class="eco-card" data-category="databases" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🐘</div>
+                    <div>
+                        <h3>PostgreSQL &plus; psycopg2 / psycopg3</h3>
+                        <span class="eco-tag">DATABASES &bull; PRIMARY</span>
+                    </div>
+                </div>
+
+                <p>
+                    PostgreSQL is Django's recommended production database, and the combination is arguably the most popular stack in the Python web ecosystem. <code>psycopg2</code> is the mature, battle-tested adapter; <code>psycopg3</code> (simply <code>psycopg</code>) is the modern async-capable rewrite supported since Django 4.2. PostgreSQL unlocks Django features unavailable on other backends: <code>ArrayField</code>, <code>JSONField</code>, <code>HStoreField</code>, <code>RangeField</code>, full-text search with <code>SearchVector</code>, <code>trigram_similar</code> lookups, <code>UNLOGGED</code> tables, advisory locks, and the <code>django-cte</code> package for WITH queries.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">psycopg2</span><span class="tag">psycopg3</span><span class="tag purple">JSONField</span><span class="tag">Full-Text Search</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="databases" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🐬</div>
+                    <div>
+                        <h3>MySQL &amp; MariaDB</h3>
+                        <span class="eco-tag">DATABASES &bull; RELATIONAL</span>
+                    </div>
+                </div>
+
+                <p>
+                    MySQL and MariaDB (the community fork, officially supported since Django 3.0) are widely used with Django in shared hosting environments, LAMP stacks, and organizations with existing MySQL infrastructure. The <code>mysqlclient</code> adapter (recommended) or <code>PyMySQL</code> connect Django to MySQL. Considerations: MySQL has historically had stricter limitations on transaction support and lacks some PostgreSQL-specific field types. MariaDB adds columnar storage, temporal tables, and window functions. Django's ORM handles the differences transparently for standard operations.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">mysqlclient</span><span class="tag">MariaDB</span><span class="tag gold">LAMP Stack</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="databases" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🪟</div>
+                    <div>
+                        <h3>Microsoft SQL Server (MSSQL)</h3>
+                        <span class="eco-tag">DATABASES &bull; ENTERPRISE</span>
+                    </div>
+                </div>
+
+                <p>
+                    Microsoft SQL Server is used with Django primarily in enterprise Windows environments and organizations with existing MSSQL infrastructure. <code>mssql-django</code> (maintained by Microsoft) is the official backend. <code>django-mssql-backend</code> and <code>pyodbc</code> with <code>django-pyodbc-azure</code> are alternatives. MSSQL integration enables access to Azure SQL Database, stored procedures, and enterprise features like row-level security. Limitations: some Django ORM features require workarounds, and schema migrations can be less predictable than on PostgreSQL.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">mssql-django</span><span class="tag">Azure SQL</span><span class="tag gold">Enterprise</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="databases" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🔶</div>
+                    <div>
+                        <h3>Oracle Database</h3>
+                        <span class="eco-tag">DATABASES &bull; ENTERPRISE</span>
+                    </div>
+                </div>
+
+                <p>
+                    Oracle Database integration uses the <code>cx_Oracle</code> (or newer <code>python-oracledb</code>) adapter with Django's built-in Oracle backend. Used predominantly in large enterprises, banks, and government systems with existing Oracle investments. Django supports Oracle-specific features like sequences, autonomous transactions, and LOB handling. However, Oracle support lags behind PostgreSQL in terms of Django ORM feature coverage, and the setup complexity is considerably higher. Oracle Database is a pragmatic choice when Django must integrate with existing enterprise data warehouses or existing Oracle-dependent applications.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">cx_Oracle</span><span class="tag">python-oracledb</span><span class="tag gold">Enterprise DB</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="databases" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🍃</div>
+                    <div>
+                        <h3>MongoDB &amp; NoSQL Databases</h3>
+                        <span class="eco-tag">DATABASES &bull; NOSQL</span>
+                    </div>
+                </div>
+
+                <p>
+                    Django's ORM is designed for relational databases, but MongoDB integration is possible via <code>Djongo</code> (translates ORM queries to MongoDB operations) or <code>mongoengine</code> (an ODM replacing Django's ORM). For other NoSQL databases: <code>django-cassandra-engine</code> for Cassandra, and CouchDB or Elasticsearch can be used as secondary stores alongside a primary relational database. The more common pattern is using PostgreSQL's <code>JSONField</code> for document-like flexibility within the relational model, rather than a full NoSQL switch. Elasticsearch with <code>django-elasticsearch-dsl</code> is popular for full-text search alongside PostgreSQL.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">Djongo</span><span class="tag">mongoengine</span><span class="tag">Elasticsearch</span><span class="tag purple">NoSQL</span>
+                </div>
+            </div>
+
+            <!-- INFRASTRUCTURE -->
+            <div class="eco-card" data-category="infra" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">⚡</div>
+                    <div>
+                        <h3>Redis for Caching</h3>
+                        <span class="eco-tag">INFRASTRUCTURE &bull; CACHING</span>
+                    </div>
+                </div>
+
+                <p>
+                    Redis is the standard caching backend for Django in production. Since Django 4.0, a built-in Redis cache backend (<code>django.core.cache.backends.redis.RedisCache</code>) is included. Configure with a Redis URL and use the cache API: <code>cache.set(key, value, timeout)</code>, <code>cache.get(key)</code>. Django supports per-view caching (<code>@cache_page</code>), per-site caching via middleware, template fragment caching (<code>{% verbatim %}{% cache %}{% endverbatim %}</code>), and low-level cache API calls. Redis also powers Django Channels' channel layers, Celery's message broker, and session storage &mdash; making it a triple-duty component in the typical Django production stack.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">RedisCache</span><span class="tag">@cache_page</span><span class="tag green">Sessions</span><span class="tag">Channel Layers</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="infra" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🌿</div>
+                    <div>
+                        <h3>Celery for Async Tasks</h3>
+                        <span class="eco-tag">INFRASTRUCTURE &bull; TASK QUEUE</span>
+                    </div>
+                </div>
+
+                <p>
+                    Celery is the industry-standard distributed task queue for Django. Offload time-consuming work from HTTP request/response cycles: sending emails, generating PDFs, processing images, calling external APIs, running ML models, sending push notifications, and scheduled cron-like tasks. Django integrates via the <code>celery</code> package with <code>shared_task</code> decorator. Redis or RabbitMQ serve as the message broker. Celery Beat handles periodic tasks. <code>django-celery-results</code> stores task results in your database. <code>flower</code> provides a real-time monitoring dashboard. The Django &plus; Celery &plus; Redis trinity is foundational to scalable Django architecture.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">@shared_task</span><span class="tag">Celery Beat</span><span class="tag">Flower</span><span class="tag purple">Background Jobs</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="infra" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🦄</div>
+                    <div>
+                        <h3>Gunicorn for Production</h3>
+                        <span class="eco-tag">INFRASTRUCTURE &bull; WSGI SERVER</span>
+                    </div>
+                </div>
+
+                <p>
+                    Gunicorn (Green Unicorn) is the most widely used WSGI HTTP server for serving Django in production. It manages a pool of worker processes (typically <code>2 * CPU_CORES &plus; 1</code> workers), handles concurrent requests, and interfaces with Nginx as a reverse proxy. Worker types include sync (default), <code>gevent</code> (async via greenlets), <code>gthread</code> (threaded), and <code>tornado</code>. For async Django (ASGI), <code>uvicorn</code> (with <code>uvicorn[standard]</code>) or <code>daphne</code> replace Gunicorn. The typical production stack: Nginx → Gunicorn (or Uvicorn) → Django → PostgreSQL, all orchestrated by systemd or Docker Compose.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">WSGI</span><span class="tag">Nginx Proxy</span><span class="tag">uvicorn</span><span class="tag gold">Production</span>
+                </div>
+            </div>
+
+            <!-- FRONTEND -->
+            <div class="eco-card" data-category="frontend" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">⚛️</div>
+                    <div>
+                        <h3>Django &plus; React.js</h3>
+                        <span class="eco-tag">FRONTEND &bull; SPA / HYBRID</span>
+                    </div>
+                </div>
+
+                <p>
+                    The most popular frontend pairing. Django serves as a pure backend API (via DRF) while React handles the entire frontend as a Single Page Application. Communication via REST or GraphQL. Deployment options: separate services (Django API &plus; React CDN), or Django serving the built React bundle via <code>whitenoise</code>. <code>django-webpack-loader</code> or Vite-based setups integrate the build pipeline. React Query or SWR manages server state. Authentication via JWT tokens (simplejwt) or cookie-based sessions. For hybrid approaches, HTMX &plus; Django Templates is gaining popularity as a simpler alternative that avoids SPA complexity.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">DRF &plus; React</span><span class="tag">JWT Auth</span><span class="tag">HTMX</span><span class="tag green">SPA</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="frontend" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">🅰️</div>
+                    <div>
+                        <h3>Django &plus; Angular</h3>
+                        <span class="eco-tag">FRONTEND &bull; ENTERPRISE SPA</span>
+                    </div>
+                </div>
+
+                <p>
+                    Angular's opinionated, TypeScript-first framework pairs well with Django's opinionated backend in enterprise contexts. Django provides a DRF REST API; Angular consumes it with its built-in HttpClient and RxJS observables. Angular's strong typing complements DRF's serializer schemas &mdash; tools like <code>openapi-generator</code> can auto-generate typed Angular services from DRF's OpenAPI schema (via <code>drf-spectacular</code>). Angular's built-in routing, forms, and dependency injection mirror Django's own structured approach. Common in enterprise applications, government portals, and large-team projects where consistency and tooling matter.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">DRF &plus; Angular</span><span class="tag">TypeScript</span><span class="tag">OpenAPI</span><span class="tag gold">Enterprise</span>
+                </div>
+            </div>
+
+            <div class="eco-card" data-category="frontend" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon" aria-hidden="true">💚</div>
+                    <div>
+                        <h3>Django &plus; Vue.js</h3>
+                        <span class="eco-tag">FRONTEND &bull; PROGRESSIVE SPA</span>
+                    </div>
+                </div>
+
+                <p>
+                    Vue.js is frequently chosen as the middle-ground between React's ecosystem complexity and Angular's enterprise overhead. Django &plus; Vue is popular for startups and medium-sized applications. Vue 3's Composition API and Pinia state management pair cleanly with Django REST APIs. <code>django-vite</code> integrates Vite's build pipeline with Django's template and static file systems, enabling Vue components embedded within Django templates &mdash; a progressive enhancement approach. Nuxt.js (Vue's meta-framework) can serve SSR frontend applications with Django as the headless API backend.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">django-vite</span><span class="tag">Nuxt.js</span><span class="tag">Composition API</span><span class="tag purple">Progressive</span>
+                </div>
+            </div>
+        </div><!-- /eco-grid -->
+    </div>
+</section>
