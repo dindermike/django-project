@@ -9,18 +9,18 @@
         <title>Coming Soon - Django Launch</title>
 
         <!-- All Browser Legacy Support -->
-        <link rel="icon" type="image/x-icon" href="https://django.mikedinder.com/Images/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="{% static '/mikedinder/images/favicon.ico' %}">
 
         <!-- Fallback for browsers that don't support SVG favicons -->
-        <link rel="icon" type="image/png" sizes="32x32" href="https://django.mikedinder.com/Images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="https://django.mikedinder.com/Images/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static '/mikedinder/images/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static '/mikedinder/images/favicon-16x16.png' %}">
 
         <!-- Apple Touch Icons (iOS/iPadOS home screen) -->
-        <link rel="apple-touch-icon" sizes="180x180" href="https://django.mikedinder.com/Images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static '/mikedinder/images/apple-touch-icon.png' %}">
 
         <!-- Android Chrome -->
-        <link rel="icon" type="image/png" sizes="192x192" href="https://django.mikedinder.com/Images/android-chrome-192x192.png">
-        <link rel="icon" type="image/png" sizes="512x512" href="https://django.mikedinder.com/Images/android-chrome-512x512.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="{% static '/mikedinder/images/android-chrome-192x192.png' %}">
+        <link rel="icon" type="image/png" sizes="512x512" href="{% static '/mikedinder/images/android-chrome-512x512.png' %}">
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -33,13 +33,13 @@
         <meta property="og:description" content="A personal project dedicated to Django.">
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://django.mikedinder.com">
-        <meta property="og:image" content="https://www.mikedinder.com/Images/Mars_social.png">
+        <meta property="og:image" content="{% static '/mikedinder/images/Mars_social.png' %}">
 
         <!-- Twitter Card Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Mike Dinder's Personal Project - Django">
         <meta name="twitter:description" content="A personal project dedicated to Django.">
-        <meta name="twitter:image" content="https://www.mikedinder.com/Images/Mars_social.png">
+        <meta name="twitter:image" content="{% static '/mikedinder/images/Mars_social.png' %}">
 
         <!-- Theme Color for Mobile Browsers -->
         <meta name="theme-color" content="#010102">
@@ -54,10 +54,10 @@
         <div class="glow-ring"></div>
 
         <div class="planets-container">
-            <img src="http://www.mikedinder.com/Images/Jupiter.png" alt="Jupiter" class="planet planet-jupiter">
-            <img src="http://www.mikedinder.com/Images/Uranus.png" alt="Uranus" class="planet planet-uranus">
-            <img src="http://www.mikedinder.com/Images/Mars.png" alt="Mars" class="planet planet-mars">
-            <img src="http://www.mikedinder.com/Images/Earth.png" alt="Earth" class="planet planet-earth">
+            <img src="{% static '/mikedinder/images/Jupiter.png' %}" alt="Jupiter" class="planet planet-jupiter">
+            <img src="{% static '/mikedinder/images/Uranus.png' %}" alt="Uranus" class="planet planet-uranus">
+            <img src="{% static '/mikedinder/images/Mars.png' %}" alt="Mars" class="planet planet-mars">
+            <img src="{% static '/mikedinder/images/Earth.png' %}" alt="Earth" class="planet planet-earth">
         </div>
 
         <div class="container">
