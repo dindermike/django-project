@@ -1,14 +1,141 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Home Page</title>
-        <style>
-            body { text-align: center; padding: 150px 0; }
-        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Coming Soon - Django Launch</title>
+
+        <!-- All Browser Legacy Support -->
+        <link rel="icon" type="image/x-icon" href="https://django.mikedinder.com/Images/favicon.ico">
+
+        <!-- Fallback for browsers that don't support SVG favicons -->
+        <link rel="icon" type="image/png" sizes="32x32" href="https://django.mikedinder.com/Images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://django.mikedinder.com/Images/favicon-16x16.png">
+
+        <!-- Apple Touch Icons (iOS/iPadOS home screen) -->
+        <link rel="apple-touch-icon" sizes="180x180" href="https://django.mikedinder.com/Images/apple-touch-icon.png">
+
+        <!-- Android Chrome -->
+        <link rel="icon" type="image/png" sizes="192x192" href="https://django.mikedinder.com/Images/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="https://django.mikedinder.com/Images/android-chrome-512x512.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+        <!-- Robots Meta Tag -->
+        <meta name="robots" content="index, follow">
+
+        <!-- Open Graph Meta Tags for Social Media -->
+        <meta property="og:title" content="Mike Dinder's Personal Project - Django">
+        <meta property="og:description" content="A personal project dedicated to Django.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://django.mikedinder.com">
+        <meta property="og:image" content="https://www.mikedinder.com/Images/Mars_social.png">
+
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Mike Dinder's Personal Project - Django">
+        <meta name="twitter:description" content="A personal project dedicated to Django.">
+        <meta name="twitter:image" content="https://www.mikedinder.com/Images/Mars_social.png">
+
+        <!-- Theme Color for Mobile Browsers -->
+        <meta name="theme-color" content="#010102">
+
+        <!-- Home Page CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static '/admin/css/base.css' %}" />
     </head>
 
     <body>
-        <h1>Welcome to the Django Home Page</h1>
-        <p>Your Django App is working and NGINX and GUNICORN are configured properly.</p>
+        <div class="stars" id="stars"></div>
+        <div class="gradient-overlay"></div>
+        <div class="glow-ring"></div>
+
+        <div class="planets-container">
+            <img src="http://www.mikedinder.com/Images/Jupiter.png" alt="Jupiter" class="planet planet-jupiter">
+            <img src="http://www.mikedinder.com/Images/Uranus.png" alt="Uranus" class="planet planet-uranus">
+            <img src="http://www.mikedinder.com/Images/Mars.png" alt="Mars" class="planet planet-mars">
+            <img src="http://www.mikedinder.com/Images/Earth.png" alt="Earth" class="planet planet-earth">
+        </div>
+
+        <div class="container">
+            <h1 class="logo">Django</h1>
+            <p class="tagline">Something Extraordinary Is Coming Soon!</p>
+
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+
+            <p class="message">
+                We're preparing to launch something that will take you beyond the ordinary. 
+                A new digital experience awaits in the cosmos.
+            </p>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mikedinder/" target="_blank" class="social-link" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/dindermike" target="_blank" class="social-link" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:dindermike@hotmail.com" target="_blank" class="social-link" title="Primary Email" aria-label="Primary Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="mailto:mike@mikedinder.com" target="_blank" class="social-link" title="Secondary Email" aria-label="Secondary Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            // Create starfield
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+
+            // Countdown timer - set to 30 days from now
+            const countdownDate = new Date().getTime() + (30 * 24 * 60 * 60 * 1000);
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.querySelector('.countdown').innerHTML = '<h2>Launched!</h2>';
+                }
+            }
+
+            const countdownInterval = setInterval(updateCountdown, 1000);
+            updateCountdown();
+        </script>
     </body>
 </html>

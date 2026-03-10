@@ -6,7 +6,7 @@ __pycache__/
 # C extensions
 *.so
 
-# Distribution / packaging
+# Distribution / Packaging
 .Python
 build/
 develop-eggs/
@@ -55,11 +55,13 @@ cover/
 *.mo
 *.pot
 
-# Django stuff:
+# Django Stuff:
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+/static/
+/media/
 
 # Flask stuff:
 instance/
