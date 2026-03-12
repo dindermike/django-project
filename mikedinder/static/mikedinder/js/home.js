@@ -202,6 +202,7 @@
         navToggle.setAttribute('aria-expanded', !expanded);
         mainNav.classList.toggle('open');
     });
+
     // Close on link click
     mainNav?.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => {
@@ -315,8 +316,8 @@
             const scrollY = window.scrollY;
             const heroContent = document.querySelector('.hero-content');
             if (heroContent) {
-                heroContent.style.transform = `translateY(${scrollY * 0.35}px)`;
-                heroContent.style.opacity = Math.max(0, 1 - scrollY / 750);
+                heroContent.style.transform = `translateY(${scrollY * 0.15}px)`;
+                heroContent.style.opacity = Math.max(0, 1 - scrollY / 1500);
             }
             ticking = false;
         });
@@ -376,11 +377,10 @@
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 200) current = s.id;
+            if (window.scrollY >= s.offsetTop - 200) current = s.id;
         });
         navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current
-            ? 'var(--cyan)' : '';
+            a.style.color = a.getAttribute('href') === '#' + current ? 'var(--cyan)' : '';
         });
     }, { passive: true });
 })();

@@ -34,6 +34,7 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
     'localhost',
+    '127.0.0.1',
     '44.206.196.183',        # Production Server IP
     'django.mikedinder.com'  # Production URL
 ]

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!-- ==================== SECTION 3: ECOSYSTEM ==================== -->
 <section id="ecosystem" aria-labelledby="ecosystem-heading">
     <div class="container">
@@ -27,7 +29,9 @@
             <!-- CORE -->
             <div class="eco-card" data-category="core" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">🗂️</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/Data.png' %}" alt="Data Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>Django Models &amp; ORM</h3>
                         <span class="eco-tag">CORE &bull; DATABASE LAYER</span>
@@ -45,7 +49,9 @@
 
             <div class="eco-card" data-category="core" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">🔗</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/URL.png' %}" alt="Django URL Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>Django URLs, Reverse URLs &amp; Namespaces</h3>
                         <span class="eco-tag">CORE &bull; ROUTING</span>
@@ -63,7 +69,9 @@
 
             <div class="eco-card" data-category="core" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">👁️</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/CBV.png' %}" alt="Class Based View Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>Django Views (FBVs &amp; CBVs)</h3>
                         <span class="eco-tag">CORE &bull; LOGIC LAYER</span>
@@ -81,7 +89,9 @@
 
             <div class="eco-card" data-category="core" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">📄</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/Template.png' %}" alt="Template Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>Django Templates</h3>
                         <span class="eco-tag">CORE &bull; PRESENTATION LAYER</span>
@@ -99,7 +109,9 @@
 
             <div class="eco-card" data-category="core" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">📝</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/Forms.png' %}" alt="Forms Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>Django Forms</h3>
                         <span class="eco-tag">CORE &bull; INPUT HANDLING</span>
@@ -117,7 +129,9 @@
 
             <div class="eco-card" data-category="core" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">⚡</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/Signal.png' %}" alt="Signal Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>Django Signals</h3>
                         <span class="eco-tag">CORE &bull; EVENT SYSTEM</span>
@@ -135,7 +149,9 @@
 
             <div class="eco-card" data-category="core" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">🛡️</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/Admin.png' %}" alt="Admin Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>The Django Admin Panel</h3>
                         <span class="eco-tag">CORE &bull; MANAGEMENT UI</span>
@@ -153,7 +169,9 @@
 
             <div class="eco-card" data-category="core" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">🔒</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/Security2.png' %}" alt="Security Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>Security in Django</h3>
                         <span class="eco-tag">CORE &bull; SECURITY LAYER</span>
@@ -172,7 +190,9 @@
             <!-- API -->
             <div class="eco-card" data-category="api" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">🔌</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/API3.png' %}" alt="API Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>Django REST Framework (DRF)</h3>
                         <span class="eco-tag">API &bull; REST</span>
@@ -190,7 +210,9 @@
 
             <div class="eco-card" data-category="api" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">🌐</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/Find.png' %}" alt="Find Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>DRF Browsable API</h3>
                         <span class="eco-tag">API &bull; DEVELOPER TOOLS</span>
@@ -208,7 +230,9 @@
 
             <div class="eco-card" data-category="api" role="listitem">
                 <div class="eco-card-header">
-                    <div class="eco-icon" aria-hidden="true">◈</div>
+                    <div class="eco-icon" aria-hidden="true">
+                        <img src="{% static '/mikedinder/images/GraphQL.png' %}" alt="GraphQL Logo" class="card-logo-image" />
+                    </div>
                     <div>
                         <h3>GraphQL with graphene-django</h3>
                         <span class="eco-tag">API &bull; GRAPHQL</span>

@@ -59,55 +59,55 @@
     </head>
 
     <body>
-        <!-- SKIP LINK is in <head> already via CSS -->
+        {% comment %}<!-- SKIP LINK is in <head> already via CSS -->{% endcomment %}
 
-        <!-- LOADER -->
+        {% comment %}<!-- LOADER -->{% endcomment %}
         {% include "mikedinder/common/loader.html" %}
 
-        <!-- CURSOR -->
+        {% comment %}<!-- CURSOR -->{% endcomment %}
         {% include "mikedinder/common/cursor.html" %}
 
-        <!-- SPACE BACKGROUND -->
+        {% comment %}<!-- SPACE BACKGROUND -->{% endcomment %}
         {% include "mikedinder/common/space_bkgd.html" %}
 
-        <!-- HEADER -->
+        {% comment %}<!-- HEADER -->{% endcomment %}
         {% include "mikedinder/home/header.html" %}
 
         <!-- MAIN CONTENT -->
         <main id="main-content">
-            <!-- HERO SECTION -->
+            {% comment %}<!-- HERO SECTION -->{% endcomment %}
             {% include "mikedinder/home/section-1.html" %}
 
             <div class="section-divider" aria-hidden="true"></div>
 
-            <!-- HISTORY SECTION -->
+            {% comment %}<!-- HISTORY SECTION -->{% endcomment %}
             {% include "mikedinder/home/section-2.html" %}
 
             <div class="section-divider" aria-hidden="true"></div>
 
-            <!-- COMPANIES SECTION -->
+            {% comment %}<!-- COMPANIES SECTION -->{% endcomment %}
             {% include "mikedinder/home/section-3.html" %}
 
             <div class="section-divider" aria-hidden="true"></div>
 
-            <!-- ECOSYSTEM SECTION -->
+            {% comment %}<!-- ECOSYSTEM SECTION -->{% endcomment %}
             {% include "mikedinder/home/section-4.html" %}
 
             <div class="section-divider" aria-hidden="true"></div>
 
-            <!-- STATISTICS SECTION -->
+            {% comment %}<!-- STATISTICS SECTION -->{% endcomment %}
             {% include "mikedinder/home/section-5.html" %}
 
             <div class="section-divider" aria-hidden="true"></div>
 
-            <!-- PAGES SECTION -->
+            {% comment %}<!-- PAGES SECTION -->{% endcomment %}
             {% include "mikedinder/home/section-6.html" %}
         </main><!-- /main-content -->
 
-        <!-- FOOTER -->
+        {% comment %}<!-- FOOTER -->{% endcomment %}
         {% include "mikedinder/common/footer.html" %}
 
-        <!-- JavaScript Import -->
+        {% comment %}<!-- JavaScript Import -->{% endcomment %}
         <script src="{% static '/mikedinder/js/home.js' %}"></script>
     </body>
 </html>
