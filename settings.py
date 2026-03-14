@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     # Django Apps
     'mikedinder',
+    'rest_api',
 ]
 
 MIDDLEWARE = [

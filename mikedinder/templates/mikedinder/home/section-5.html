@@ -1,8 +1,10 @@
+{% load static %}
+
 <!-- ==================== SECTION 4: STATISTICS ==================== -->
 <section id="statistics" aria-labelledby="statistics-heading">
     <div class="container">
         <div class="section-header fade-in">
-            <span class="section-eyebrow" aria-hidden="true">// SECTION 04</span>
+            <span class="section-eyebrow" aria-label="Section 4">// SECTION 04</span>
 
             <h2 class="section-title" id="statistics-heading">
                 Django Developer <span class="accent">Statistics</span>
@@ -16,7 +18,11 @@
         <div class="stats-grid">
             <!-- OS for Development -->
             <div class="stat-panel fade-in" aria-label="Development operating system statistics">
-                <h3>🖥️ Development OS &mdash; Django Developers</h3>
+                <h3>
+                    <span class="stat-icon">
+                        <img src="{% static '/mikedinder/images/Mac4.png' %}" alt="Macintosh Logo" class="stat-logo-image" />
+                    </span>Development OS &mdash; Django Developers
+                </h3>
 
                 <p class="stat-description">
                     Source: JetBrains Python Developer Survey 2023 / Stack Overflow 2023
@@ -44,7 +50,11 @@
 
             <!-- Hosting / Production Servers -->
             <div class="stat-panel fade-in" aria-label="Production server statistics">
-                <h3>☁️ Production Hosting Platforms</h3>
+                <h3>
+                    <span class="stat-icon">
+                        <img src="{% static '/mikedinder/images/AWS5.png' %}" alt="Amazon Web Services Logo" class="stat-logo-image" />
+                    </span>Production Hosting Platforms
+                </h3>
 
                 <p class="stat-description">
                     Source: JetBrains Python Developer Survey 2023
@@ -76,7 +86,11 @@
 
             <!-- Docker Usage -->
             <div class="stat-panel fade-in" aria-label="Docker container usage statistics">
-                <h3>🐳 Docker Containerization</h3>
+                <h3>
+                    <span class="stat-icon">
+                        <img src="{% static '/mikedinder/images/Docker.png' %}" alt="Docker Logo" class="stat-logo-image" />
+                    </span>Docker Containerization
+                </h3>
 
                 <p class="stat-description">
                     Source: Stack Overflow Survey 2023 / JetBrains 2023
@@ -104,7 +118,11 @@
 
             <!-- Server OS for Production -->
             <div class="stat-panel fade-in" aria-label="Production server operating system statistics">
-                <h3>🐧 Production Server OS</h3>
+                <h3>
+                    <span class="stat-icon">
+                        <img src="{% static '/mikedinder/images/Ubuntu.png' %}" alt="Ubuntu Logo" class="stat-logo-image" />
+                    </span>Production Server OS
+                </h3>
 
                 <p class="stat-description">
                     Source: JetBrains Python Developer Survey 2023
@@ -132,7 +150,11 @@
 
             <!-- Database Usage -->
             <div class="stat-panel fade-in" aria-label="Database usage statistics">
-                <h3>🗄️ Primary Database &mdash; Django Projects</h3>
+                <h3>
+                    <span class="stat-icon">
+                        <img src="{% static '/mikedinder/images/PostgreSQL.png' %}" alt="PostgreSQL Logo" class="stat-logo-image" />
+                    </span>Primary Database &mdash; Django Projects
+                </h3>
 
                 <p class="stat-description">
                     Source: JetBrains Python Developer Survey 2023
@@ -164,7 +186,11 @@
 
             <!-- IDE Usage -->
             <div class="stat-panel fade-in" aria-label="Development IDE statistics">
-                <h3>💻 IDE / Editor &mdash; Python/Django Developers</h3>
+                <h3>
+                    <span class="stat-icon">
+                        <img src="{% static '/mikedinder/images/VSCode2.png' %}" alt="Visual Studio Code Logo" class="stat-logo-image" />
+                    </span>IDE / Editor &mdash; Python/Django Developers
+                </h3>
 
                 <p class="stat-description">
                     Source: JetBrains Python Developer Survey 2023

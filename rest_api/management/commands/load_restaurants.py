@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from pathlib import Path
 
-from mikedinder.models import Restaurant
+from rest_api.models import Restaurant
 
 
 class Command(BaseCommand):
