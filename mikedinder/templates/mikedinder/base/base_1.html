@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>{% block page_title1 %}{% endblock %}</title>
+
+        <!-- All Browser Legacy Support -->
+        <link rel="icon" type="image/x-icon" href="{% static '/mikedinder/images/favicon.ico' %}">
+
+        <!-- Fallback for browsers that don't support SVG favicons -->
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static '/mikedinder/images/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static '/mikedinder/images/favicon-16x16.png' %}">
+
+        <!-- Apple Touch Icons (iOS/iPadOS home screen) -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static '/mikedinder/images/apple-touch-icon.png' %}">
+
+        <!-- Android Chrome -->
+        <link rel="icon" type="image/png" sizes="192x192" href="{% static '/mikedinder/images/android-chrome-192x192.png' %}">
+        <link rel="icon" type="image/png" sizes="512x512" href="{% static '/mikedinder/images/android-chrome-512x512.png' %}">
+
+        <!-- Skip to Main Content for Screen Readers -->
+        <a class="skip-link" href="#main-content">Skip to Main Content</a>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+        <!-- Robots Meta Tag -->
+        <meta name="robots" content="index, follow" />
+
+        <!-- Meta Description for SEO -->
+        <meta name="description" content="{% block meta_description1 %}{% endblock %}" />
+
+        <!-- Broader Social Image Compatibility -->
+        <link rel="image_src" href="{% block social_img1 %}{% endblock %}" />
+
+        <!-- Open Graph Meta Tags for Social Media -->
+        <meta property="og:title" content="{% block page_title2 %}{% endblock %}" />
+        <meta property="og:description" content="{% block meta_description2 %}{% endblock %}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://django.mikedinder.com{% block social_url %}{% endblock %}" />
+        <meta property="og:image" content="{% block social_img2 %}{% endblock %}" />
+
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="{% block page_title3 %}{% endblock %}" />
+        <meta name="twitter:description" content="{% block meta_description3 %}{% endblock %}" />
+        <meta name="twitter:image" content="{% block social_img3 %}{% endblock %}" />
+
+        <!-- Theme Color for Mobile Browsers -->
+        <meta name="theme-color" content="#030918" />
+
+        <!-- Home Page CSS -->
+        {% block head_stylesheets %}{% endblock %}
+    </head>
+
+    <body id="{% block page_id %}{% endblock %}" class="{% block page_class %}base-template-1{% endblock %}">
+        {% comment %}<!-- SKIP LINK is in <head> already via CSS -->{% endcomment %}
+
+        {% block site_container %}
+            {% comment %}<!-- LOADER -->{% endcomment %}
+            {% include "mikedinder/common/loader.html" %}
+
+            {% comment %}<!-- CURSOR -->{% endcomment %}
+            {% include "mikedinder/common/cursor.html" %}
+
+            {% comment %}<!-- SPACE BACKGROUND -->{% endcomment %}
+            {% include "mikedinder/common/space_bkgd.html" %}
+
+            {% comment %}<!-- HEADER -->{% endcomment %}
+            {% block header %}{% endblock %}
+
+            <!-- MAIN CONTENT -->
+            <main id="main-content">
+                {% block body_content %}{% endblock %}
+            </main>
+        {% endblock %}
+
+        {% comment %}<!-- FOOTER -->{% endcomment %}
+        {% block footer %}
+            {% include "mikedinder/common/footer.html" %}
+        {% endblock %}
+
+        {% comment %}<!-- JavaScript Import -->{% endcomment %}
+        {% block js_scripts %}{% endblock %}
+    </body>
+</html>

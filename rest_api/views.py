@@ -7,7 +7,7 @@ from .utils import RestaurantSearchService
 
 class RestaurantSearchView(APIView):
     """
-    POST /api/v1/restaurants/search/
+    POST /rest_api/v1/restaurants/search/
     Search Restaurants by datetime string parameter and return a list of restaurants that are open during that time.
     """
     def get_queryset(self):
@@ -16,9 +16,9 @@ class RestaurantSearchView(APIView):
     def get(self, request, *args, **kwargs):
         """
         Search Restaurants by datetime
-        GET: /api/v1/restaurants/search/?datetime=2026-02-14%2010:30
-        GET: /api/v1/restaurants/search/?datetime=2026-02-14%2015:30
-        GET: /api/v1/restaurants/search/?datetime=2026-02-14%2023:30
+        GET: /rest_api/v1/restaurants/search/?datetime=2026-02-14%2010:30
+        GET: /rest_api/v1/restaurants/search/?datetime=2026-02-14%2015:30
+        GET: /rest_api/v1/restaurants/search/?datetime=2026-02-14%2023:30
         """
         datetime_str = request.GET.get('datetime')
 

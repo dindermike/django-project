@@ -23,7 +23,7 @@ project_root/
 - Django App: *http://localhost:8000* or *http://127.0.0.1:8000*
 - Prod App: *https://django.mikedinder.com*
 - PostgreSQL: *localhost:5432*
-- Endpoint: *http://localhost:8000/api/v1/restaurants/search/?datetime=2026-02-14%2023:30*
+- Endpoint: *http://localhost:8000/rest_api/v1/restaurants/search/?datetime=2026-02-14%2023:30*
 
 ## Common Commands
 

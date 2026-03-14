@@ -1,113 +1,60 @@
+{% extends 'mikedinder/base/base_1.html' %}
 {% load static %}
 
-<!DOCTYPE html>
+{% comment %}<!-- META INFORMATION -->{% endcomment %}
+{% block page_title1 %}{{ title }}{% endblock %}
+{% block page_title2 %}{{ title }}{% endblock %}
+{% block page_title3 %}{{ title }}{% endblock %}
+{% block page_id %}{{ page_id }}{% endblock %}
+{% block page_class %}{{ block.super }} {{ page_class }}{% endblock %}
+{% block meta_description1 %}{{ meta_description }}{% endblock %}
+{% block meta_description2 %}{{ meta_description }}{% endblock %}
+{% block meta_description3 %}{{ meta_description }}{% endblock %}
+{% block social_img1 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_img2 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_img3 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_url %}{{ request.path }}{% endblock %}
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Django Framework — A comprehensive guide to the history, ecosystem, and usage of the Django web framework." />
+{% comment %}<!-- ASSETS -->{% endcomment %}
+{% block head_stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/home.css' %}" />
+{% endblock %}
+{% block js_scripts %}
+    <script src="{% static '/mikedinder/js/home.js' %}"></script>
+{% endblock %}
 
-        <title>Django: The Framework for Perfectionists with Deadlines</title>
+{% comment %}<!-- PAGE SPECIFIC HEADER -->{% endcomment %}
+{% block header %}
+    {% include "mikedinder/home/header.html" %}
+{% endblock %}
 
-        <!-- All Browser Legacy Support -->
-        <link rel="icon" type="image/x-icon" href="{% static '/mikedinder/images/favicon.ico' %}">
+{% comment %}<!-- BODY CONTENT -->{% endcomment %}
+{% block body_content %}
+    {% comment %}<!-- HERO SECTION -->{% endcomment %}
+    {% include "mikedinder/home/section-1.html" %}
 
-        <!-- Fallback for browsers that don't support SVG favicons -->
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static '/mikedinder/images/favicon-32x32.png' %}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static '/mikedinder/images/favicon-16x16.png' %}">
+    <div class="section-divider" aria-hidden="true"></div>
 
-        <!-- Apple Touch Icons (iOS/iPadOS home screen) -->
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static '/mikedinder/images/apple-touch-icon.png' %}">
+    {% comment %}<!-- HISTORY SECTION -->{% endcomment %}
+    {% include "mikedinder/home/section-2.html" %}
 
-        <!-- Android Chrome -->
-        <link rel="icon" type="image/png" sizes="192x192" href="{% static '/mikedinder/images/android-chrome-192x192.png' %}">
-        <link rel="icon" type="image/png" sizes="512x512" href="{% static '/mikedinder/images/android-chrome-512x512.png' %}">
+    <div class="section-divider" aria-hidden="true"></div>
 
-        <!-- Skip to Main Content for Screen Readers -->
-        <a class="skip-link" href="#main-content">Skip to Main Content</a>
+    {% comment %}<!-- COMPANIES SECTION -->{% endcomment %}
+    {% include "mikedinder/home/section-3.html" %}
 
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <div class="section-divider" aria-hidden="true"></div>
 
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    {% comment %}<!-- ECOSYSTEM SECTION -->{% endcomment %}
+    {% include "mikedinder/home/section-4.html" %}
 
-        <!-- Robots Meta Tag -->
-        <meta name="robots" content="index, follow" />
+    <div class="section-divider" aria-hidden="true"></div>
 
-        <!-- Open Graph Meta Tags for Social Media -->
-        <meta property="og:title" content="Mike Dinder's Personal Project - Django" />
-        <meta property="og:description" content="A personal project dedicated to Django." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://django.mikedinder.com" />
-        <meta property="og:image" content="{% static '/mikedinder/images/Mars_social.png' %}" />
+    {% comment %}<!-- STATISTICS SECTION -->{% endcomment %}
+    {% include "mikedinder/home/section-5.html" %}
 
-        <!-- Twitter Card Meta Tags -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Mike Dinder's Personal Project - Django" />
-        <meta name="twitter:description" content="A personal project dedicated to Django." />
-        <meta name="twitter:image" content="{% static '/mikedinder/images/Mars_social.png' %}" />
+    <div class="section-divider" aria-hidden="true"></div>
 
-        <!-- Theme Color for Mobile Browsers -->
-        <meta name="theme-color" content="#030918" />
-
-        <!-- Home Page CSS -->
-        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/home.css' %}" />
-    </head>
-
-    <body>
-        {% comment %}<!-- SKIP LINK is in <head> already via CSS -->{% endcomment %}
-
-        {% comment %}<!-- LOADER -->{% endcomment %}
-        {% include "mikedinder/common/loader.html" %}
-
-        {% comment %}<!-- CURSOR -->{% endcomment %}
-        {% include "mikedinder/common/cursor.html" %}
-
-        {% comment %}<!-- SPACE BACKGROUND -->{% endcomment %}
-        {% include "mikedinder/common/space_bkgd.html" %}
-
-        {% comment %}<!-- HEADER -->{% endcomment %}
-        {% include "mikedinder/home/header.html" %}
-
-        <!-- MAIN CONTENT -->
-        <main id="main-content">
-            {% comment %}<!-- HERO SECTION -->{% endcomment %}
-            {% include "mikedinder/home/section-1.html" %}
-
-            <div class="section-divider" aria-hidden="true"></div>
-
-            {% comment %}<!-- HISTORY SECTION -->{% endcomment %}
-            {% include "mikedinder/home/section-2.html" %}
-
-            <div class="section-divider" aria-hidden="true"></div>
-
-            {% comment %}<!-- COMPANIES SECTION -->{% endcomment %}
-            {% include "mikedinder/home/section-3.html" %}
-
-            <div class="section-divider" aria-hidden="true"></div>
-
-            {% comment %}<!-- ECOSYSTEM SECTION -->{% endcomment %}
-            {% include "mikedinder/home/section-4.html" %}
-
-            <div class="section-divider" aria-hidden="true"></div>
-
-            {% comment %}<!-- STATISTICS SECTION -->{% endcomment %}
-            {% include "mikedinder/home/section-5.html" %}
-
-            <div class="section-divider" aria-hidden="true"></div>
-
-            {% comment %}<!-- PAGES SECTION -->{% endcomment %}
-            {% include "mikedinder/home/section-6.html" %}
-        </main><!-- /main-content -->
-
-        {% comment %}<!-- FOOTER -->{% endcomment %}
-        {% include "mikedinder/common/footer.html" %}
-
-        {% comment %}<!-- JavaScript Import -->{% endcomment %}
-        <script src="{% static '/mikedinder/js/home.js' %}"></script>
-    </body>
-</html>
+    {% comment %}<!-- PAGES SECTION -->{% endcomment %}
+    {% include "mikedinder/home/section-6.html" %}
+{% endblock %}

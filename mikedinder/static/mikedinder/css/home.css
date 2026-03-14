@@ -765,6 +765,16 @@ nav[role="navigation"] a:hover::after {
   background: linear-gradient(180deg, transparent 0%, rgba(9, 21, 51, 0.3) 50%, transparent 100%);
 }
 
+.origin-header {
+  font-size: 1.15em;
+  color: var(--star-white);
+  margin-bottom: 0.8em;
+}
+
+.origin-header .stat-logo-image {
+  width: 1em;
+}
+
 .timeline {
   position: relative;
   padding-left: 2.5em;
@@ -1509,6 +1519,15 @@ footer p {
   .hero-stats {
     gap: 2em;
   }
+
+  .hero-title {
+    font-size: 2em;
+  }
+
+  .hero-desc {
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
 }
 
 /* 768px — tablet */
@@ -1549,16 +1568,21 @@ footer p {
     font-size: 1em;
   }
 
-  .hero-title {
-    font-size: clamp(2em, 6vw, 3.5em);
-  }
-
   .companies-grid {
     grid-template-columns: 1fr;
   }
 
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 1.85em;
+  }
+
+  .hero-desc {
+    font-size: 1.1em;
+    line-height: 1.6;
   }
 }
 
@@ -1578,6 +1602,15 @@ footer p {
 
   .hero-stats {
     gap: 1.5em;
+  }
+
+  .hero-title {
+    font-size: 1.75em;
+  }
+
+  .hero-desc {
+    font-size: 1.05em;
+    line-height: 1.5;
   }
 }
 
@@ -1600,14 +1633,19 @@ footer p {
   }
 
   .hero-title {
-    font-size: 2em;
+    font-size: 1.3em;
+  }
+
+  .hero-desc {
+    font-size: 0.9em;
+    line-height: 1.5;
   }
 }
 
 /* 320px — small phone */
 @media (max-width: 320px) {
   .hero-title {
-    font-size: 1.7em;
+    font-size: 1.25em;
   }
 
   .nav-logo {

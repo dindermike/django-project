@@ -1,3 +1,5 @@
+{% load static %}
+
 <!-- ==================== SECTION 5: PAGES ==================== -->
 <section id="pages" aria-labelledby="pages-heading">
     <div class="container">
@@ -15,7 +17,9 @@
 
         <div class="pages-grid">
             <a href="/guides/rest-api" class="page-card fade-in" aria-label="Building REST APIs with Django REST Framework">
-                <div class="page-card-icon" aria-hidden="true">🔌</div>
+                <div class="page-card-icon">
+                    <img src="{% static '/mikedinder/images/API2.png' %}" alt="API Logo" class="card-logo-image" />
+                </div>
                 <h3>Building REST APIs with DRF</h3>
 
                 <p class="page-lorem">

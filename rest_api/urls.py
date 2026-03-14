@@ -19,6 +19,9 @@ from django.urls import path
 from rest_api.views import RestaurantSearchView
 
 
+app_name = 'v1'
+
+
 urlpatterns = [
-    path('api/v1/restaurants/search/', RestaurantSearchView.as_view(), name='restaurant-search'),
+    path('restaurants/search/', RestaurantSearchView.as_view(), name='restaurant-search'),
 ]

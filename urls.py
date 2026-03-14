@@ -26,7 +26,7 @@ urlpatterns = [
 
     # App URLs Imports
     path('', include('mikedinder.urls')),
-    path('', include('rest_api.urls')),
+    path('rest_api/v1/', include('rest_api.urls', namespace='v1')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

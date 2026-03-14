@@ -1,3 +1,5 @@
+{% load static %}
+
 <!-- ==================== SECTION 1: HISTORY ==================== -->
 <section id="history" aria-labelledby="history-heading">
     <div class="container">
@@ -13,8 +15,10 @@
 
         <!-- Origin Story -->
         <div class="glass-card fade-in" style="margin-bottom:3em;" aria-label="Django origin story">
-            <h3 style="font-size:1.15em;color:var(--star-white);margin-bottom:0.8em;">
-                🌌 Origin Story &mdash; The Lawrence Journal-World
+            <h3 class="origin-header">
+                <span class="stat-icon">
+                    <img src="{% static '/mikedinder/images/Galaxy.png' %}" alt="Galaxy Logo" class="stat-logo-image" />
+                </span>Origin Story &mdash; The Lawrence Journal-World
             </h3>
 
             <p style="color:var(--text-secondary);line-height:1.8;">

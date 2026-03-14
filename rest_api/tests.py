@@ -8,7 +8,7 @@ from rest_framework.test import APIClient
 class RestaurantsTestCase(TestCase):
     """
     Test Class for Testing GET Requests to a Django REST Framework RestaurantSearchView.
-    Hits /api/v1/restaurants/search/ Endpoint
+    Hits /rest_api/v1/restaurants/search/ Endpoint
     """
 
     @classmethod
