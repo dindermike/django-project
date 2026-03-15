@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.views.generic import TemplateView
 from rest_framework.views import APIView
 
 from .models import Restaurant
@@ -35,3 +36,22 @@ class RestaurantSearchView(APIView):
             })
         except ValueError as e:
             return JsonResponse({'Error': str(e)}, status=400)
+
+
+class RESTExamplesView(TemplateView):
+    """
+    REST API Examples Page
+    """
+    template_name = 'rest_api/pages/examples.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['branded_title'] = 'DRF'
+        context['meta_description'] = 'Django REST API — A compilation of REST API URLs created to demonstrate the ' \
+            'capabilities of the Django REST Framework and Mike\'s abilities to wire them up.'
+        context['page_class'] = 'rest_examples-page'
+        context['page_id'] = 'rest_examples-page'
+        context['title'] = 'Django REST Framework Examples'
+
+        return context

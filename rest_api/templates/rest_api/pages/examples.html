@@ -1,0 +1,52 @@
+{% extends 'mikedinder/base/base_1.html' %}
+{% load static %}
+
+{% comment %}<!-- META INFORMATION -->{% endcomment %}
+{% block page_title1 %}{{ title }}{% endblock %}
+{% block page_title2 %}{{ title }}{% endblock %}
+{% block page_title3 %}{{ title }}{% endblock %}
+{% block page_id %}{{ page_id }}{% endblock %}
+{% block page_class %}{{ block.super }} {{ page_class }}{% endblock %}
+{% block meta_description1 %}{{ meta_description }}{% endblock %}
+{% block meta_description2 %}{{ meta_description }}{% endblock %}
+{% block meta_description3 %}{{ meta_description }}{% endblock %}
+{% block social_img1 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_img2 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_img3 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_url %}{{ request.path }}{% endblock %}
+
+{% comment %}<!-- ASSETS -->{% endcomment %}
+{% block head_stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/common.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/nav.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/hero.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section1_timeline.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/footer.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/rest_api/css/pages/examples.css' %}" />
+{% endblock %}
+{% block js_scripts %}
+    <script src="{% static '/mikedinder/js/home.js' %}"></script>
+{% endblock %}
+
+{% comment %}<!-- PAGE SPECIFIC HEADER -->{% endcomment %}
+{% block header %}
+    {% include "rest_api/common/header.html" with branded_title=branded_title %}
+{% endblock %}
+
+{% comment %}<!-- BODY CONTENT -->{% endcomment %}
+{% block body_content %}
+    {% comment %}<!-- HERO SECTION -->{% endcomment %}
+    {% include "rest_api/pages/examples/hero.html" %}
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    {% comment %}<!-- ENDPOINTS SECTION -->{% endcomment %}
+    {% include "rest_api/pages/examples/endpoints.html" %}
+
+    <div class="section-divider" aria-hidden="true"></div>
+{% endblock %}
+
+{% comment %}<!-- PAGE SPECIFIC FOOTER -->{% endcomment %}
+{% block footer %}
+    {% include "mikedinder/common/footer.html" with branded_title=branded_title %}
+{% endblock %}

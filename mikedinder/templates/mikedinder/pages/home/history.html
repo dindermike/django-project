@@ -1,0 +1,221 @@
+{% load static %}
+
+<!-- ==================== SECTION 1: HISTORY ==================== -->
+<section id="history" class="timeline-section" aria-labelledby="history-heading">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-eyebrow" aria-label="Section 1">// SECTION 01</span>
+            <h2 class="section-title" id="history-heading">
+                The <span class="accent">History</span> of Django
+            </h2>
+            <p class="section-subtitle">
+                Born in a Kansas newspaper, shaped by necessity, and evolved into one of the world's most trusted web frameworks.
+            </p>
+        </div>
+
+        <!-- Origin Story -->
+        <div class="glass-card fade-in" style="margin-bottom:3em;" aria-label="Django origin story">
+            <h3 class="origin-header">
+                <span class="stat-icon">
+                    <img src="{% static '/mikedinder/images/Galaxy.png' %}" alt="Galaxy Logo" class="stat-logo-image" />
+                </span>Origin Story &mdash; The Lawrence Journal-World
+            </h3>
+
+            <p style="color:var(--text-secondary);line-height:1.8;">
+                Django was created in the summer of 2003 by <strong style="color:var(--star-white);">Adrian Holovaty</strong> and <strong style="color:var(--star-white);">Simon Willison</strong> while working at the <em>Lawrence Journal-World</em> newspaper in Lawrence, Kansas. Faced with the brutal deadlines of a daily newsroom and the need to rapidly build and iterate on web applications, they needed a framework that could move as fast as journalism demanded. Tired of repetitive boilerplate, they extracted a powerful, reusable toolkit from their internal codebase. In July 2005, Django was released publicly as open-source software &mdash; named after jazz guitarist <strong style="color:var(--star-white);">Django Reinhardt</strong>.
+            </p>
+
+            <div class="glow-rule" aria-hidden="true"></div>
+
+            <p style="color:var(--text-secondary);line-height:1.8;">
+                The core philosophy &mdash; <em>"batteries included"</em> &mdash; meant shipping with everything a developer needs: an ORM, admin interface, authentication, form handling, URL routing, and templating out of the box. Jacob Kaplan-Moss joined as a core contributor and co-lead shortly after. Django's DNA of speed-without-sacrifice remains unchanged to this day.
+            </p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline" aria-label="Django version timeline">
+            <div class="timeline-item fade-in-left" aria-label="Django version 0.90, November 2005">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-meta">
+                    <span class="timeline-version">v0.90</span>
+                    <span class="timeline-date">November 2005</span>
+                </div>
+
+                <h3>First Public Release</h3>
+
+                <p>
+                    The initial public release after extraction from the Journal-World codebase. Introduced the foundational architecture: MVC pattern (called MTV in Django), the ORM, URL dispatcher, template engine, and the iconic auto-generated admin.
+                </p>
+
+                <ul>
+                    <li>Model-Template-View (MTV) architectural pattern</li>
+                    <li>Automatic admin interface generation</li>
+                    <li>Database-driven development with ORM</li>
+                    <li>URL configuration via regex patterns</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in-left" aria-label="Django version 1.0, September 2008">
+                <div class="timeline-dot major" aria-hidden="true"></div>
+                <div class="timeline-meta">
+                    <span class="timeline-version">v1.0</span>
+                    <span class="timeline-date">September 2008</span>
+                </div>
+
+                <h3>Stable API Commitment</h3>
+
+                <p>
+                    The landmark 1.0 release signified Django's first stable, production-ready API with a compatibility promise. This was a watershed moment establishing Django as enterprise-grade software.
+                </p>
+
+                <ul>
+                    <li>Stable API guarantee &mdash; no more breaking changes without deprecation</li>
+                    <li>Signals framework introduced</li>
+                    <li>Transaction management improvements</li>
+                    <li>Unicode support throughout the stack</li>
+                    <li>Geo-spatial extensions (GeoDjango) included</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in-left" aria-label="Django version 1.2 to 1.4, 2010 to 2012">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-meta">
+                    <span class="timeline-version">v1.2&mdash;1.4</span>
+                    <span class="timeline-date">2010&mdash;2012</span>
+                </div>
+
+                <h3>Multiple Database &amp; Class-Based Views</h3>
+
+                <p>
+                    A pivotal era introducing multi-database support, class-based views, timezone awareness, and the foundation for modern Django patterns.
+                </p>
+
+                <ul>
+                    <li>Multiple database routing support (v1.2)</li>
+                    <li>CSRF protection enabled by default (v1.2)</li>
+                    <li>Class-Based Views &mdash; reusable, composable view logic (v1.3)</li>
+                    <li>Built-in logging framework (v1.3)</li>
+                    <li>Timezone-aware datetimes (v1.4)</li>
+                    <li>In-browser testing client improvements</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in-left" aria-label="Django version 1.5 to 1.8, 2013 to 2015">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-meta">
+                    <span class="timeline-version">v1.5&mdash;1.8</span>
+                    <span class="timeline-date">2013&mdash;2015</span>
+                </div>
+
+                <h3>Python 3, Migrations &amp; Custom User Models</h3>
+
+                <p>
+                    This generation brought native Python 3 support, the revolutionary Migrations framework, custom user model support, and a pluggable template engine system.
+                </p>
+
+                <ul>
+                    <li>Python 3 support added (v1.5)</li>
+                    <li>Configurable custom User model (v1.5)</li>
+                    <li>Built-in database Migrations framework &mdash; goodbye South! (v1.7)</li>
+                    <li>App Registry for app configuration (v1.7)</li>
+                    <li>Multiple template engine support (v1.8)</li>
+                    <li>Expression-based query annotations with F() and Func() (v1.8)</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in-left" aria-label="Django version 2.0 to 2.2, 2018 to 2019">
+                <div class="timeline-dot major" aria-hidden="true"></div>
+                <div class="timeline-meta">
+                    <span class="timeline-version">v2.0&mdash;2.2</span>
+                    <span class="timeline-date">2018&mdash;2019</span>
+                </div>
+
+                <h3>Python 3-Only &amp; Simplified URLs</h3>
+
+                <p>
+                    Django 2.0 dropped Python 2 support entirely, cleaned up years of legacy code, and introduced a dramatically simpler URL routing syntax with path() converters.
+                </p>
+
+                <ul>
+                    <li>Python 3 only &mdash; legacy Python 2 support dropped (v2.0)</li>
+                    <li>Simplified URL routing with <code>path()</code> and type converters (v2.0)</li>
+                    <li>Mobile-friendly admin with responsive design (v2.0)</li>
+                    <li>Window functions support in ORM queries (v2.0)</li>
+                    <li>Major performance improvements in query compilation (v2.1)</li>
+                    <li>Long-term support (LTS) release &mdash; v2.2</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in-left" aria-label="Django version 3.0 to 3.2, 2019 to 2021">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-meta">
+                    <span class="timeline-version">v3.0&mdash;3.2</span>
+                    <span class="timeline-date">2019&mdash;2021</span>
+                </div>
+
+                <h3>ASGI &amp; Async Support Arrives</h3>
+
+                <p>
+                    A transformative era: Django gained ASGI support enabling asynchronous Python, MariaDB support, JSONField for all backends, and crossed into the modern async web paradigm.
+                </p>
+
+                <ul>
+                    <li>ASGI (Async Server Gateway Interface) support &mdash; hello async Django! (v3.0)</li>
+                    <li>MariaDB officially supported (v3.0)</li>
+                    <li>Enumerations for choices (TextChoices, IntegerChoices) (v3.0)</li>
+                    <li>Cross-database JSONField (v3.1)</li>
+                    <li>Async views and middleware support (v3.1)</li>
+                    <li>Functional indexes and inline foreign key constraints (v3.2 LTS)</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in-left" aria-label="Django version 4.0 to 4.2, 2022 to 2023">
+                <div class="timeline-dot major" aria-hidden="true"></div>
+                <div class="timeline-meta">
+                    <span class="timeline-version">v4.0&mdash;4.2</span>
+                    <span class="timeline-date">2022&mdash;2023</span>
+                </div>
+
+                <h3>Async ORM &amp; CSRF Modernization</h3>
+
+                <p>
+                    Django deepened its async story with async ORM operations, improved form rendering, Redis cache backend out of the box, and powerful database constraint improvements.
+                </p>
+
+                <ul>
+                    <li>Async ORM interface &mdash; async queryset iteration (v4.1)</li>
+                    <li>Built-in Redis cache backend (v4.0)</li>
+                    <li>zoneinfo-based timezone support (v4.0)</li>
+                    <li>Form rendering using the template engine (v4.1)</li>
+                    <li>Async handlers for class-based views (v4.1)</li>
+                    <li>Constraint validation in model.full_clean() (v4.2 LTS)</li>
+                    <li>Psycopg 3 (psycopg) support (v4.2)</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in-left" aria-label="Django version 5.0 to 5.2, 2024 to 2025">
+                <div class="timeline-dot major" aria-hidden="true"></div>
+                <div class="timeline-meta">
+                    <span class="timeline-version">v5.0&mdash;5.2</span>
+                    <span class="timeline-date">2024&mdash;2025</span>
+                </div>
+
+                <h3>Facets, Generated Columns &amp; Python 3.12&plus;</h3>
+
+                <p>
+                    The current generation embraces modern Python features, database-generated columns, improved admin facets, and enhanced HTMX-friendly patterns for modern frontend workflows.
+                </p>
+
+                <ul>
+                    <li>Database-generated model fields (v5.0)</li>
+                    <li>Simplified template rendering for forms with field groups (v5.0)</li>
+                    <li>Facet filters in the Django admin (v5.0)</li>
+                    <li>Python 3.12 and 3.13 support (v5.1&mdash;5.2)</li>
+                    <li>QuerySet.aiterator() &mdash; true async streaming (v5.1)</li>
+                    <li>Async storages support (v5.1)</li>
+                    <li>Long-term support release &mdash; v5.2 LTS</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

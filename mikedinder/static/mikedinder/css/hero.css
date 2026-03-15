@@ -1,0 +1,317 @@
+/* =============================================
+       HERO SECTION
+    ============================================= */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#particles-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8em 2em 6em;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 99px;
+    padding: 0.35em 1em;
+    font-family: var(--font-mono);
+    font-size: 0.75em;
+    color: var(--cyan);
+    letter-spacing: 0.15em;
+    margin-bottom: 2em;
+    animation: fadeInUp 0.8s ease both;
+}
+
+.hero-badge .dot {
+    width: 7px;
+    height: 7px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.hero-title {
+    font-size: clamp(2em, 7vw, 3.75em);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 1.5em;
+    animation: fadeInUp 0.8s 0.15s ease both;
+    max-width: 1024px;
+}
+
+.hero-title .line1 {
+    display: block;
+    color: var(--star-white);
+}
+
+.hero-title .line2 {
+    display: block;
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--teal) 50%, var(--blue-bright) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-title .line3 {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.55em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-top: 0.3em;
+}
+
+.hero-desc {
+    font-size: 1.15em;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2.5em;
+    animation: fadeInUp 0.8s 0.3s ease both;
+    max-width: 1024px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s 0.45s ease both;
+}
+
+.hero-buffer {
+    height: 10em;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--cyan), var(--blue-bright));
+    color: var(--space-black);
+    font-family: var(--font-display);
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 0.85em 2em;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: none;
+    transition: transform var(--transition), box-shadow var(--transition);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 0.85em 2em;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: none;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+.btn-ghost:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 3em;
+    margin-top: 4em;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s 0.6s ease both;
+}
+
+.hero-stat-item {
+    text-align: left;
+}
+
+.hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 2em;
+    font-weight: 900;
+    color: var(--cyan);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.3em;
+}
+
+.hero-stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    animation: fadeInUp 1s 1.2s ease both;
+}
+
+.scroll-mouse {
+    width: 24px;
+    height: 38px;
+    border: 1.5px solid var(--text-muted);
+    border-radius: 12px;
+    position: relative;
+}
+
+.scroll-mouse::after {
+    content: '';
+    width: 4px;
+    height: 7px;
+    background: var(--cyan);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateX(-50%) translateY(12px);
+        opacity: 0;
+    }
+}
+
+.scroll-label {
+    font-family: var(--font-mono);
+    font-size: 0.65em;
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* =============================================
+       RESPONSIVE BREAKPOINTS
+    ============================================= */
+
+/* 1200px — large desktop cap */
+@media (max-width: 1200px) {}
+
+/* 1024px — standard laptop */
+@media (max-width: 1024px) {
+    .hero-stats {
+        gap: 2em;
+    }
+
+    .hero-title {
+        font-size: 2em;
+    }
+
+    .hero-desc {
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+}
+
+/* 768px — tablet */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.85em;
+    }
+
+    .hero-desc {
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+}
+
+/* 640px — large phone */
+@media (max-width: 640px) {
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-stats {
+        gap: 1.5em;
+    }
+
+    .hero-title {
+        font-size: 1.75em;
+    }
+
+    .hero-desc {
+        font-size: 1.05em;
+        line-height: 1.5;
+    }
+}
+
+/* 480px — phone */
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 7em 1.2em 5em;
+    }
+
+    .hero-title {
+        font-size: 1.3em;
+    }
+
+    .hero-desc {
+        font-size: 0.9em;
+        line-height: 1.5;
+    }
+}
+
+/* 320px — small phone */
+@media (max-width: 320px) {
+    .hero-title {
+        font-size: 1.25em;
+    }
+
+    .hero-badge {
+        font-size: 0.65em;
+    }
+}

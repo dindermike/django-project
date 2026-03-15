@@ -1,0 +1,154 @@
+/* =============================================
+       SECTION 1: TIMELINE
+    ============================================= */
+.timeline-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(9, 21, 51, 0.3) 50%, transparent 100%);
+}
+
+.origin-header {
+    font-size: 1.15em;
+    color: var(--star-white);
+    margin-bottom: 0.8em;
+}
+
+.origin-header .stat-logo-image {
+    width: 1em;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2.5em;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--cyan), var(--blue-bright), transparent);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3.5em;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.9em;
+    top: 0.3em;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--cyan);
+    border: 3px solid var(--space-black);
+    box-shadow: 0 0 15px var(--cyan);
+}
+
+.timeline-dot.major {
+    background: var(--teal);
+    width: 18px;
+    height: 18px;
+    left: -3.1em;
+}
+
+.timeline-meta {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 0.7em;
+}
+
+.timeline-version {
+    font-family: var(--font-display);
+    font-size: 0.75em;
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    padding: 0.2em 0.7em;
+    border-radius: 4px;
+}
+
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.72em;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+}
+
+.timeline-item h3 {
+    font-size: 1.15em;
+    color: var(--star-white);
+    margin-bottom: 0.5em;
+}
+
+.timeline-item p {
+    color: var(--text-secondary);
+    font-size: 0.95em;
+    line-height: 1.75;
+}
+
+.timeline-item ul {
+    list-style: none;
+    margin-top: 0.7em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35em;
+}
+
+.timeline-item ul li {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    padding-left: 1.2em;
+    position: relative;
+}
+
+.timeline-item ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-size: 0.7em;
+}
+
+/* Section background tint alternation */
+.timeline-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(6, 18, 48, 0.4) 50%, transparent 100%);
+}
+
+/* =============================================
+       RESPONSIVE BREAKPOINTS
+    ============================================= */
+
+/* 1200px — large desktop cap */
+@media (max-width: 1200px) {}
+
+/* 1024px — standard laptop */
+@media (max-width: 1024px) {}
+
+/* 768px — tablet */
+@media (max-width: 768px) {}
+
+/* 640px — large phone */
+@media (max-width: 640px) {}
+
+/* 480px — phone */
+@media (max-width: 480px) {}
+
+/* 320px — small phone */
+@media (max-width: 320px) {}
+
+/* High contrast mode */
+@media (forced-colors: active) {}

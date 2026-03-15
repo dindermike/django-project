@@ -1,0 +1,189 @@
+/* =============================================
+       NAVIGATION
+    ============================================= */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1em 0;
+    transition: background var(--transition), backdrop-filter var(--transition), padding var(--transition);
+}
+
+#navbar.scrolled {
+    background: rgba(3, 9, 24, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0.6em 0;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.2em;
+    font-weight: 900;
+    color: var(--cyan);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.nav-logo .logo-bracket {
+    color: var(--text-muted);
+}
+
+nav[role="navigation"] ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
+nav[role="navigation"] a {
+    font-family: var(--font-mono);
+    font-size: 0.78em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color var(--transition);
+    position: relative;
+}
+
+nav[role="navigation"] a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--cyan);
+    transition: width var(--transition);
+}
+
+nav[role="navigation"] a:hover {
+    color: var(--cyan);
+}
+
+nav[role="navigation"] a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: transparent;
+    border: 1px solid var(--cyan);
+    color: var(--cyan) !important;
+    padding: 0.45em 1.1em;
+    border-radius: 6px;
+    transition: background var(--transition), color var(--transition) !important;
+}
+
+.nav-cta:hover {
+    background: var(--cyan) !important;
+    color: var(--space-black) !important;
+}
+
+/* Mobile hamburger */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--cyan);
+    border-radius: 2px;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =============================================
+       RESPONSIVE BREAKPOINTS
+    ============================================= */
+
+/* 1200px — large desktop cap */
+@media (max-width: 1200px) {}
+
+/* 1024px — standard laptop */
+@media (max-width: 1024px) {
+    nav[role="navigation"] ul {
+        gap: 1.2em;
+    }
+}
+
+/* 768px — tablet */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+        z-index: 9999;
+    }
+
+    nav[role="navigation"] {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 260px;
+        height: 100vh;
+        background: rgba(3, 9, 24, 0.97);
+        backdrop-filter: blur(20px);
+        padding: 5em 2em 2em;
+        border-left: 1px solid var(--glass-border);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+    }
+
+    nav[role="navigation"].open {
+        right: 0;
+    }
+
+    nav[role="navigation"] ul {
+        flex-direction: column;
+        gap: 1.5em;
+    }
+
+    nav[role="navigation"] a {
+        font-size: 1em;
+    }
+}
+
+/* 640px — large phone */
+@media (max-width: 640px) {}
+
+/* 480px — phone */
+@media (max-width: 480px) {}
+
+/* 320px — small phone */
+@media (max-width: 320px) {
+    .nav-logo {
+        font-size: 1em;
+    }
+}

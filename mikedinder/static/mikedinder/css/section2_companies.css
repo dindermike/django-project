@@ -1,0 +1,117 @@
+/* =============================================
+       SECTION 2: COMPANIES
+    ============================================= */
+#companies {}
+
+.companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5em;
+}
+
+.company-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 1.8em;
+    transition: border-color var(--transition), transform var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.company-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cyan), var(--teal));
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.company-card:hover {
+    border-color: rgba(0, 212, 255, 0.35);
+    transform: translateY(-5px);
+}
+
+.company-card:hover::before {
+    opacity: 1;
+}
+
+.company-logo-area {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2em;
+    font-size: 1.4em;
+}
+
+.card-logo-image {
+    width: 1.8em;
+}
+
+.company-card h3 {
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--star-white);
+    margin-bottom: 0.4em;
+}
+
+.company-card .company-industry {
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.8em;
+}
+
+.company-card p {
+    font-size: 0.88em;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Section background tint alternation */
+#companies {
+    background: linear-gradient(180deg, transparent 0%, rgba(13, 31, 66, 0.3) 50%, transparent 100%);
+}
+
+/* =============================================
+       RESPONSIVE BREAKPOINTS
+    ============================================= */
+
+/* 1200px — large desktop cap */
+@media (max-width: 1200px) {}
+
+/* 1024px — standard laptop */
+@media (max-width: 1024px) {}
+
+/* 768px — tablet */
+@media (max-width: 768px) {
+    .companies-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 640px — large phone */
+@media (max-width: 640px) {}
+
+/* 480px — phone */
+@media (max-width: 480px) {}
+
+/* 320px — small phone */
+@media (max-width: 320px) {}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+    .company-card {
+        border: 2px solid ButtonText;
+    }
+}

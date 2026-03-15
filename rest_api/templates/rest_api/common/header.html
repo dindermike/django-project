@@ -1,0 +1,25 @@
+<!-- NAVIGATION -->
+<header>
+    <div id="navbar" role="banner">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo" aria-label="Django Framework Home Page">
+                <span class="logo-bracket">{</span>{{ branded_title }}<span class="logo-bracket">}</span>
+            </a>
+
+            <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav id="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li>
+                        <a href="#endpoints">Endpoints</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'home' %}" class="nav-cta" title="Django Home Page" aria-label="Django Home Page">Django Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

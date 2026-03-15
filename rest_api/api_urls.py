@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.urls import path
 
-from rest_api.views import RESTExamplesView
+from rest_api.views import RestaurantSearchView
+
+
+app_name = 'v1'
 
 
 urlpatterns = [
-    path('examples/', RESTExamplesView.as_view(), name='rest_examples'),
+    path('restaurants/search/', RestaurantSearchView.as_view(), name='restaurant-search'),
 ]

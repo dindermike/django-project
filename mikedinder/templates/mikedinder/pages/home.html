@@ -17,7 +17,16 @@
 
 {% comment %}<!-- ASSETS -->{% endcomment %}
 {% block head_stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/home.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/common.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/nav.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/hero.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section1_timeline.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section2_companies.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section3_ecosystem.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section4_statistics.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section5_pages.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/footer.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/pages/home.css' %}" />
 {% endblock %}
 {% block js_scripts %}
     <script src="{% static '/mikedinder/js/home.js' %}"></script>
@@ -25,36 +34,41 @@
 
 {% comment %}<!-- PAGE SPECIFIC HEADER -->{% endcomment %}
 {% block header %}
-    {% include "mikedinder/home/header.html" %}
+    {% include "mikedinder/pages/home/header.html" with branded_title=branded_title %}
 {% endblock %}
 
 {% comment %}<!-- BODY CONTENT -->{% endcomment %}
 {% block body_content %}
     {% comment %}<!-- HERO SECTION -->{% endcomment %}
-    {% include "mikedinder/home/section-1.html" %}
+    {% include "mikedinder/pages/home/hero.html" %}
 
     <div class="section-divider" aria-hidden="true"></div>
 
     {% comment %}<!-- HISTORY SECTION -->{% endcomment %}
-    {% include "mikedinder/home/section-2.html" %}
+    {% include "mikedinder/pages/home/history.html" %}
 
     <div class="section-divider" aria-hidden="true"></div>
 
     {% comment %}<!-- COMPANIES SECTION -->{% endcomment %}
-    {% include "mikedinder/home/section-3.html" %}
+    {% include "mikedinder/pages/home/companies.html" %}
 
     <div class="section-divider" aria-hidden="true"></div>
 
     {% comment %}<!-- ECOSYSTEM SECTION -->{% endcomment %}
-    {% include "mikedinder/home/section-4.html" %}
+    {% include "mikedinder/pages/home/ecosystem.html" %}
 
     <div class="section-divider" aria-hidden="true"></div>
 
     {% comment %}<!-- STATISTICS SECTION -->{% endcomment %}
-    {% include "mikedinder/home/section-5.html" %}
+    {% include "mikedinder/pages/home/statistics.html" %}
 
     <div class="section-divider" aria-hidden="true"></div>
 
     {% comment %}<!-- PAGES SECTION -->{% endcomment %}
-    {% include "mikedinder/home/section-6.html" %}
+    {% include "mikedinder/pages/home/pages.html" %}
+{% endblock %}
+
+{% comment %}<!-- PAGE SPECIFIC FOOTER -->{% endcomment %}
+{% block footer %}
+    {% include "mikedinder/common/footer.html" with branded_title=branded_title %}
 {% endblock %}

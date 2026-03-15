@@ -1,39 +1,57 @@
 {% load static %}
 
-<!-- ==================== SECTION 1: HISTORY ==================== -->
-<section id="history" aria-labelledby="history-heading">
+<!-- ==================== SECTION 1: Endpoints ==================== -->
+<section id="endpoints" class="timeline-section" aria-labelledby="endpoints-heading">
     <div class="container">
         <div class="section-header fade-in">
             <span class="section-eyebrow" aria-label="Section 1">// SECTION 01</span>
-            <h2 class="section-title" id="history-heading">
-                The <span class="accent">History</span> of Django
+            <h2 class="section-title" id="endpoints-heading">
+                Example <span class="accent">REST API</span> Endpoints
             </h2>
             <p class="section-subtitle">
-                Born in a Kansas newspaper, shaped by necessity, and evolved into one of the world's most trusted web frameworks.
+                Here is a collection of endpoints and several examples of each endpoint with various different parameters given for each one.
             </p>
         </div>
 
-        <!-- Origin Story -->
-        <div class="glass-card fade-in" style="margin-bottom:3em;" aria-label="Django origin story">
+        <!-- Restaurant Example -->
+        <div id="restaurants" class="glass-card fade-in" style="margin-bottom:3em;" aria-label="Django origin story">
             <h3 class="origin-header">
                 <span class="stat-icon">
-                    <img src="{% static '/mikedinder/images/Galaxy.png' %}" alt="Galaxy Logo" class="stat-logo-image" />
-                </span>Origin Story &mdash; The Lawrence Journal-World
+                    <img src="{% static '/mikedinder/images/DRF.png' %}" alt="Django REST Framework Logo" class="stat-logo-image" />
+                </span>Restaurant &mdash; Open During a Given Time
             </h3>
 
-            <p style="color:var(--text-secondary);line-height:1.8;">
+            <!-- <p style="color:var(--text-secondary);line-height:1.8;">
                 Django was created in the summer of 2003 by <strong style="color:var(--star-white);">Adrian Holovaty</strong> and <strong style="color:var(--star-white);">Simon Willison</strong> while working at the <em>Lawrence Journal-World</em> newspaper in Lawrence, Kansas. Faced with the brutal deadlines of a daily newsroom and the need to rapidly build and iterate on web applications, they needed a framework that could move as fast as journalism demanded. Tired of repetitive boilerplate, they extracted a powerful, reusable toolkit from their internal codebase. In July 2005, Django was released publicly as open-source software &mdash; named after jazz guitarist <strong style="color:var(--star-white);">Django Reinhardt</strong>.
-            </p>
+            </p> -->
 
             <div class="glow-rule" aria-hidden="true"></div>
 
-            <p style="color:var(--text-secondary);line-height:1.8;">
+            <ul>
+                <li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-13%2021:30" title="Search 2/13/2026 9:30pm" aria-label="Search 2/13/2026 9:30pm">Search 2/13/2026 9:30 PM</a>
+                <li>
+                </li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-14%2023:30" title="Search 2/14/2026 11:30pm" aria-label="Search 2/14/2026 11:30pm">Search 2/14/2026 11:30 PM</a>
+                <li>
+                </li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-15%2000:35" title="Search 2/15/2026 12:35am" aria-label="Search 2/15/2026 12:35am">Search 2/15/2026 12:35 AM</a>
+                <li>
+                </li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-15%2004:15" title="Search 2/15/2026 4:15am" aria-label="Search 2/15/2026 4:15am">Search 2/15/2026 4:15 AM</a>
+                <li>
+                </li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-15%2013:30" title="Search 2/15/2026 1:30pm" aria-label="Search 2/15/2026 1:30pm">Search 2/15/2026 1:30 PM</a>
+                </li>
+            </ul>
+
+            <!-- <p style="color:var(--text-secondary);line-height:1.8;">
                 The core philosophy &mdash; <em>"batteries included"</em> &mdash; meant shipping with everything a developer needs: an ORM, admin interface, authentication, form handling, URL routing, and templating out of the box. Jacob Kaplan-Moss joined as a core contributor and co-lead shortly after. Django's DNA of speed-without-sacrifice remains unchanged to this day.
-            </p>
+            </p> -->
         </div>
 
         <!-- Timeline -->
-        <div class="timeline" aria-label="Django version timeline">
+        <!-- <div class="timeline" aria-label="Django version timeline">
             <div class="timeline-item fade-in-left" aria-label="Django version 0.90, November 2005">
                 <div class="timeline-dot" aria-hidden="true"></div>
                 <div class="timeline-meta">
@@ -216,6 +234,6 @@
                     <li>Long-term support release &mdash; v5.2 LTS</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>

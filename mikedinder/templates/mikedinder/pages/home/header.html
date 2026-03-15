@@ -3,7 +3,7 @@
     <div id="navbar" role="banner">
         <div class="nav-inner">
             <a href="#hero" class="nav-logo" aria-label="Django Framework Home Page">
-                <span class="logo-bracket">{</span>DJANGO<span class="logo-bracket">}</span>
+                <span class="logo-bracket">{</span>{{ branded_title }}<span class="logo-bracket">}</span>
             </a>
 
             <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
@@ -13,19 +13,19 @@
             <nav id="main-nav" role="navigation" aria-label="Main navigation">
                 <ul>
                     <li>
-                        <a href="#history">History</a>
+                        <a href="#history" title="History Section" aria-label="History Section">History</a>
                     </li>
                     <li>
-                        <a href="#companies">Companies</a>
+                        <a href="#companies" title="Companies Section" aria-label="Companies Section">Companies</a>
                     </li>
                     <li>
-                        <a href="#ecosystem">Ecosystem</a>
+                        <a href="#ecosystem" title="Ecosystem Section" aria-label="Ecosystem Section">Ecosystem</a>
                     </li>
                     <li>
-                        <a href="#statistics">Stats</a>
+                        <a href="#statistics" title="Statistics Section" aria-label="Statistics Section">Stats</a>
                     </li>
                     <li>
-                        <a href="#pages" class="nav-cta">Explore</a>
+                        <a href="#pages" class="nav-cta" title="Explore Section" aria-label="Explore Section">Explore</a>
                     </li>
                 </ul>
             </nav>

@@ -1,0 +1,140 @@
+/* =============================================
+       SECTION 3: ECOSYSTEM / USES
+    ============================================= */
+#ecosystem {}
+
+.eco-nav {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+    margin-bottom: 3em;
+    justify-content: center;
+}
+
+.eco-nav button {
+    font-family: var(--font-mono);
+    font-size: 0.72em;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 0.45em 1em;
+    cursor: none;
+    transition: all var(--transition);
+}
+
+.eco-nav button:hover,
+.eco-nav button.active {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    background: rgba(0, 212, 255, 0.08);
+}
+
+.eco-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5em;
+}
+
+.eco-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 1.8em;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.eco-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color var(--transition), box-shadow var(--transition);
+}
+
+.eco-card:hover {
+    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.06);
+}
+
+.eco-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.eco-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    flex-shrink: 0;
+}
+
+.eco-card h3 {
+    font-size: 0.95em;
+    color: var(--star-white);
+    margin-bottom: 0.2em;
+}
+
+.eco-card .eco-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65em;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+}
+
+.eco-card p {
+    font-size: 0.875em;
+    color: var(--text-secondary);
+    line-height: 1.75;
+}
+
+/* Section background tint alternation */
+#ecosystem {
+    background: linear-gradient(180deg, transparent 0%, rgba(6, 18, 48, 0.4) 50%, transparent 100%);
+}
+
+/* =============================================
+       RESPONSIVE BREAKPOINTS
+    ============================================= */
+
+/* 1200px — large desktop cap */
+@media (max-width: 1200px) {
+    .eco-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+/* 1024px — standard laptop */
+@media (max-width: 1024px) {}
+
+/* 768px — tablet */
+@media (max-width: 768px) {}
+
+/* 640px — large phone */
+@media (max-width: 640px) {
+    .eco-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 480px — phone */
+@media (max-width: 480px) {}
+
+/* 320px — small phone */
+@media (max-width: 320px) {}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+    .eco-card {
+        border: 2px solid ButtonText;
+    }
+}
