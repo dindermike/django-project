@@ -1,4 +1,27 @@
+/* Examples Page Only Styles */
+#rest_examples-page .glass-card {
+    position: relative;
+}
+
+#rest_examples-page .origin-header .accent {
+    color: var(--cyan);
+}
+
 #rest_examples-page .stat-logo-image {
-    height: 1em;
+    height: 0.75em;
     width: auto;
+}
+
+#rest_examples-page .example-icon {
+    position: absolute;
+    top: 1.5em;
+    right: 2em;
+    width: 2.75em;
+    height: 2.75em;
+}
+
+#rest_examples-page .example-icon .example-logo-image {
+    display: block;
+    width: 100%;
+    height: auto;
 }

@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.views.generic import TemplateView
+from django.views.generic.base import RedirectView
 from rest_framework.views import APIView
 
 from .models import Restaurant
@@ -55,3 +56,12 @@ class RESTExamplesView(TemplateView):
         context['title'] = 'Django REST Framework Examples'
 
         return context
+
+
+class RESTExamplesViewRedirectView(RedirectView):
+    permanent    = True
+    query_string = False
+    pattern_name = 'rest_api:rest_examples'
+
+    def get_redirect_url(self, *args, **kwargs):
+        return super().get_redirect_url(*args, **kwargs)

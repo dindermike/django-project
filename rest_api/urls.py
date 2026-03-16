@@ -14,11 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
+from django.urls import path, re_path
 
-from rest_api.views import RESTExamplesView
+from rest_api.views import RESTExamplesView, RESTExamplesViewRedirectView
+
+
+app_name = 'rest_api'
 
 
 urlpatterns = [
     path('examples/', RESTExamplesView.as_view(), name='rest_examples'),
+
+    # Manual Handling of Uppercase/Lowercase without the use of the Custom "LowercaseURLMiddleware"
+    # re_path(r'examples/$',    RESTExamplesView.as_view(),             name='rest_examples'         ),
+    # re_path(r'[Ee]xamples/$', RESTExamplesViewRedirectView.as_view(), name='rest_examples_redirect'),
 ]

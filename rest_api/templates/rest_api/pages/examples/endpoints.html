@@ -6,7 +6,9 @@
         <div class="section-header fade-in">
             <span class="section-eyebrow" aria-label="Section 1">// SECTION 01</span>
             <h2 class="section-title" id="endpoints-heading">
-                Example <span class="accent">REST API</span> Endpoints
+                <span class="stat-icon">
+                    <img src="{% static '/rest_api/images/DRF.png' %}" alt="Django REST Framework Logo" class="stat-logo-image" />
+                </span>Example <span class="accent">REST API</span> Endpoints
             </h2>
             <p class="section-subtitle">
                 Here is a collection of endpoints and several examples of each endpoint with various different parameters given for each one.
@@ -16,10 +18,11 @@
         <!-- Restaurant Example -->
         <div id="restaurants" class="glass-card fade-in" style="margin-bottom:3em;" aria-label="Django origin story">
             <h3 class="origin-header">
-                <span class="stat-icon">
-                    <img src="{% static '/mikedinder/images/DRF.png' %}" alt="Django REST Framework Logo" class="stat-logo-image" />
-                </span>Restaurant &mdash; Open During a Given Time
+                <span class="accent">Restaurant</span> &mdash; Open During a Given Time
             </h3>
+            <div class="example-icon">
+                <img src="{% static '/rest_api/images/Restaurant.png' %}" alt="Restaurant Logo" class="example-logo-image" />
+            </div>
 
             <!-- <p style="color:var(--text-secondary);line-height:1.8;">
                 Django was created in the summer of 2003 by <strong style="color:var(--star-white);">Adrian Holovaty</strong> and <strong style="color:var(--star-white);">Simon Willison</strong> while working at the <em>Lawrence Journal-World</em> newspaper in Lawrence, Kansas. Faced with the brutal deadlines of a daily newsroom and the need to rapidly build and iterate on web applications, they needed a framework that could move as fast as journalism demanded. Tired of repetitive boilerplate, they extracted a powerful, reusable toolkit from their internal codebase. In July 2005, Django was released publicly as open-source software &mdash; named after jazz guitarist <strong style="color:var(--star-white);">Django Reinhardt</strong>.
@@ -29,19 +32,25 @@
 
             <ul>
                 <li>
-                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-13%2021:30" title="Search 2/13/2026 9:30pm" aria-label="Search 2/13/2026 9:30pm">Search 2/13/2026 9:30 PM</a>
-                <li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-11%204:33" title="Search 2/11/2026 4:33am" aria-label="Search 2/11/2026 4:33am">Search 2/11/2026 4:33 AM</a> &mdash; Wednesday Morning Search Returns 0 Results
                 </li>
-                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-14%2023:30" title="Search 2/14/2026 11:30pm" aria-label="Search 2/14/2026 11:30pm">Search 2/14/2026 11:30 PM</a>
                 <li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-11%2014:33" title="Search 2/11/2026 2:33pm" aria-label="Search 2/11/2026 2:33pm">Search 2/11/2026 2:33 PM</a> &mdash; Wednesday Afternoon Search Returns 36 Results
                 </li>
-                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-15%2000:35" title="Search 2/15/2026 12:35am" aria-label="Search 2/15/2026 12:35am">Search 2/15/2026 12:35 AM</a>
                 <li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-13%2021:30" title="Search 2/13/2026 9:30pm" aria-label="Search 2/13/2026 9:30pm">Search 2/13/2026 9:30 PM</a> &mdash; Friday Night Search Returns 32 Results
                 </li>
-                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-15%2004:15" title="Search 2/15/2026 4:15am" aria-label="Search 2/15/2026 4:15am">Search 2/15/2026 4:15 AM</a>
                 <li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-14%2023:30" title="Search 2/14/2026 11:30pm" aria-label="Search 2/14/2026 11:30pm">Search 2/14/2026 11:30 PM</a> &mdash; Saturday Night Search Returns 7 Results
                 </li>
-                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-15%2013:30" title="Search 2/15/2026 1:30pm" aria-label="Search 2/15/2026 1:30pm">Search 2/15/2026 1:30 PM</a>
+                <li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-15%2000:35" title="Search 2/15/2026 12:35am" aria-label="Search 2/15/2026 12:35am">Search 2/15/2026 12:35 AM</a> &mdash; Sunday Morning Search Returns 2 Results
+                </li>
+                <li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-15%2004:15" title="Search 2/15/2026 4:15am" aria-label="Search 2/15/2026 4:15am">Search 2/15/2026 4:15 AM</a> &mdash; Sunday Morning Search Returns 0 Results
+                </li>
+                <li>
+                    <a href="{% url 'v1:restaurant-search' %}?datetime=2026-02-15%2013:30" title="Search 2/15/2026 1:30pm" aria-label="Search 2/15/2026 1:30pm">Search 2/15/2026 1:30 PM</a> &mdash; Sunday Afternoon Search Returns 33 Results
                 </li>
             </ul>
 

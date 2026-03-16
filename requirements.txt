@@ -1,11 +1,17 @@
+crispy-bootstrap5
 Django==5.2
+django-crispy-forms
 django-debug-toolbar
 django-environ
 django-filter
+django-pylibmc
 django-rest-framework
 flake8
 gunicorn
 markdown
+Pillow
 python-dotenv
 psycopg2-binary
 requests
+surlex
+sorl-thumbnail

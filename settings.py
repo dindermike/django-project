@@ -44,12 +44,16 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.postgres',
+    'django.contrib.sessions',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'rest_framework',
+    'sorl.thumbnail',
 
-    # Django Apps
+    # Django Internal Apps
     'mikedinder',
     'rest_api',
 ]
@@ -58,6 +62,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'mikedinder.middleware.LowercaseURLMiddleware',  # Convert URL to Lowercase, No 404
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -84,9 +89,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'wsgi.application'
 
 
-# Database
+# DATABASE
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         #  'ENGINE': 'django.db.backends.postgresql',
@@ -119,32 +123,67 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
+# INTERNATIONALIZATION
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
+DATE_FORMAT = 'N j, Y'
+DATETIME_FORMAT = 'N j, Y, P'
+TIME_ZONE = 'America/Phoenix'
 
 
-# Static files (CSS, JavaScript, Images)
+# EMAIL CONFIGURATION
+EMAIL_SUBJECT_PREFIX = 'Mike Dinder [mikedinder.com] - '
+DEFAULT_FROM_EMAIL = 'mike@mikedinder.com'
+DEFAULT_TEST_EMAIL = 'mike@mikedinder.com'
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
+
+# ─── Contact form recipient ─────────────────────────────────────────────────
+CONTACT_RECIPIENT_EMAIL = "dindermike@hotmail.com"  # Where submissions are sent TO
+DEFAULT_FROM_EMAIL = "mike@mikedinder.com"  # The From: address
+
+# CACHING
+CACHES = {
+    'default': {
+        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+        'LOCATION': '127.0.0.1:11211', # Default memcached location
+        'TIMEOUT': 500,
+        'BINARY': True,
+        'OPTIONS': {  # Maps to pylibmc "behaviors"
+            'tcp_nodelay': True,
+            'ketama': True
+        }
+    }
+}
+
+
+# STATIC/MEDIA FILES (CSS, JAVASCRIPT, IMAGES)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
+# DEFAULT PRIMARY KEY FIELD TYPE
+# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+# REST FRAMEWORK
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
@@ -155,6 +194,8 @@ REST_FRAMEWORK = {
     ],
 }
 
+
+# DEBUG TOOLBAR
 DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.history.HistoryPanel',
     'debug_toolbar.panels.versions.VersionsPanel',
