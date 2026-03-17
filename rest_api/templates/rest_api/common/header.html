@@ -2,8 +2,8 @@
 <header>
     <div id="navbar" role="banner">
         <div class="nav-inner">
-            <a href="#hero" class="nav-logo" aria-label="Django Framework Home Page">
-                <span class="logo-bracket">{</span>{{ branded_title }}<span class="logo-bracket">}</span>
+            <a href="{% url 'mikedinder:home' %}" class="nav-logo" aria-label="Django Framework Home Page">
+                <span class="logo-bracket">{</span>Django<span class="logo-bracket">}</span>
             </a>
 
             <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">

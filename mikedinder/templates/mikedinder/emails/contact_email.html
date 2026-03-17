@@ -1,6 +1,7 @@
 {% load fullurl static %}
 
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -10,43 +11,23 @@
     </head>
 
     <body>
-        <div class="container">
-            <div class="header-box">
-                <h2>
-                    <span class="title-img">
-                        <img src="{% fullstatic '/mikedinder/images/Contact.png' %}" alt="Contact Logo" width="34" height="34" />
-                    </span>New Contact Form Submission
-                </h2>
+        <div class="outer-wrapper">
+            <table class="body-table" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td align="center">
+                        <table class="parent-table" role="presentation" border="0" cellpadding="0" cellspacing="0" width="620">
+                            {% comment %}<!-- CONTACT EMAIL HEADER -->{% endcomment %}
+                            {% include "mikedinder/emails/contact_header.html" with title="New Contact Form Submission" %}
 
-                <!-- <img src="{% fullstatic '/mikedinder/images/Mike_Email.jpg' %}" alt="Contact Logo" class="mike-img" width="48" height="48" /> -->
-            </div>
+                            {% comment %}<!-- CONTACT EMAIL BODY CONTENT -->{% endcomment %}
+                            {% include "mikedinder/emails/contact_body.html" with body_text="There is a new Contact Form Submission for you to review!" %}
 
-            <p class="body-text">
-                There is a new Contact Form Submission for you to review!
-            </p>
-
-            <div class="field">
-                <div class="label">Name:</div>
-                <div class="value">{{ data.first_name }} {{ data.last_name }}</div>
-            </div>
-
-            <div class="field">
-                <div class="label">Email:</div>
-                <div class="value"><a href="mailto:{{ data.email }}">{{ data.email }}</a></div>
-            </div>
-
-            <div class="field">
-                <div class="label">Phone:</div>
-                <div class="value">{{ data.phone }}</div>
-            </div>
-
-            <div class="field">
-                <div class="label">Message:</div>
-                <div class="message-box">{{ data.message }}</div>
-            </div>
-
-            {% comment %}<!-- EMAIL FOOTER -->{% endcomment %}
-            {% include "mikedinder/emails/footer.html" %}
+                            {% comment %}<!-- GENERAL EMAIL FOOTER -->{% endcomment %}
+                            {% include "mikedinder/emails/footer.html" %}
+                        </table>
+                    </td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>
