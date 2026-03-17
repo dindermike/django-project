@@ -66,11 +66,17 @@ class ContactFormView(FormView):
         # Render the HTML Email Body
         html_body = render_to_string(
             'mikedinder/emails/contact_email.html',
-            {'data': data}
+            {
+                'data': data
+            },
+            request=self.request
         )
         user_html_body = render_to_string(
             'mikedinder/emails/contact_user_email.html',
-            {'data': data}
+            {
+                'data': data
+            },
+            request=self.request
         )
 
         # Plain-Text Fallback
