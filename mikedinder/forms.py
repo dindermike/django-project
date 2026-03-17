@@ -7,6 +7,7 @@ from django.utils.safestring import mark_safe
 
 class ContactForm(forms.Form):
     first_name = forms.CharField(
+        label='First Name',
         max_length=150,
         widget=forms.TextInput(
             attrs={
@@ -16,6 +17,7 @@ class ContactForm(forms.Form):
         )
     )
     last_name = forms.CharField(
+        label='Last Name',
         max_length=150,
         widget=forms.TextInput(
             attrs={
@@ -25,6 +27,7 @@ class ContactForm(forms.Form):
         )
     )
     email = forms.EmailField(
+        label='Email Address',
         max_length=200,
         widget=forms.EmailInput(
             attrs={
@@ -34,6 +37,7 @@ class ContactForm(forms.Form):
         )
     )
     phone = forms.CharField(
+        label='Phone Number',
         max_length=14,
         widget=forms.TextInput(
             attrs={

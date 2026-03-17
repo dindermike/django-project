@@ -32,7 +32,7 @@
 
                 <div class="field-box">
                     <label for="{{ form.first_name.id_for_label }}">
-                        {{ form.first_name.label|title }}:
+                        <span class="asterisk">*</span> {{ form.first_name.label|title }}:
                     </label>
                     {{ form.first_name }}
                     {% if form.first_name.errors %}
@@ -42,7 +42,7 @@
 
                 <div class="field-box">
                     <label for="{{ form.last_name.id_for_label }}">
-                        {{ form.last_name.label|title }}:
+                        <span class="asterisk">*</span> {{ form.last_name.label|title }}:
                     </label>
                     {{ form.last_name }}
                     {% if form.last_name.errors %}
@@ -52,7 +52,7 @@
 
                 <div class="field-box">
                     <label for="{{ form.email.id_for_label }}">
-                        {{ form.email.label|title }}:
+                        <span class="asterisk">*</span> {{ form.email.label|title }}:
                     </label>
                     {{ form.email }}
                     {% if form.email.errors %}
@@ -62,7 +62,7 @@
 
                 <div class="field-box">
                     <label for="{{ form.phone.id_for_label }}">
-                        {{ form.phone.label|title }}:
+                        <span class="asterisk">*</span> {{ form.phone.label|title }}:
                     </label>
                     {{ form.phone }}
                     {% if form.phone.errors %}
@@ -72,12 +72,16 @@
 
                 <div class="field-box">
                     <label for="{{ form.message.id_for_label }}">
-                        {{ form.message.label|title }}:
+                        <span class="asterisk">*</span> {{ form.message.label|title }}:
                     </label>
                     {{ form.message }}
                     {% if form.message.errors %}
                         <ul class="errorlist">{% for e in form.message.errors %}<li>{{ e }}</li>{% endfor %}</ul>
                     {% endif %}
+                </div>
+
+                <div class="disclaimer">
+                    <p><span class="asterisk">*</span> These fields are required.</p>
                 </div>
 
                 <div class="submit-box">

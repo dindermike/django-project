@@ -638,6 +638,21 @@ form .submit-btn:focus {
     color: var(--space-black) !important;
 }
 
+form .asterisk {
+    color: #FF0000;
+}
+
+form .errorlist {
+    width: 100%;
+    color: #FF0000;
+    padding: 0 0 0 1em;
+    margin: 0 0 1em 0;
+}
+
+form .errorlist li {
+    color: #FF0000;
+}
+
 
 /* =============================================
        RESPONSIVE BREAKPOINTS
