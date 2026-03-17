@@ -14,9 +14,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path, re_path
+from django.conf import settings
+from django.urls import path
 
-from mikedinder.views import ContactFormView, ContactSuccessView, LandingView
+from mikedinder.views import (
+    ContactFormView,
+    ContactSuccessView,
+    LandingView,
+)
 
 
 app_name = 'mikedinder'
@@ -27,3 +32,14 @@ urlpatterns = [
     path('contact/',        ContactFormView.as_view(),    name='contact_form'   ),
     path('contact/thanks/', ContactSuccessView.as_view(), name='contact_success'),
 ]
+
+if settings.DEBUG:
+    from mikedinder.views import (
+        preview_contact_email,
+        preview_contact_user_email,
+    )
+
+    urlpatterns += [
+        path('contact/preview/',      preview_contact_email,      name='contact_form_preview'),
+        path('contact/user-preview/', preview_contact_user_email, name='contact_user_preview'),
+    ]

@@ -44,10 +44,10 @@
             </div>
 
             <div>
-                {{ form.body.label_tag }}
-                {{ form.body }}
-                {% if form.body.errors %}
-                    <ul class="errorlist">{% for e in form.body.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                {{ form.message.label_tag }}
+                {{ form.message }}
+                {% if form.message.errors %}
+                    <ul class="errorlist">{% for e in form.message.errors %}<li>{{ e }}</li>{% endfor %}</ul>
                 {% endif %}
             </div>
 
