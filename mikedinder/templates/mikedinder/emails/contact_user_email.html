@@ -1,4 +1,4 @@
-{% load static %}
+{% load fullurl static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -165,11 +165,11 @@
 
     <body>
         <div class="container">
-            <img src="{% static '/mikedinder/images/Mike_Email.jpg' %}" alt="Contact Logo" class="mike-img" />
+            <img src="{% fullstatic '/mikedinder/images/Mike_Email.jpg' %}" alt="Contact Logo" class="mike-img" />
 
             <h2>
                 <span class="title-img">
-                    <img src="{% static '/mikedinder/images/Contact.png' %}" alt="Contact Logo" />
+                    <img src="{% fullstatic '/mikedinder/images/Contact.png' %}" alt="Contact Logo" />
                 </span>New Contact Form Submission
             </h2>
 
@@ -206,19 +206,19 @@
                     </div>
                     <div class="social-links">
                         <a href="https://www.mikedinder.com" class="social-link" title="Mike Dinder Home Page/Resume" aria-label="Mike Dinder Home Page/Resume">
-                            <img src="{% static '/mikedinder/images/Home.png' %}" alt="Home Logo" />
+                            <img src="{% fullstatic '/mikedinder/images/Home.png' %}" alt="Home Logo" />
                         </a>
                         <a href="https://www.linkedin.com/in/mikedinder/" target="_blank" class="social-link" title="LinkedIn" aria-label="LinkedIn">
-                            <img src="{% static '/mikedinder/images/LinkedIn.png' %}" alt="LinkedIn Logo" />
+                            <img src="{% fullstatic '/mikedinder/images/LinkedIn.png' %}" alt="LinkedIn Logo" />
                         </a>
                         <a href="https://github.com/dindermike" target="_blank" class="social-link" title="GitHub" aria-label="GitHub">
-                            <img src="{% static '/mikedinder/images/GitHub.png' %}" alt="GitHub Logo" />
+                            <img src="{% fullstatic '/mikedinder/images/GitHub.png' %}" alt="GitHub Logo" />
                         </a>
                         <a href="mailto:dindermike@hotmail.com" target="_blank" class="social-link" title="Primary Email" aria-label="Primary Email">
-                            <img src="{% static '/mikedinder/images/Email.png' %}" alt="Email Logo" />
+                            <img src="{% fullstatic '/mikedinder/images/Email.png' %}" alt="Email Logo" />
                         </a>
                         <a href="mailto:mike@mikedinder.com" target="_blank" class="social-link" title="Secondary Email" aria-label="Secondary Email">
-                            <img src="{% static '/mikedinder/images/Email.png' %}" alt="Email Logo" />
+                            <img src="{% fullstatic '/mikedinder/images/Email.png' %}" alt="Email Logo" />
                         </a>
                     </div>
                     <p>

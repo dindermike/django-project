@@ -4,6 +4,7 @@ django-crispy-forms
 django-debug-toolbar
 django-environ
 django-filter
+django-fullurl
 django-pylibmc
 django-rest-framework
 flake8
