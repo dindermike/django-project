@@ -1,57 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Contact Us</title>
-    </head>
+{% extends 'mikedinder/base/base_1.html' %}
+{% load static %}
 
-    <body>
-        <h1>Contact Us</h1>
+{% comment %}<!-- META INFORMATION -->{% endcomment %}
+{% block page_title1 %}{{ title }}{% endblock %}
+{% block page_title2 %}{{ title }}{% endblock %}
+{% block page_title3 %}{{ title }}{% endblock %}
+{% block page_id %}{{ page_id }}{% endblock %}
+{% block page_class %}{{ block.super }} {{ page_class }} sub-page{% endblock %}
+{% block meta_description1 %}{{ meta_description }}{% endblock %}
+{% block meta_description2 %}{{ meta_description }}{% endblock %}
+{% block meta_description3 %}{{ meta_description }}{% endblock %}
+{% block social_img1 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_img2 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_img3 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_url %}{{ request.path }}{% endblock %}
 
-        <form method="post" novalidate>
-            {% csrf_token %}
+{% comment %}<!-- ASSETS -->{% endcomment %}
+{% block head_stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/common.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/nav.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/hero.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section1_timeline.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/footer.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/pages/contact_form.css' %}" />
+{% endblock %}
+{% block js_scripts %}
+    <script src="{% static '/mikedinder/js/home.js' %}"></script>
+{% endblock %}
 
-            <div>
-                {{ form.first_name.label_tag }}
-                {{ form.first_name }}
-                {% if form.first_name.errors %}
-                    <ul class="errorlist">{% for e in form.first_name.errors %}<li>{{ e }}</li>{% endfor %}</ul>
-                {% endif %}
-            </div>
+{% comment %}<!-- PAGE SPECIFIC HEADER -->{% endcomment %}
+{% block header %}
+    {% include "mikedinder/common/header.html" with branded_title=branded_title %}
+{% endblock %}
 
-            <div>
-                {{ form.last_name.label_tag }}
-                {{ form.last_name }}
-                {% if form.last_name.errors %}
-                    <ul class="errorlist">{% for e in form.last_name.errors %}<li>{{ e }}</li>{% endfor %}</ul>
-                {% endif %}
-            </div>
+{% comment %}<!-- BODY CONTENT -->{% endcomment %}
+{% block body_content %}
+    {% comment %}<!-- HERO SECTION -->{% endcomment %}
+    {% include "mikedinder/pages/contact_form/hero.html" %}
 
-            <div>
-                {{ form.email.label_tag }}
-                {{ form.email }}
-                {% if form.email.errors %}
-                    <ul class="errorlist">{% for e in form.email.errors %}<li>{{ e }}</li>{% endfor %}</ul>
-                {% endif %}
-            </div>
+    <div class="section-divider" aria-hidden="true"></div>
 
-            <div>
-                {{ form.phone.label_tag }}
-                {{ form.phone }}
-                {% if form.phone.errors %}
-                    <ul class="errorlist">{% for e in form.phone.errors %}<li>{{ e }}</li>{% endfor %}</ul>
-                {% endif %}
-            </div>
+    {% comment %}<!-- CONTACT INFO SECTION -->{% endcomment %}
+    {% include "mikedinder/pages/contact_form/form.html" %}
 
-            <div>
-                {{ form.message.label_tag }}
-                {{ form.message }}
-                {% if form.message.errors %}
-                    <ul class="errorlist">{% for e in form.message.errors %}<li>{{ e }}</li>{% endfor %}</ul>
-                {% endif %}
-            </div>
+    <div class="section-divider" aria-hidden="true"></div>
+{% endblock %}
 
-            <button type="submit">Send Message</button>
-        </form>
-    </body>
-</html>
+{% comment %}<!-- PAGE SPECIFIC FOOTER -->{% endcomment %}
+{% block footer %}
+    {% include "mikedinder/common/footer.html" with branded_title=branded_title %}
+{% endblock %}

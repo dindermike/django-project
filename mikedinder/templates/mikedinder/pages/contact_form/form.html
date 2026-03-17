@@ -1,0 +1,89 @@
+{% load static %}
+
+<!-- ==================== SECTION 1: Forms ==================== -->
+<section id="forms" class="timeline-section" aria-labelledby="forms-heading">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-eyebrow" aria-label="Section 1">// SECTION 01</span>
+            <h2 class="section-title" id="forms-heading">
+                <span class="stat-icon">
+                    <img src="{% static '/mikedinder/images/Form2.png' %}" alt="Django Form Logo" class="stat-logo-image" />
+                </span>Contact <span class="accent">Form</span>
+            </h2>
+
+            <p class="section-subtitle">
+                Please fill out the form below to reach Mike Dinder and he will reach back out to you as soon as possible.
+                <br />
+                Please keep your message under 5000 characters.
+            </p>
+        </div>
+
+        <!-- Restaurant Example -->
+        <div id="contact" class="glass-card fade-in" style="margin-bottom:3em;" aria-label="Contact Form">
+            <h3 class="origin-header">
+                &mdash; Reach out to <span class="accent">Mike Dinder</span>
+            </h3>
+            <div class="example-icon">
+                <img src="{% static '/mikedinder/images/Contact.png' %}" alt="Contact Logo" class="example-logo-image" />
+            </div>
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+
+                <div class="field-box">
+                    <label for="{{ form.first_name.id_for_label }}">
+                        {{ form.first_name.label|title }}:
+                    </label>
+                    {{ form.first_name }}
+                    {% if form.first_name.errors %}
+                        <ul class="errorlist">{% for e in form.first_name.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+
+                <div class="field-box">
+                    <label for="{{ form.last_name.id_for_label }}">
+                        {{ form.last_name.label|title }}:
+                    </label>
+                    {{ form.last_name }}
+                    {% if form.last_name.errors %}
+                        <ul class="errorlist">{% for e in form.last_name.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+
+                <div class="field-box">
+                    <label for="{{ form.email.id_for_label }}">
+                        {{ form.email.label|title }}:
+                    </label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <ul class="errorlist">{% for e in form.email.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+
+                <div class="field-box">
+                    <label for="{{ form.phone.id_for_label }}">
+                        {{ form.phone.label|title }}:
+                    </label>
+                    {{ form.phone }}
+                    {% if form.phone.errors %}
+                        <ul class="errorlist">{% for e in form.phone.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+
+                <div class="field-box">
+                    <label for="{{ form.message.id_for_label }}">
+                        {{ form.message.label|title }}:
+                    </label>
+                    {{ form.message }}
+                    {% if form.message.errors %}
+                        <ul class="errorlist">{% for e in form.message.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+
+                <div class="submit-box">
+                    <button class="submit-btn" type="submit" aria-label="Send Message" title="Send Message">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

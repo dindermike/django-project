@@ -1,0 +1,33 @@
+{% load static %}
+
+<!-- ==================== HERO ==================== -->
+<section id="hero" aria-labelledby="hero-heading">
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+        <div class="hero-badge" aria-label="Status: actively maintained">
+            <span class="dot" aria-hidden="true"></span>
+            ACTIVELY MAINTAINED &bull; EST. 2007
+        </div>
+
+        <h1 class="hero-title" id="hero-heading">
+            <span class="line1">DJANGO</span>
+            <span class="line2">FORMS</span>
+            <span class="line3">&mdash; About Django Forms</span>
+        </h1>
+
+        <p class="hero-desc">
+            Django forms have evolved from early, basic HTML generation into a robust, secure framework for data validation, cleaning, and rendering. Originally, form handling was tightly coupled with models, but "newforms" introduced in 2007 (Django 0.96/1.0) decoupled them, establishing the modern Form and ModelForm structure that enables DRY (Don't Repeat Yourself) web development, sanitizing input to prevent security issues.
+            <br /><br />
+            Early Days (2003&mdash;2006): Forms were primarily generated directly from models, often feeling tightly coupled to database structures, designed for rapid development of CMS applications.
+            <br /><br />
+            "Newforms" Era (2007): A major overhaul introduced a clearer separation between data validation (Form) and database modeling (ModelForm). This was a pivotal change that brought the modern django.forms library into existence, emphasizing security and reusable validation logic.
+            <br /><br />
+            Formsets and Complex Data (2008&mdash;2010): Development continued with improved support for managing multiple forms on one page (formsets) and refined widget rendering.
+            <br /><br />
+            Modernization (2017&mdash;Present): Later versions improved template-based widget rendering, allowing better customization of HTML output and enhanced security features for data sanitization, ensuring developers can safely handle user input.
+        </p>
+
+        <div class="hero-buffer"></div>
+    </div>
+</section>

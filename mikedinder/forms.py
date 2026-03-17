@@ -10,8 +10,8 @@ class ContactForm(forms.Form):
         max_length=150,
         widget=forms.TextInput(
             attrs={
-                "class": "form-control",
-                "placeholder": "First Name"
+                'class': 'form-control',
+                'placeholder': 'First Name'
             }
         )
     )
@@ -19,16 +19,17 @@ class ContactForm(forms.Form):
         max_length=150,
         widget=forms.TextInput(
             attrs={
-                "class": "form-control",
-                "placeholder": "Last Name"
+                'class': 'form-control',
+                'placeholder': 'Last Name'
             }
         )
     )
     email = forms.EmailField(
+        max_length=200,
         widget=forms.EmailInput(
             attrs={
-                "class": "form-control",
-                "placeholder": "Email Address"
+                'class': 'form-control',
+                'placeholder': 'Email Address'
             }
         )
     )
@@ -36,17 +37,18 @@ class ContactForm(forms.Form):
         max_length=14,
         widget=forms.TextInput(
             attrs={
-                "class": "form-control",
-                "placeholder": "Phone Number"
+                'class': 'form-control',
+                'placeholder': 'Phone Number'
             }
         )
     )
     message = forms.CharField(
+        max_length=5000,
         widget=forms.Textarea(
             attrs={
-                "class": "form-control",
-                "placeholder": "Your message...",
-                "rows": 15
+                'class': 'form-control',
+                'placeholder': 'Your Message...',
+                'rows': 15
             }
         )
     )

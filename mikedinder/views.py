@@ -12,6 +12,7 @@ from mikedinder.forms import ContactForm
 def preview_contact_email(request):
     """
     Preview View of the Email Sent to the Site Owner when a Contact Form is Submitted, for Development Use Only.
+    Also demonstrates Method Based Views examples.
     """
     # Define the Form Rendered Context
     context = {
@@ -31,6 +32,7 @@ def preview_contact_email(request):
 def preview_contact_user_email(request):
     """
     Preview View of the Email Sent to the User who Submitted the Form, for Development Use Only.
+    Also demonstrates Method Based Views examples.
     """
     # Define the Form Rendered Context
     context = {
@@ -51,6 +53,17 @@ class ContactFormView(FormView):
     template_name = 'mikedinder/pages/contact_form.html'
     form_class = ContactForm
     success_url = reverse_lazy('mikedinder:contact_success')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['branded_title'] = 'Contact Mike Dinder'
+        context['meta_description'] = 'Contact Mike Dinder - Fill out this form and he will reach back out to you soon.'
+        context['page_class'] = 'contact-form-page'
+        context['page_id'] = 'contact-form-page'
+        context['title'] = 'Contact: Mike Dinder'
+
+        return context
 
     def form_valid(self, form):
         data = form.cleaned_data
@@ -97,6 +110,7 @@ class ContactFormView(FormView):
             f'Message: {data["message"]}\n'
         )
 
+        # Send Email to Mike Dinder
         contact_email = EmailMultiAlternatives(
             subject=subject,
             body=plain_body,
@@ -107,6 +121,7 @@ class ContactFormView(FormView):
         contact_email.attach_alternative(html_body, 'text/html')
         contact_email.send(fail_silently=False)
 
+        # Send Thank You Email to the User
         user_email = EmailMultiAlternatives(
             subject=user_subject,
             body=user_plain_body,
@@ -120,8 +135,38 @@ class ContactFormView(FormView):
         return super().form_valid(form)
 
 
+class ContactFormInfoView(TemplateView):
+    """
+    Contact Form information page, primarily for the Django Explore the Site section.
+    """
+    template_name = 'mikedinder/pages/contact_info.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['branded_title'] = 'Forms'
+        context['meta_description'] = 'Django Forms - A history of Django Forms and examples that have been built ' \
+            'on this site.'
+        context['page_class'] = 'contact-info-page'
+        context['page_id'] = 'contact-info-page'
+        context['title'] = 'Django Forms: About Django Forms'
+
+        return context
+
+
 class ContactSuccessView(TemplateView):
     template_name = 'mikedinder/pages/contact_success.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['branded_title'] = 'Success'
+        context['meta_description'] = 'Thank You - I have received your form submission and will get back soon.'
+        context['page_class'] = 'contact-success-page'
+        context['page_id'] = 'contact-success-page'
+        context['title'] = 'Thank You: Message Sent & Received'
+
+        return context
 
 
 class LandingView(TemplateView):

@@ -1,13 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Message Sent</title>
-    </head>
+{% extends 'mikedinder/base/base_1.html' %}
+{% load static %}
 
-    <body>
-        <h1>Thank You!</h1>
-        <p>Your message has been sent. We'll get back to you soon.</p>
-        <a href="{% url 'mikedinder:contact_form' %}">Send another message</a>
-    </body>
-</html>
+{% comment %}<!-- META INFORMATION -->{% endcomment %}
+{% block page_title1 %}{{ title }}{% endblock %}
+{% block page_title2 %}{{ title }}{% endblock %}
+{% block page_title3 %}{{ title }}{% endblock %}
+{% block page_id %}{{ page_id }}{% endblock %}
+{% block page_class %}{{ block.super }} {{ page_class }} sub-page{% endblock %}
+{% block meta_description1 %}{{ meta_description }}{% endblock %}
+{% block meta_description2 %}{{ meta_description }}{% endblock %}
+{% block meta_description3 %}{{ meta_description }}{% endblock %}
+{% block social_img1 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_img2 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_img3 %}{% static '/mikedinder/images/Django.png' %}{% endblock %}
+{% block social_url %}{{ request.path }}{% endblock %}
+
+{% comment %}<!-- ASSETS -->{% endcomment %}
+{% block head_stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/common.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/nav.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/hero.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section1_timeline.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/footer.css' %}" />
+{% endblock %}
+{% block js_scripts %}
+    <script src="{% static '/mikedinder/js/home.js' %}"></script>
+{% endblock %}
+
+{% comment %}<!-- PAGE SPECIFIC HEADER -->{% endcomment %}
+{% block header %}
+    {% include "mikedinder/common/header.html" with branded_title=branded_title %}
+{% endblock %}
+
+{% comment %}<!-- BODY CONTENT -->{% endcomment %}
+{% block body_content %}
+    <section id="hero" aria-labelledby="hero-heading">
+        <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+        <div class="hero-content">
+            <div class="hero-badge" aria-label="Status: actively maintained">
+                <span class="dot" aria-hidden="true"></span>
+                ACTIVELY MAINTAINED &bull; EST. 2007
+            </div>
+
+            <h1 class="hero-title" id="hero-heading">
+                <span class="line1">&nbsp;</span>
+                <span class="line2">Thank You!</span>
+                <span class="line3">&mdash; Message Received</span>
+            </h1>
+
+            <p class="hero-desc">
+                Your message has been sent. I'll reach out to you soon.
+                <br /><br />
+                <a href="{% url 'mikedinder:contact_form' %}">Send Another Message</a>
+            </p>
+
+            <div class="hero-buffer"></div>
+        </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+{% endblock %}
+
+{% comment %}<!-- PAGE SPECIFIC FOOTER -->{% endcomment %}
+{% block footer %}
+    {% include "mikedinder/common/footer.html" with branded_title=branded_title %}
+{% endblock %}

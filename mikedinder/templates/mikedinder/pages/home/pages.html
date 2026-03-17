@@ -16,10 +16,11 @@
         </div>
 
         <div class="pages-grid">
-            <a href="/rest_api/examples" class="page-card fade-in" aria-label="Building REST APIs with Django REST Framework">
+            <a href="{% url 'rest_api:rest_examples' %}" class="page-card fade-in" aria-label="Building REST APIs with Django REST Framework">
                 <div class="page-card-icon">
                     <img src="{% static '/mikedinder/images/API2.png' %}" alt="API Logo" class="card-logo-image" />
                 </div>
+
                 <h3>Building REST APIs with DRF</h3>
 
                 <p class="page-lorem">
@@ -29,7 +30,21 @@
                 <span class="page-url">/rest_api/examples</span>
             </a>
 
-            <a href="/tutorials/getting-started" class="page-card fade-in" aria-label="Getting Started with Django tutorial">
+            <a href="{% url 'mikedinder:contact_infopage' %}" class="page-card fade-in" aria-label="Contact Mike Dinder">
+                <div class="page-card-icon">
+                    <img src="{% static '/mikedinder/images/Form2.png' %}" alt="Form Logo" class="card-logo-image" />
+                </div>
+
+                <h3>Django Forms</h3>
+
+                <p class="page-lorem">
+                    This is my Contact Form submission. It is a fully functional contact form that will generate two separate emails. First email is to me and the second email is to you, the person who submitted the form that includes a thank you message.
+                </p>
+
+                <span class="page-url">/contact</span>
+            </a>
+
+            <!-- <a href="/tutorials/getting-started" class="page-card fade-in" aria-label="Getting Started with Django tutorial">
                 <div class="page-card-icon" aria-hidden="true">🚀</div>
                 <h3>Getting Started with Django</h3>
                 <p class="page-lorem">
@@ -126,7 +141,7 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis ridiculus mus.
                 </p>
                 <span class="page-url">/community</span>
-            </a>
+            </a> -->
         </div>
     </div>
 </section>

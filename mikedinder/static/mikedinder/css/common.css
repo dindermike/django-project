@@ -553,6 +553,93 @@ h4 {
 }
 
 /* =============================================
+       SUB PAGES
+    ============================================= */
+.sub-page .glass-card {
+    position: relative;
+}
+
+.sub-page .origin-header .accent {
+    color: var(--cyan);
+}
+
+.sub-page .stat-logo-image {
+    height: 0.75em;
+    width: auto;
+}
+
+.sub-page .example-icon {
+    position: absolute;
+    top: 1.5em;
+    right: 2em;
+    width: 2.75em;
+    height: 2.75em;
+}
+
+.sub-page .example-icon .example-logo-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* =============================================
+       FORMS
+    ============================================= */
+form {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+form .field-box {
+
+}
+
+form label {
+    display: block;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    background-color: #0d253b;
+    border: 0.1em solid #044767;
+    border-radius: 0.3em;
+    padding: 0.4em 0.75em;
+    color: var(--text-primary);
+    display: block;
+    margin: 0.25em 0 1em;
+    font-size: 1em;
+}
+
+form .submit-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+}
+
+form .submit-btn {
+    display: inline-block;
+    float: right;
+    background: transparent;
+    border: 0.1em solid var(--cyan);
+    color: var(--cyan) !important;
+    padding: 0.45em 1.1em;
+    margin: 1.2em 0 0;
+    border-radius: 0.35em;
+    transition: background var(--transition), color var(--transition) !important;
+}
+
+form .submit-btn:hover,
+form .submit-btn:active,
+form .submit-btn:focus {
+    background: var(--cyan) !important;
+    color: var(--space-black) !important;
+}
+
+
+/* =============================================
        RESPONSIVE BREAKPOINTS
     ============================================= */
 

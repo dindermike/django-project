@@ -1,0 +1,50 @@
+{% load static %}
+
+<!-- ==================== SECTION 1: Forms ==================== -->
+<section id="forms" class="timeline-section" aria-labelledby="forms-heading">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-eyebrow" aria-label="Section 1">// SECTION 01</span>
+            <h2 class="section-title" id="forms-heading">
+                <span class="stat-icon">
+                    <img src="{% static '/mikedinder/images/Form2.png' %}" alt="Django Form Logo" class="stat-logo-image" />
+                </span>Example <span class="accent">Forms</span>
+            </h2>
+
+            <p class="section-subtitle">
+                Here is a compilation of forms that are live on my site. Such as the Contact Form and other examples.
+            </p>
+        </div>
+
+        <!-- Restaurant Example -->
+        <div id="contact" class="glass-card fade-in" style="margin-bottom:3em;" aria-label="Contact Form">
+            <h3 class="origin-header">
+                <span class="accent">Contact Form</span> &mdash; Reach out to Mike Dinder
+            </h3>
+            <div class="example-icon">
+                <img src="{% static '/mikedinder/images/Contact.png' %}" alt="Contact Logo" class="example-logo-image" />
+            </div>
+
+            <!-- <p style="color:var(--text-secondary);line-height:1.8;">
+                Django was created in the summer of 2003 by <strong style="color:var(--star-white);">Adrian Holovaty</strong> and <strong style="color:var(--star-white);">Simon Willison</strong> while working at the <em>Lawrence Journal-World</em> newspaper in Lawrence, Kansas. Faced with the brutal deadlines of a daily newsroom and the need to rapidly build and iterate on web applications, they needed a framework that could move as fast as journalism demanded. Tired of repetitive boilerplate, they extracted a powerful, reusable toolkit from their internal codebase. In July 2005, Django was released publicly as open-source software &mdash; named after jazz guitarist <strong style="color:var(--star-white);">Django Reinhardt</strong>.
+            </p> -->
+
+            <div class="glow-rule" aria-hidden="true"></div>
+
+            <ul>
+                <li>
+                    <a href="{% url 'mikedinder:contact_form' %}" title="Mike Dinder Contact Form" aria-label="Mike Dinder Contact Form">Mike Dinder Contact Form</a> &mdash; Submit the form to reach out to Mike Dinder.
+                </li>
+                <li>
+                    <a href="{% url 'mikedinder:contact_success' %}" title="Mike Dinder Contact Form Success" aria-label="Mike Dinder Contact Form Success">Contact Form Success</a> &mdash; View the Success page that the user gets redirected to after the form has been submitted, this is not an email.
+                </li>
+                <li>
+                    <a href="{% url 'mikedinder:contact_form_preview' %}" title="Contact Form New Submission Email" aria-label="Contact Form New Submission Email">New Submission Email</a> &mdash; View the email that gets sent to Mike Dinder when the form is submitted without actually submitting the form.
+                </li>
+                <li>
+                    <a href="{% url 'mikedinder:contact_user_preview' %}" title="Contact Form Thank You Email" aria-label="Contact Form Thank You Email">Thank You Email</a> &mdash; View the email that gets sent to the User when the form is submitted without actually submitting the form.
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/hero.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section1_timeline.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/footer.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static '/rest_api/css/pages/examples.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/pages/contact_info.css' %}" />
 {% endblock %}
 {% block js_scripts %}
     <script src="{% static '/mikedinder/js/home.js' %}"></script>
@@ -30,18 +30,18 @@
 
 {% comment %}<!-- PAGE SPECIFIC HEADER -->{% endcomment %}
 {% block header %}
-    {% include "rest_api/common/header.html" with branded_title=branded_title %}
+    {% include "mikedinder/pages/contact_info/header.html" with branded_title=branded_title %}
 {% endblock %}
 
 {% comment %}<!-- BODY CONTENT -->{% endcomment %}
 {% block body_content %}
     {% comment %}<!-- HERO SECTION -->{% endcomment %}
-    {% include "rest_api/pages/examples/hero.html" %}
+    {% include "mikedinder/pages/contact_info/hero.html" %}
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    {% comment %}<!-- ENDPOINTS SECTION -->{% endcomment %}
-    {% include "rest_api/pages/examples/endpoints.html" %}
+    {% comment %}<!-- CONTACT INFO SECTION -->{% endcomment %}
+    {% include "mikedinder/pages/contact_info/info.html" %}
 
     <div class="section-divider" aria-hidden="true"></div>
 {% endblock %}
