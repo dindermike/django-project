@@ -1,4 +1,19 @@
-/* Examples Page Only Styles */
-#contact-info-page {
-    
+/* Contact Info Page Only Styles */
+
+/* 480px — Phone */
+@media (max-width: 480px) {
+    #contact-info-page.sub-page .example-icon {
+        width: 2.25em;
+        height: 2.25em;
+        top: 2.75em;
+    }
+}
+
+/* 320px — Small Phone */
+@media (max-width: 320px) {
+    #contact-info-page.sub-page .example-icon {
+        width: 2.25em;
+        height: 2.25em;
+        top: 3.75em;
+    }
 }

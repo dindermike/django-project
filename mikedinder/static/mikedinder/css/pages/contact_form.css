@@ -1,3 +1,60 @@
+/* Contact Form Page Only Styles */
 #contact-form-page form {
     margin: 50px auto;
+}
+
+/* 768px — Tablet */
+@media (max-width: 768px) {
+    #contact-form-page #hero {
+        min-height: 68vh;
+    }
+
+    #contact-form-page .hero-content {
+        padding: 3.75em 1.2em 1.75em;
+    }
+}
+
+/* 640px — Large Phone */
+@media (max-width: 640px) {
+    #contact-form-page #hero {
+        min-height: 65vh;
+    }
+
+    #contact-form-page .hero-content {
+        padding: 3.5em 1.2em 1.5em;
+    }
+}
+
+/* 480px — Phone */
+@media (max-width: 480px) {
+    #contact-form-page #hero {
+        min-height: 60vh;
+    }
+
+    #contact-form-page .hero-content {
+        padding: 3em 1.2em 1em;
+    }
+
+    #contact-form-page.sub-page .example-icon {
+        width: 2.25em;
+        height: 2.25em;
+        top: 2.75em;
+    }
+}
+
+/* 320px — Small Phone */
+@media (max-width: 320px) {
+    #contact-form-page #hero {
+        min-height: 55vh;
+    }
+
+    #contact-form-page .hero-content {
+        padding: 2em 1.2em 1em;
+    }
+
+    #contact-form-page.sub-page .example-icon {
+        width: 2.5em;
+        height: 2.5em;
+        top: 2.5em;
+    }
 }

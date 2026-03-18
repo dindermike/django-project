@@ -56,6 +56,22 @@ body {
     /* cursor: none; */
 }
 
+.mobile-hide {
+    display: block;
+}
+
+.mobile-hide-inline {
+    display: inline-block;
+}
+
+.mobile-br {
+    display: none;
+}
+
+.mobile-br-inline {
+    display: none;
+}
+
 /* =============================================
        ACCESSIBILITY
     ============================================= */
@@ -356,12 +372,11 @@ h4 {
 .section-divider::after {
     content: '◆';
     position: absolute;
-    top: 50%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--cyan);
     font-size: 0.6em;
-    background: var(--space-black);
     padding: 0 0.5em;
 }
 
@@ -658,27 +673,27 @@ form .errorlist li {
        RESPONSIVE BREAKPOINTS
     ============================================= */
 
-/* 1200px — large desktop cap */
+/* 1200px — Large Desktop */
 @media (max-width: 1200px) {}
 
-/* 1024px — standard laptop */
+/* 1024px — Standard Laptop */
 @media (max-width: 1024px) {
     :root {
         --section-gap: 6em;
     }
 }
 
-/* 768px — tablet */
+/* 768px — Tablet */
 @media (max-width: 768px) {
     :root {
         --section-gap: 5em;
     }
 }
 
-/* 640px — large phone */
+/* 640px — Large Phone */
 @media (max-width: 640px) {}
 
-/* 480px — phone */
+/* 480px — Phone */
 @media (max-width: 480px) {
     :root {
         --section-gap: 4em;
@@ -691,12 +706,20 @@ form .errorlist li {
     .section-title {
         font-size: 1.6em;
     }
+
+    .mobile-br {
+        display: block;
+    }
+
+    .mobile-br-inline {
+        display: inline-block;
+    }
 }
 
-/* 320px — small phone */
+/* 320px — Small Phone */
 @media (max-width: 320px) {}
 
-/* High contrast mode */
+/* High Contrast Mode */
 @media (forced-colors: active) {
     .glass-card {
         border: 2px solid ButtonText;

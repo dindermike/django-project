@@ -84,29 +84,29 @@
        RESPONSIVE BREAKPOINTS
     ============================================= */
 
-/* 1200px — large desktop cap */
+/* 1200px — Large Desktop */
 @media (max-width: 1200px) {}
 
-/* 1024px — standard laptop */
+/* 1024px — Standard Laptop */
 @media (max-width: 1024px) {}
 
-/* 768px — tablet */
+/* 768px — Tablet */
 @media (max-width: 768px) {}
 
-/* 640px — large phone */
+/* 640px — Large Phone */
 @media (max-width: 640px) {
     .pages-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* 480px — phone */
+/* 480px — Phone */
 @media (max-width: 480px) {}
 
-/* 320px — small phone */
+/* 320px — Small Phone */
 @media (max-width: 320px) {}
 
-/* High contrast mode */
+/* High Contrast Mode */
 @media (forced-colors: active) {
     .page-card {
         border: 2px solid ButtonText;

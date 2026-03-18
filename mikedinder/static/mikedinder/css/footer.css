@@ -39,3 +39,28 @@ footer p {
   transform: translateY(-5px) scale(1.2);
   text-shadow: 0 0 20px var(--cyan);
 }
+
+/* =============================================
+       RESPONSIVE BREAKPOINTS
+    ============================================= */
+
+/* 1200px — Large Desktop */
+@media (max-width: 1200px) {}
+
+/* 1024px — Standard Laptop */
+@media (max-width: 1024px) {}
+
+/* 768px — Tablet */
+@media (max-width: 768px) {}
+
+/* 640px — Large Phone */
+@media (max-width: 640px) {}
+
+/* 480px — Phone */
+@media (max-width: 480px) {}
+
+/* 320px — Small Phone */
+@media (max-width: 320px) {}
+
+/* High Contrast Mode */
+@media (forced-colors: active) {}

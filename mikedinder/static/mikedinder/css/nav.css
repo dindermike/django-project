@@ -96,7 +96,7 @@ nav[role="navigation"] a:hover::after {
     color: var(--space-black) !important;
 }
 
-/* Mobile hamburger */
+/* Mobile Hamburger */
 .nav-toggle {
     display: none;
     background: none;
@@ -132,17 +132,17 @@ nav[role="navigation"] a:hover::after {
        RESPONSIVE BREAKPOINTS
     ============================================= */
 
-/* 1200px — large desktop cap */
+/* 1200px — Large Desktop */
 @media (max-width: 1200px) {}
 
-/* 1024px — standard laptop */
+/* 1024px — Standard Laptop */
 @media (max-width: 1024px) {
     nav[role="navigation"] ul {
         gap: 1.2em;
     }
 }
 
-/* 768px — tablet */
+/* 768px — Tablet */
 @media (max-width: 768px) {
     .nav-toggle {
         display: flex;
@@ -177,13 +177,13 @@ nav[role="navigation"] a:hover::after {
     }
 }
 
-/* 640px — large phone */
+/* 640px — Large Phone */
 @media (max-width: 640px) {}
 
-/* 480px — phone */
+/* 480px — Phone */
 @media (max-width: 480px) {}
 
-/* 320px — small phone */
+/* 320px — Small Phone */
 @media (max-width: 320px) {
     .nav-logo {
         font-size: 1em;
