@@ -78,6 +78,14 @@
     flex-shrink: 0;
 }
 
+#ecosystem .logo-link {
+    display: flex;
+}
+
+.eco-logo-image {
+    width: 1.8em;
+}
+
 .eco-card h3 {
     font-size: 0.95em;
     color: var(--star-white);

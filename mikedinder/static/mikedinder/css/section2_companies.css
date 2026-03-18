@@ -53,6 +53,10 @@
     font-size: 1.4em;
 }
 
+#companies .logo-link {
+    display: flex;
+}
+
 .card-logo-image {
     width: 1.8em;
 }
