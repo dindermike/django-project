@@ -383,4 +383,16 @@
             a.style.color = a.getAttribute('href') === '#' + current ? 'var(--cyan)' : '';
         });
     }, { passive: true });
+
+    // ——————————————————————————————————
+    // PHONE FIELD MASKING
+    // ——————————————————————————————————
+    const phone_field = document.getElementById('id_phone');
+
+    if (phone_field) {
+        phone_field.addEventListener('input', function (e) {
+            var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+    }
 })();

@@ -1,0 +1,45 @@
+/* Contact Success Page Only Styles */
+
+/* 768px — Tablet */
+@media (max-width: 768px) {
+    #contact-success-page #hero {
+        min-height: 68vh;
+    }
+
+    #contact-success-page .hero-content {
+        padding: 3.75em 1.2em 1.75em;
+    }
+}
+
+/* 640px — Large Phone */
+@media (max-width: 640px) {
+    #contact-success-page #hero {
+        min-height: 65vh;
+    }
+
+    #contact-success-page .hero-content {
+        padding: 3.5em 1.2em 1.5em;
+    }
+}
+
+/* 480px — Phone */
+@media (max-width: 480px) {
+    #contact-success-page #hero {
+        min-height: 60vh;
+    }
+
+    #contact-success-page .hero-content {
+        padding: 3em 1.2em 1em;
+    }
+}
+
+/* 320px — Small Phone */
+@media (max-width: 320px) {
+    #contact-success-page #hero {
+        min-height: 55vh;
+    }
+
+    #contact-success-page .hero-content {
+        padding: 2em 1.2em 1em;
+    }
+}
