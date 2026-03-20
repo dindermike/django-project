@@ -50,10 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+    'compressor',
     'django.contrib.staticfiles',
 
     # Third-Party Apps
-    'compressor',
     'fullurl',
     'rest_framework',
     'sorl.thumbnail',
