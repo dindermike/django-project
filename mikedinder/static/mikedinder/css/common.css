@@ -422,6 +422,10 @@ strong {
     margin-bottom: 3em;
 }
 
+.sub-page .glass-card {
+    padding: 2em 2em 3em;
+}
+
 .glass-card:hover {
     border-color: rgba(0, 212, 255, 0.4);
     transform: translateY(-4px);
@@ -433,8 +437,23 @@ strong {
     line-height: 1.8;
 }
 
+.sub-page .glass-card p {
+    margin: 1.75em 0 0.75em 0;
+}
+
 .glass-card pre {
     margin: 0.75em 0 0.75em 1em;
+}
+
+.sub-page .glass-card ol,
+.sub-page .glass-card ul {
+    padding: 0.5em 0 0 2.5em;
+}
+
+.sub-page .glass-card h4,
+.sub-page .glass-card h5,
+.sub-page .glass-card h6 {
+    margin: 1.75em 0 0 0;
 }
 
 .card-footer {

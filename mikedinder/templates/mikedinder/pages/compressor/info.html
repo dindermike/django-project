@@ -25,6 +25,10 @@
                 <img src="{% static '/mikedinder/images/Compress2.png' %}" alt="Compress Logo" class="example-logo-image" />
             </div>
 
+            <p>
+                &emsp;Below is the bare minimum settings that will allow this package to work in both a Local and Production Environment where the Production Environment is Ubuntu with GUNICORN to serve up the Django Project and static files are stored on the actual Ubuntu Server and not some third-party like an AWS S3 Bucket or something. For third-party storages, you would need to adjust these settings to accommodate that storage system.
+            </p>
+
             <h4>Settings</h4>
             <p>
 <pre><code>INSTALLED_APPS = [
@@ -53,10 +57,9 @@ COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_OFFLINE_CONTEXT = {}</code></pre>
             </p>
 
-            <br /><br />
             <h4>Templates</h4>
 
-            <h6>base_1.html</h6>
+            <h5>base_1.html</h5>
             <p>
 <pre><code>{% verbatim %}&lt;head&gt;
     ...
@@ -73,7 +76,7 @@ COMPRESS_OFFLINE_CONTEXT = {}</code></pre>
 &lt;/body&gt;{% endverbatim %}</code></pre>
             </p>
 
-            <h6>info.html</h6>
+            <h5>info.html</h5>
             <p>
 <pre><code>{% verbatim %}{% block head_stylesheets %}
     {% compress css %}
@@ -95,19 +98,50 @@ COMPRESS_OFFLINE_CONTEXT = {}</code></pre>
 
             <div class="glow-rule" aria-hidden="true"></div>
 
-            <!-- <ul>
+            <p>
+                &emsp;When deploying to a Production Environment. The bare minimum commands that would have to be executed are shown below. This is assuming there are no added packages in your <code>requirements.txt</code> file and no drastic changes to your <code>settings.py</code> file either. Drastic could also mean 1 line of code depending on the type of setting that was changed.
+            </p>
+
+            <p>
+<pre><code>python manage.py collectstatic
+python manage.py compress
+</code></pre>
+            </p>
+
+            <p>
+                &emsp;You may have to do some troubleshooting from time to time if something is not updating. Often that means your manifest.json file is gunked up and simply removing that and re-running the compress command can do the trick. You can also attempt to force the compress command but that is generally for building in a local environment where compress is disabled by default. The reason we disable it in a local environment is so that when debugging and inspecting code, you can see what CSS file and what line number something appears on. Otherwise, everything will appear on line 1 of the output file, which is not helpful at all for debugging.
+            </p>
+
+            <p>
+<pre><code>sudo rm -rf static/CACHE/
+sudo rm -rf static/CACHE/css
+sudo rm -rf static/CACHE/js
+sudo rm -rf static/CACHE/manifest.json
+
+python manage.py compress --force
+</code></pre>
+            </p>
+
+            <p>
+                Below are some links to examples files in my source code, which is publicly available for you to look at.
+            </p>
+
+            <ul>
                 <li>
-                    <a href="{% url 'mikedinder:contact_form' %}" title="Mike Dinder Contact Form" aria-label="Mike Dinder Contact Form">Mike Dinder Contact Form</a> &mdash; Submit the form to reach out to Mike Dinder.
+                    <a href="https://github.com/dindermike/django-project/blob/main/.env.example" title="Environment File" aria-label="Environment File">Environment File</a> &mdash; This is the Example .env file. The real one should never be shared in a repo.
                 </li>
                 <li>
-                    <a href="{% url 'mikedinder:contact_success' %}" title="Mike Dinder Contact Form Success" aria-label="Mike Dinder Contact Form Success">Contact Form Success</a> &mdash; View the Success page that the user gets redirected to after the form has been submitted, this is not an email.
+                    <a href="https://github.com/dindermike/django-project/blob/main/requirements.txt#L5" title="Requirements File" aria-label="Requirements File">Requirements File</a> &mdash; Shows the package required for this to work. Some optional packages are also installed but not necessary.
                 </li>
                 <li>
-                    <a href="{% url 'mikedinder:contact_form_preview' %}" title="Contact Form New Submission Email" aria-label="Contact Form New Submission Email">New Submission Email</a> &mdash; View the email that gets sent to Mike Dinder when the form is submitted without actually submitting the form.
+                    <a href="https://github.com/dindermike/django-project/blob/main/settings.py#L183" title="Settings File" aria-label="Settings File">Settings File</a> &mdash; My settings.py file. Most of the required settings start on this line, but other parts of this file are also needed.
                 </li>
                 <li>
-                    <a href="{% url 'mikedinder:contact_user_preview' %}" title="Contact Form Thank You Email" aria-label="Contact Form Thank You Email">Thank You Email</a> &mdash; View the email that gets sent to the User when the form is submitted without actually submitting the form.
-                </li> -->
+                    <a href="https://github.com/dindermike/django-project/blob/main/mikedinder/templates/mikedinder/base/base_1.html" title="Base HTML Template" aria-label="Base HTML Template">Base HTML Template</a> &mdash; My base_1.html Base HTML Template File.
+                </li>
+                <li>
+                    <a href="https://github.com/dindermike/django-project/blob/main/mikedinder/templates/mikedinder/pages/compressor.html" title="Compressor Page Template" aria-label="Compressor Page Template">Compressor Page Template</a> &mdash; My compressor.html Compressor Page HTML Template
+                </li>
             </ul>
         </div>
     </div>
