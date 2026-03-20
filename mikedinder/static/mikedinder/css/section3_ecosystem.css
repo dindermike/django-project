@@ -103,7 +103,9 @@
     font-size: 0.875em;
     color: var(--text-secondary);
     line-height: 1.75;
+    text-align: justify;
     overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 /* Section background tint alternation */

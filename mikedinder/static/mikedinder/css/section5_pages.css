@@ -75,6 +75,12 @@
     display: block;
 }
 
+.page-card p {
+    text-align: justify;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
 /* Section background tint alternation */
 #pages {
     background: linear-gradient(180deg, transparent 0%, rgba(6, 18, 48, 0.4) 50%, transparent 100%);

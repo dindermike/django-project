@@ -98,6 +98,9 @@
     color: var(--text-secondary);
     font-size: 0.95em;
     line-height: 1.75;
+    text-align: justify;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .timeline-item ul {

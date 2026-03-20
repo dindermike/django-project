@@ -438,13 +438,13 @@ strong {
 .glass-card p {
     color: var(--text-secondary);
     line-height: 1.8;
+    text-align: justify;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .sub-page .glass-card p {
     margin: 1.75em 0 0.75em 0;
-    text-align: justify;
-    overflow-wrap: break-word;
-    hyphens: auto;
 }
 
 .glass-card pre {
