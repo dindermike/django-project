@@ -1,5 +1,8 @@
+calmjs.parse
 crispy-bootstrap5
+csscompressor
 Django==5.2
+django_compressor
 django-crispy-forms
 django-debug-toolbar
 django-environ
@@ -9,6 +12,7 @@ django-pylibmc
 django-rest-framework
 flake8
 gunicorn
+html5lib
 markdown
 Pillow
 python-dotenv

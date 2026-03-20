@@ -41,6 +41,7 @@ ALLOWED_HOSTS = [
 
 # Application Definition
 INSTALLED_APPS = [
+    # Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,11 +51,14 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.sites',
     'django.contrib.staticfiles',
+
+    # Third-Party Apps
+    'compressor',
     'fullurl',
     'rest_framework',
     'sorl.thumbnail',
 
-    # Django Internal Apps
+    # Internal Apps
     'mikedinder',
     'rest_api',
 ]
@@ -180,6 +184,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+# For File Compressing and Minifying
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+
+COMPRESS_ROOT = os.path.join(BASE_DIR, 'minify/')
+
+COMPRESS_OFFLINE_CONTEXT = {}
 
 # DEFAULT PRIMARY KEY FIELD TYPE
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

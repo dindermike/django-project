@@ -1,5 +1,5 @@
 {% extends 'mikedinder/base/base_1.html' %}
-{% load static %}
+{% load compress static %}
 
 {% comment %}<!-- META INFORMATION -->{% endcomment %}
 {% block page_title1 %}{{ title }}{% endblock %}
@@ -17,15 +17,19 @@
 
 {% comment %}<!-- ASSETS -->{% endcomment %}
 {% block head_stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/common.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/nav.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/hero.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section1_timeline.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/footer.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/pages/contact_form.css' %}" />
+    {% compress css %}
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/common.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/nav.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/hero.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section1_timeline.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/footer.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/pages/contact_form.css' %}" />
+    {% endcompress %}
 {% endblock %}
 {% block js_scripts %}
-    <script src="{% static '/mikedinder/js/theme.js' %}"></script>
+    {% compress js %}
+        <script src="{% static '/mikedinder/js/theme.js' %}"></script>
+    {% endcompress %}
 {% endblock %}
 
 {% comment %}<!-- PAGE SPECIFIC HEADER -->{% endcomment %}
