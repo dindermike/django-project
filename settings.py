@@ -184,6 +184,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+COMPRESS_STORAGE = STATICFILES_STORAGE
+
 # For File Compressing and Minifying
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
