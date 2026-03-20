@@ -61,9 +61,9 @@ class CompressorView(TemplateView):
         context['branded_title'] = 'Compressor'
         context['meta_description'] = 'Django Compressor - A history of Django Compressor and how it is used on this ' \
             'site.'
-        context['page_class'] = 'contact-info-page'
-        context['page_id'] = 'contact-info-page'
-        context['title'] = 'Django Forms: About Django Forms'
+        context['page_class'] = 'compress-info-page'
+        context['page_id'] = 'compress-info-page'
+        context['title'] = 'Django Compressor: About Django Compressor'
 
         return context
 

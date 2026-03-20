@@ -312,20 +312,22 @@
     // PARALLAX SCROLL
     // ——————————————————————————————————
     let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-        requestAnimationFrame(() => {
-            const scrollY = window.scrollY;
-            const heroContent = document.querySelector('.hero-content');
-            if (heroContent) {
-                heroContent.style.transform = `translateY(${scrollY * 0.15}px)`;
-                heroContent.style.opacity = Math.max(0, 1 - scrollY / 1500);
+    if (document.body.id === 'home-page') {
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                const heroContent = document.querySelector('.hero-content');
+                if (heroContent) {
+                    heroContent.style.transform = `translateY(${scrollY * 0.15}px)`;
+                    heroContent.style.opacity = Math.max(0, 1 - scrollY / 1500);
+                }
+                ticking = false;
+            });
+            ticking = true;
             }
-            ticking = false;
-        });
-        ticking = true;
-        }
-    }, { passive: true });
+        }, { passive: true });
+    }
 
     // ——————————————————————————————————
     // HERO COUNTER ANIMATION

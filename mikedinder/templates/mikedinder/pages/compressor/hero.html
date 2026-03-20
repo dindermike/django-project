@@ -1,0 +1,29 @@
+{% load static %}
+
+<!-- ==================== HERO ==================== -->
+<section id="hero" aria-labelledby="hero-heading">
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+        <div class="hero-badge" aria-label="Status: actively maintained">
+            <span class="dot" aria-hidden="true"></span>
+            ACTIVELY MAINTAINED &bull; EST. 2010
+        </div>
+
+        <h1 class="hero-title" id="hero-heading">
+            <span class="line1">DJANGO</span>
+            <span class="line2">COMPRESSOR</span>
+            <span class="line3">&mdash; About Django Compressor</span>
+        </h1>
+
+        <p class="hero-desc">
+            Django Compressor (<code>django_compressor</code>) is a popular Python library designed to process, combine, and minify linked and inline JavaScript and/or CSS within Django templates, effectively enabling far-future expiration dates for improved performance. Originating in 2010 from Andrea Pelme's <code>django-compress</code>, the library has evolved to support offline compression and various precompilers.
+            <br /><br />
+            <strong>v1.3 (2013):</strong> Dropped support for Python 2.5 and older Django settings, added precompiler class support for custom Python logic, and enhanced <code>CssAbsoluteFilter</code> to better handle hash fragments.
+            <br /><br />
+            <strong>v4.0+ (2014-Present):</strong> Added Python 3 compatibility and integration for Django 1.6+.
+
+            <strong>Core Functionality Evolution:</strong> It has evolved to support offline compression (via <code>COMPRESS_OFFLINE</code>) allowing assets to be compressed during deployment, creating a <code>manifest.json</code> file for superior production performance, according to the Django Compressor 2.4.1 documentation and usage docs.
+        </p>
+    </div>
+</section>

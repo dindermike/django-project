@@ -1,0 +1,114 @@
+{% load static %}
+
+<!-- ==================== SECTION 1: Compressor ==================== -->
+<section id="compress" class="timeline-section" aria-labelledby="compressor-heading">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-eyebrow" aria-label="Section 1">// SECTION 01</span>
+            <h2 class="section-title" id="compressor-heading">
+                <span class="stat-icon">
+                    <img src="{% static '/mikedinder/images/Compress.png' %}" alt="Compress Logo" class="stat-logo-image" />
+                </span>Example <span class="accent">Usage</span>
+            </h2>
+
+            <p class="section-subtitle">
+                Here are examples of how this is used in my project. The idea is that on a local/development environment, compression does not take place. But can easily be turned on via a single environment variable boolean to test it's functionality. On production this boolean is set to True, thus enabling it on Production and serving up the minified and consolidated assets. During deployment, one still has to run the <code>compress</code> management command in order to get new assets and should be included in any CI/CD Pipeline as well.
+            </p>
+        </div>
+
+        <!-- Restaurant Example -->
+        <div id="compressor-examples" class="glass-card fade-in" aria-label="Django Compressor Code Examples">
+            <h3 class="origin-header">
+                Django <span class="accent">Compressor</span>
+            </h3>
+            <div class="example-icon">
+                <img src="{% static '/mikedinder/images/Compress2.png' %}" alt="Compress Logo" class="example-logo-image" />
+            </div>
+
+            <h4>Settings</h4>
+            <p>
+<pre><code>INSTALLED_APPS = [
+    ...
+    'compressor',  # Must be before django.contrib.staticfiles
+    'django.contrib.staticfiles',
+    ...
+]
+
+...
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# For File Compressing and Minifying
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = env.bool('COMPRESS', default=False)
+COMPRESS_OFFLINE = env.bool('COMPRESS', default=False)
+
+COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_OFFLINE_CONTEXT = {}</code></pre>
+            </p>
+
+            <br /><br />
+            <h4>Templates</h4>
+
+            <h6>base_1.html</h6>
+            <p>
+<pre><code>{% verbatim %}&lt;head&gt;
+    ...
+    &lt;!-- CSS Import --&gt;
+    {% block head_stylesheets %}{% endblock %}
+    ...
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;!-- Body HTML Before JS --&gt;
+    ...
+    {% comment %}&lt;!-- JavaScript Import --&gt;{% endcomment %}
+    {% block js_scripts %}{% endblock %}
+&lt;/body&gt;{% endverbatim %}</code></pre>
+            </p>
+
+            <h6>info.html</h6>
+            <p>
+<pre><code>{% verbatim %}{% block head_stylesheets %}
+    {% compress css %}
+        &lt;link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/common.css' %}" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/nav.css' %}" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/hero.css' %}" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/section1_timeline.css' %}" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/footer.css' %}" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/pages/contact_info.css' %}" /&gt;
+    {% endcompress %}
+{% endblock %}
+
+{% block js_scripts %}
+    {% compress js %}
+        &lt;script src="{% static '/mikedinder/js/theme.js' %}"&gt;&lt;/script&gt;
+    {% endcompress %}
+{% endblock %}{% endverbatim %}</code></pre>
+            </p>
+
+            <div class="glow-rule" aria-hidden="true"></div>
+
+            <!-- <ul>
+                <li>
+                    <a href="{% url 'mikedinder:contact_form' %}" title="Mike Dinder Contact Form" aria-label="Mike Dinder Contact Form">Mike Dinder Contact Form</a> &mdash; Submit the form to reach out to Mike Dinder.
+                </li>
+                <li>
+                    <a href="{% url 'mikedinder:contact_success' %}" title="Mike Dinder Contact Form Success" aria-label="Mike Dinder Contact Form Success">Contact Form Success</a> &mdash; View the Success page that the user gets redirected to after the form has been submitted, this is not an email.
+                </li>
+                <li>
+                    <a href="{% url 'mikedinder:contact_form_preview' %}" title="Contact Form New Submission Email" aria-label="Contact Form New Submission Email">New Submission Email</a> &mdash; View the email that gets sent to Mike Dinder when the form is submitted without actually submitting the form.
+                </li>
+                <li>
+                    <a href="{% url 'mikedinder:contact_user_preview' %}" title="Contact Form Thank You Email" aria-label="Contact Form Thank You Email">Thank You Email</a> &mdash; View the email that gets sent to the User when the form is submitted without actually submitting the form.
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</section>

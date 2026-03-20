@@ -103,6 +103,7 @@
     font-size: 0.875em;
     color: var(--text-secondary);
     line-height: 1.75;
+    overflow-wrap: break-word;
 }
 
 /* Section background tint alternation */
