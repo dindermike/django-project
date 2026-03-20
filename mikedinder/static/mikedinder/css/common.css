@@ -347,6 +347,9 @@ h4 {
     color: var(--text-secondary);
     /* max-width: 680px; */
     line-height: 1.8;
+    text-align: justify;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .section-header {
@@ -439,10 +442,14 @@ strong {
 
 .sub-page .glass-card p {
     margin: 1.75em 0 0.75em 0;
+    text-align: justify;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .glass-card pre {
     margin: 0.75em 0 0.75em 1em;
+    overflow-x: scroll;
 }
 
 .sub-page .glass-card ol,
