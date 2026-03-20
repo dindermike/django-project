@@ -43,7 +43,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
     font-size: 16px;
 }
 
@@ -154,7 +154,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, var(--cyan), var(--teal));
     border-radius: 99px;
-    animation: loadBar 2.2s ease-in-out forwards;
+    animation: loadBar 1s ease-in-out forwards;
     box-shadow: 0 0 12px var(--cyan);
 }
 
@@ -658,6 +658,11 @@ form .submit-btn:active,
 form .submit-btn:focus {
     background: var(--cyan) !important;
     color: var(--space-black) !important;
+}
+
+form label.is-required::before {
+    content: '*';
+    color: #FF0000;
 }
 
 form .asterisk {

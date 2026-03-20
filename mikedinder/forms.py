@@ -10,6 +10,8 @@ class ContactForm(forms.Form):
     """
     Contact Mike Dinder Form
     """
+    error_css_class = 'is-invalid'
+    required_css_class = 'is-required'
 
     # Regex breakdown: 
     # \( and \): literal parentheses

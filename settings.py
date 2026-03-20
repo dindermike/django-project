@@ -195,8 +195,8 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
+COMPRESS_ENABLED = env.bool('COMPRESS', default=False)
+COMPRESS_OFFLINE = env.bool('COMPRESS', default=False)
 
 COMPRESS_ROOT = STATIC_ROOT
 

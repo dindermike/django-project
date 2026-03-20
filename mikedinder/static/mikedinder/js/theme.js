@@ -6,9 +6,11 @@
     // ——————————————————————————————————
     window.addEventListener('load', () => {
         setTimeout(() => {
-        const loader = document.getElementById('loader');
-        if (loader) loader.classList.add('loaded');
-        }, 2400);
+            const loader = document.getElementById('loader');
+            if (loader) loader.classList.add('loaded');
+
+            all_loaded();
+        }, 500);
     });
 
     // ——————————————————————————————————
@@ -394,5 +396,47 @@
             var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
             e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
         });
+    }
+
+    // ——————————————————————————————————
+    // ALL ASSETS LOADED
+    // ——————————————————————————————————
+    function all_loaded() {
+        // ——————————————————————————————————
+        // FORM ERRORS PRESENT - SCROLL TO ERROR
+        // ——————————————————————————————————
+        if (document.body.classList.contains('has-form-errors')) {
+            // Find the first error element or error list with a Django error class
+            const firstError = document.querySelector('.is-invalid, .errorlist, .error-message');
+
+            if (firstError) {
+                const targetPosition = firstError.getBoundingClientRect().top + window.pageYOffset - 100; // 100px offset for header
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                let startTime = null;
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+
+                    // Quadratic easing (optional, for a smoother feel)
+                    const run = ease(timeElapsed, startPosition, distance, 1000);
+
+                    window.scrollTo(0, run);
+
+                    if (timeElapsed < 1000) requestAnimationFrame(animation);
+                }
+
+                // Simple Easing Function (Ease In Out Quad)
+                function ease(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+
+                requestAnimationFrame(animation);
+            }
+        }
     }
 })();

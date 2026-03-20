@@ -63,7 +63,7 @@
         <a class="skip-link" href="#main-content">Skip to Main Content</a>
     </head>
 
-    <body id="{% block page_id %}{% endblock %}" class="{% block page_class %}base-template-1{% endblock %}">
+    <body id="{% block page_id %}{% endblock %}" class="{% block page_class %}base-template-1{% endblock %}{% if form.errors %} has-form-errors{% endif %}">
         {% comment %}<!-- SKIP LINK is in <head> already via CSS -->{% endcomment %}
 
         {% block site_container %}
