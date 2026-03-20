@@ -18,6 +18,7 @@ Including another URLconf
 from django.urls import path
 
 from mikedinder.views import (
+    CompressorView,
     ContactFormView,
     ContactFormInfoView,
     ContactSuccessView,
@@ -31,10 +32,11 @@ app_name = 'mikedinder'
 
 
 urlpatterns = [
-    path('',                LandingView.as_view(),         name='home'            ),
-    path('contact/',        ContactFormView.as_view(),     name='contact_form'    ),
-    path('contact/thanks/', ContactSuccessView.as_view(),  name='contact_success' ),
-    path('contact/info/',   ContactFormInfoView.as_view(), name='contact_infopage'),
+    path('',                   LandingView.as_view(),         name='home'),
+    path('contact/',           ContactFormView.as_view(),     name='contact_form'),
+    path('contact/thanks/',    ContactSuccessView.as_view(),  name='contact_success'),
+    path('contact/info/',      ContactFormInfoView.as_view(), name='contact_infopage'),
+    path('django-compressor/', CompressorView.as_view(),      name='django_compressor'),
 ]
 
 # Email Preview Pages

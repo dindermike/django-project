@@ -1,6 +1,4 @@
 from django.http import JsonResponse
-from django.views.generic import TemplateView
-from django.views.generic.base import RedirectView
 from rest_framework.views import APIView
 
 from .models import Restaurant

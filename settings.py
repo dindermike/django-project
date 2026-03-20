@@ -167,7 +167,7 @@ CONTACT_RECIPIENT_EMAIL = 'mike@mikedinder.com'  # Where Contact Form Submission
 CACHES = {
     'default': {
         'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
-        'LOCATION': '127.0.0.1:11211', # Default memcached location
+        'LOCATION': '127.0.0.1:11211',  # Default memcached location
         'TIMEOUT': 500,
         'BINARY': True,
         'OPTIONS': {  # Maps to pylibmc "behaviors"

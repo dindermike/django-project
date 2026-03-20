@@ -1,9 +1,5 @@
 from django import forms
-from django.contrib.sites.models import Site
-from django.core.mail import EmailMessage
 from django.core.validators import RegexValidator
-from django.template.loader import get_template
-from django.utils.safestring import mark_safe
 
 
 class ContactForm(forms.Form):
@@ -13,7 +9,7 @@ class ContactForm(forms.Form):
     error_css_class = 'is-invalid'
     required_css_class = 'is-required'
 
-    # Regex breakdown: 
+    # Regex breakdown:
     # \( and \): literal parentheses
     # \d{3}: exactly 3 digits
     # \s: a single space

@@ -49,6 +49,25 @@ def preview_contact_user_email(request):
     return render(request, 'mikedinder/emails/contact_user_email.html', context)
 
 
+class CompressorView(TemplateView):
+    """
+    Django Compressor Info Page
+    """
+    template_name = 'mikedinder/pages/compressor.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['branded_title'] = 'Compressor'
+        context['meta_description'] = 'Django Compressor - A history of Django Compressor and how it is used on this ' \
+            'site.'
+        context['page_class'] = 'contact-info-page'
+        context['page_id'] = 'contact-info-page'
+        context['title'] = 'Django Forms: About Django Forms'
+
+        return context
+
+
 class ContactFormView(FormView):
     template_name = 'mikedinder/pages/contact_form.html'
     form_class = ContactForm

@@ -1,6 +1,6 @@
 {% load static %}
 
-<!-- ==================== SECTION 5: PAGES ==================== -->
+<!-- ==================== SECTION 5: EXPLORE ==================== -->
 <section id="pages" aria-labelledby="pages-heading">
     <div class="container">
         <div class="section-header fade-in">
@@ -27,7 +27,7 @@
                     View various API endpoints developed to demonstrate Mike's abilities and the capabilities of the Django REST Framework.
                 </p>
 
-                <span class="page-url">/rest_api/examples</span>
+                <span class="page-url">/rest_api/examples/</span>
             </a>
 
             <a href="{% url 'mikedinder:contact_infopage' %}" class="page-card fade-in" aria-label="Contact Mike Dinder">
@@ -41,7 +41,21 @@
                     This is my Contact Form submission. It is a fully functional contact form that will generate two separate emails. First email is to me and the second email is to you, the person who submitted the form that includes a thank you message.
                 </p>
 
-                <span class="page-url">/contact</span>
+                <span class="page-url">/contact/</span>
+            </a>
+
+            <a href="{% url 'mikedinder:contact_infopage' %}" class="page-card fade-in" aria-label="Contact Mike Dinder">
+                <div class="page-card-icon">
+                    <img src="{% static '/mikedinder/images/Form2.png' %}" alt="Form Logo" class="card-logo-image" />
+                </div>
+
+                <h3>Django Forms</h3>
+
+                <p class="page-lorem">
+                    This is my Contact Form submission. It is a fully functional contact form that will generate two separate emails. First email is to me and the second email is to you, the person who submitted the form that includes a thank you message.
+                </p>
+
+                <span class="page-url">/django-compressor/</span>
             </a>
 
             <!-- <a href="/tutorials/getting-started" class="page-card fade-in" aria-label="Getting Started with Django tutorial">

@@ -22,7 +22,7 @@ class RESTExamplesView(TemplateView):
 
 
 class RESTExamplesViewRedirectView(RedirectView):
-    permanent    = True
+    permanent = True
     query_string = False
     pattern_name = 'rest_api:rest_examples'
 
