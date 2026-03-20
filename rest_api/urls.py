@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.urls import path, re_path
 
-from rest_api.views import RESTExamplesView, RESTExamplesViewRedirectView
+from rest_api.views import (
+    RESTExamplesView,
+    # RESTExamplesViewRedirectView,
+)
 
 
 app_name = 'rest_api'

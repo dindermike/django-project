@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.urls import path
 
-from rest_api.views import RestaurantSearchView
+from rest_api.api_views import RestaurantSearchView
 
 
-app_name = 'v1'
+app_name = 'rest_api_v1'
 
 
 urlpatterns = [

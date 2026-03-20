@@ -17,7 +17,7 @@ class RestaurantsTestCase(TestCase):
         Import the CSV File to Seed the Test Database
         """
         # Real world scenario, I would want to use fixtures instead. This is a sloppy way of loading data in Django
-        call_command('load_restaurants', '--path=app/raw_data/restaurants.csv', verbosity=0)
+        call_command('load_restaurants', '--path=raw_data/restaurants.csv', verbosity=0)
 
     def setUp(self):
         """
@@ -36,7 +36,7 @@ class RestaurantsTestCase(TestCase):
             'Mez Mexican',
             'Tupelo Honey'
         ]
-        url = reverse('restaurant-search', query={'datetime': '2026-02-14 10:30'})
+        url = reverse('rest_api_v1:restaurant-search', query={'datetime': '2026-02-14 10:30'})
         response = self.client.get(url)
         data = response.json()
 
@@ -101,7 +101,7 @@ class RestaurantsTestCase(TestCase):
             "Whiskey Kitchen",
             "Yard House"
         ]
-        url = reverse('restaurant-search', query={'datetime': '2026-02-14 15:30'})
+        url = reverse('rest_api_v1:restaurant-search', query={'datetime': '2026-02-14 15:30'})
         response = self.client.get(url)
         data = response.json()
 
@@ -136,7 +136,7 @@ class RestaurantsTestCase(TestCase):
             "Taverna Agora",
             "The Cheesecake Factory"
         ]
-        url = reverse('restaurant-search', query={'datetime': '2026-02-14 23:30'})
+        url = reverse('rest_api_v1:restaurant-search', query={'datetime': '2026-02-14 23:30'})
         response = self.client.get(url)
         data = response.json()
 
@@ -162,7 +162,7 @@ class RestaurantsTestCase(TestCase):
         Test Successful GET Request to the Search Restaurant Endpoint.
         Thursday 5:30 (5:30am) - Expected Zero Results, Nothing Open
         """
-        url = reverse('restaurant-search', query={'datetime': '2026-02-12 5:30'})
+        url = reverse('rest_api_v1:restaurant-search', query={'datetime': '2026-02-12 5:30'})
         response = self.client.get(url)
         data = response.json()
 
@@ -190,8 +190,8 @@ class RestaurantsTestCase(TestCase):
             "Seoul 116",
             "The Cheesecake Factory"
         ]
-        url = reverse('restaurant-search', query={'datetime': '2026-02-15 0:25'})
-        response = self.client.get(url)
+        url = reverse('rest_api_v1:restaurant-search', query={'datetime': '2026-02-15 0:25'})
+        response = self.client.get(url, HTTP_ACCEPT='application/json')
         data = response.json()
 
         # Assert Response Status Code
@@ -215,7 +215,7 @@ class RestaurantsTestCase(TestCase):
         """
         Test Failed GET Request to the Search Restaurant Endpoint.
         """
-        url = reverse('restaurant-search')
+        url = reverse('rest_api_v1:restaurant-search')
         response = self.client.get(url)
         data = response.json()
 
@@ -232,7 +232,7 @@ class RestaurantsTestCase(TestCase):
         """
         Test Failed GET Request to the Search Restaurant Endpoint. Invalid Parameter Entered
         """
-        url = reverse('restaurant-search', query={'datetime': 'alf-02-15 0:25'})
+        url = reverse('rest_api_v1:restaurant-search', query={'datetime': 'alf-02-15 0:25'})
         response = self.client.get(url)
         data = response.json()
 
