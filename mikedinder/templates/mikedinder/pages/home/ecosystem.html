@@ -491,6 +491,28 @@
                 </div>
             </div>
 
+            <div class="eco-card" data-category="packages" role="listitem">
+                <div class="eco-card-header">
+                    <div class="eco-icon">
+                        <a class="logo-link" href="https://django-compressor.readthedocs.io/en/stable/" target="_blank" title="django-compressor Website" aria-label="django-compressor Website">
+                            <img src="{% static '/mikedinder/images/Compress.png' %}" alt="Compress Logo" class="eco-logo-image" />
+                        </a>
+                    </div>
+                    <div>
+                        <h3>django_compressor</h3>
+                        <span class="eco-tag">PACKAGES &bull; COMPRESSION/MINIFICATION</span>
+                    </div>
+                </div>
+
+                <p>
+                    <code>django_compressor</code> Compresses linked and inline JavaScript or CSS into a single cached file. Django Compressor doesn't care if different pages use different combinations of statics. It doesn't care if you use inline scripts or styles. It doesn't get in the way. In your templates, all HTML code between the tags <code>{% verbatim %}{% compress js/css %}{% endverbatim %}</code> and <code>{% verbatim %}{% endcompress %}{% endverbatim %}</code> is parsed and searched for CSS or JS. These styles and scripts are subsequently processed with optional, configurable compilers and filters. The default filter for CSS rewrites paths to static files to be absolute. Both Javascript and CSS files are by default concatenated and minified. As the final step the template tag outputs a <code>{% verbatim %}&lt;script&gt;{% endverbatim %}</code> or <code>{% verbatim %}&lt;link&gt;{% endverbatim %}</code> tag pointing to the optimized file. Alternatively it can also inline the resulting content into the original template directly. The management command <code>python manage.py compress</code> is then used during deployment to compress all files.
+                </p>
+
+                <div class="card-footer">
+                    <span class="tag">Compress</span><span class="tag">Minify</span><span class="tag">Management Cmds</span>
+                </div>
+            </div>
+
             <!-- DATABASES -->
             <div class="eco-card" data-category="databases" role="listitem">
                 <div class="eco-card-header">
