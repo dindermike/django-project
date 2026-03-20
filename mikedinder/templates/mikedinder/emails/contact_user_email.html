@@ -20,7 +20,7 @@
                             {% include "mikedinder/emails/contact_header.html" with title="Thank You!" %}
 
                             {% comment %}<!-- CONTACT EMAIL BODY CONTENT -->{% endcomment %}
-                            {% include "mikedinder/emails/contact_body.html" with body_text="I have received your information and I will review your form submission within the next 1-2 business days and respond accordingly. I look forward to hearing what you have to say and/or working with you at your company or on your next project.<br /><br />Below you can view the information that you sent to me.<br /><br />" %}
+                            {% include "mikedinder/emails/contact_body.html" with body_text="I have received your information and I will review your form submission within the next 1-2 business days and respond accordingly. I look forward to hearing what you have to say and/or working with you at your company or on your next project.<br /><br />Below you can view the information that you sent to me.<br /><br />" subject="" %}
 
                             {% comment %}<!-- GENERAL EMAIL FOOTER -->{% endcomment %}
                             {% include "mikedinder/emails/footer.html" %}

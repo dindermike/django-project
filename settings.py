@@ -45,12 +45,13 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django_extensions',
     'django.contrib.messages',
     'django.contrib.postgres',
     'django.contrib.sessions',
     'django.contrib.sitemaps',
     'django.contrib.sites',
-    'compressor',
+    'compressor',  # Must be before django.contrib.staticfiles
     'django.contrib.staticfiles',
 
     # Third-Party Apps

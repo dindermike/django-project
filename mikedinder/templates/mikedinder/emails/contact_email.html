@@ -20,7 +20,7 @@
                             {% include "mikedinder/emails/contact_header.html" with title="New Contact Form Submission" %}
 
                             {% comment %}<!-- CONTACT EMAIL BODY CONTENT -->{% endcomment %}
-                            {% include "mikedinder/emails/contact_body.html" with body_text="There is a new Contact Form Submission for you to review!" %}
+                            {% include "mikedinder/emails/contact_body.html" with body_text="There is a new Contact Form Submission for you to review!" subject="Reply From Mike Dinder" %}
 
                             {% comment %}<!-- GENERAL EMAIL FOOTER -->{% endcomment %}
                             {% include "mikedinder/emails/footer.html" %}
