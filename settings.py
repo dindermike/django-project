@@ -39,6 +39,8 @@ ALLOWED_HOSTS = [
     'django.mikedinder.com'  # Production URL
 ]
 
+SITE_ID = 1
+
 # Application Definition
 INSTALLED_APPS = [
     # Django Apps
