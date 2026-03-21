@@ -1,4 +1,8 @@
 /* Examples Page Only Styles */
-#rest_examples-page {
-    
+
+/* 480px — Phone */
+@media (max-width: 480px) {
+    #rest_examples-page.sub-page .example-icon {
+        top: 3em
+    }
 }

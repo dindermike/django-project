@@ -18,14 +18,19 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
+    # Redirect Default Favicon Path
+    path('favicon.ico', RedirectView.as_view(url='/static/mikedinder/images/favicon.ico')),
+
     # App URLs Imports
     path('', include('mikedinder.urls')),
+    # path('gallery/', include('gallery.urls', namespace='gallery')),
     path('rest_api/', include('rest_api.urls')),  # REST APP Static Pages
     path('rest_api/v1/', include('rest_api.api_urls', namespace='v1')),  # REST APP Endpoints (Versioned)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
