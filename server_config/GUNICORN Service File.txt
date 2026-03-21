@@ -8,11 +8,11 @@ User=www-data
 Group=www-data
 WorkingDirectory=/var/www/django
 ExecStart=/var/www/django/venv/bin/gunicorn \
-          --access-logfile /var/log/gunicorn/django-access.log \
-          --error-logfile /var/log/gunicorn/django-error.log \
-          --workers 3 \
-          --bind unix:/run/gunicorn-django.sock \
-          wsgi:application
+    --access-logfile /var/log/gunicorn/django-access.log \
+    --error-logfile /var/log/gunicorn/django-error.log \
+    --workers 3 \
+    --bind unix:/run/gunicorn-django.sock \
+    wsgi:application
 
 [Install]
 WantedBy=multi-user.target

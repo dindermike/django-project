@@ -7,7 +7,7 @@ server {
     access_log /var/log/nginx/django.access.log;
     error_log  /var/log/nginx/django.error.log;
 
-    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /static/mikedinder/images/favicon.ico { access_log off; log_not_found off; }
 
     location /static/ {
         root /var/www/django;
@@ -15,6 +15,9 @@ server {
 
     location /media/ {
         root /var/www/django;
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
+        access_log off;
     }
 
     location / {
@@ -24,15 +27,18 @@ server {
 }
 
 server {
-    listen 443 ssl; # managed by Certbot
+    listen 443 ssl;
     server_name django.mikedinder.com;
 
-    ssl_certificate /etc/letsencrypt/live/django.mikedinder.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/django.mikedinder.com/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    ssl_certificate {{ ssl_cert_path }};
+    ssl_certificate_key {{ ssl_key_path }};
+    include {{ ssl_options_path }};
+    ssl_dhparam {{ ssl_dhparams_path }};
 
-    location = /favicon.ico { access_log off; log_not_found off; }
+    # Set a maximum body size for file uploads
+    client_max_body_size 100M;
+
+    location = /static/mikedinder/images/favicon.ico { access_log off; log_not_found off; }
 
     location /static/ {
         root /var/www/django;
@@ -40,6 +46,9 @@ server {
 
     location /media/ {
         root /var/www/django;
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
+        access_log off;
     }
 
     location / {

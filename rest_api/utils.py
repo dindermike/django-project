@@ -2,7 +2,7 @@ import re
 
 from datetime import datetime
 
-from .models import Restaurant
+from rest_api.models import Restaurant
 
 
 class RestaurantSearchService:

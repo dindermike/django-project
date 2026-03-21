@@ -1,8 +1,8 @@
 from django.http import JsonResponse
 from rest_framework.views import APIView
 
-from .models import Restaurant
-from .utils import RestaurantSearchService
+from rest_api.models import Restaurant
+from rest_api.utils import RestaurantSearchService
 
 
 class RestaurantSearchView(APIView):

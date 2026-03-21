@@ -1,0 +1,61 @@
+{% extends "gallery/base.html" %}
+
+{% block title %}Upload Image{% endblock %}
+
+{% block extra_head %}
+<style>
+  body { font-family: Georgia, serif; background: #0f0f0f; color: #f0ede8; }
+  .upload-wrap {
+    max-width: 560px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #1a1815;
+    border: 1px solid #2e2a26;
+    border-radius: 6px;
+  }
+  h1 { font-size: 1.75rem; font-weight: 400; margin-bottom: 1.5rem; letter-spacing: .06em; }
+  label { display: block; margin-bottom: .3rem; font-size: .875rem; color: #9a9087; }
+  input[type=text], input[type=date], textarea, input[type=number] {
+    width: 100%; padding: .6rem .75rem;
+    background: #0f0f0f; border: 1px solid #3a3530;
+    border-radius: 4px; color: #f0ede8; font-size: .9rem;
+    margin-bottom: 1rem;
+  }
+  textarea { min-height: 100px; resize: vertical; }
+  input[type=file] { margin-bottom: 1rem; color: #c8bfb5; }
+  .errorlist { color: #f87171; list-style: none; padding: 0; font-size: .82rem; margin-top: -.75rem; margin-bottom: .75rem; }
+  button {
+    padding: .65rem 1.5rem; background: #c8bfb5; color: #0f0f0f;
+    border: none; border-radius: 4px; cursor: pointer; font-size: .9rem;
+  }
+  button:hover { background: #f0ede8; }
+  .back-link { display: block; margin-top: 1rem; color: #6b6560; text-decoration: none; font-size: .85rem; }
+  .back-link:hover { color: #9a9087; }
+</style>
+{% endblock %}
+
+{% block content %}
+  <div class="upload-wrap">
+    <h1>Upload Image</h1>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      {% for field in form %}
+        <label for="{{ field.id_for_label }}">
+          {{ field.label }}{% if field.field.required %} *{% endif %}
+        </label>
+        {{ field }}
+        {% if field.errors %}
+          <ul class="errorlist">
+            {% for error in field.errors %}<li>{{ error }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+      {% endfor %}
+
+      <button type="submit">Upload</button>
+    </form>
+
+    <a href="{% url 'gallery:gallery' %}" class="back-link">← Back to gallery</a>
+  </div>
+{% endblock %}

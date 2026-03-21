@@ -4,3 +4,4 @@ from django.apps import AppConfig
 class RESTAPIConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'rest_api'
+    verbose_name = 'Mike Dinder REST API App'

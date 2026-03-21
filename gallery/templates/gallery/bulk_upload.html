@@ -1,0 +1,51 @@
+{% extends "gallery/base.html" %}
+
+{% block title %}Bulk Upload{% endblock %}
+
+{% block extra_head %}
+<style>
+  body { font-family: Georgia, serif; background: #0f0f0f; color: #f0ede8; }
+  .upload-wrap {
+    max-width: 520px; margin: 3rem auto; padding: 2rem;
+    background: #1a1815; border: 1px solid #2e2a26; border-radius: 6px;
+  }
+  h1 { font-size: 1.75rem; font-weight: 400; margin-bottom: .5rem; letter-spacing: .06em; }
+  .note { color: #9a9087; font-size: .875rem; margin-bottom: 1.5rem; font-style: italic; }
+  label { display: block; margin-bottom: .4rem; font-size: .875rem; color: #9a9087; }
+  input[type=file] { margin-bottom: 1.25rem; color: #c8bfb5; }
+  button {
+    padding: .65rem 1.5rem; background: #c8bfb5; color: #0f0f0f;
+    border: none; border-radius: 4px; cursor: pointer; font-size: .9rem;
+  }
+  button:hover { background: #f0ede8; }
+  .back-link { display: block; margin-top: 1rem; color: #6b6560; text-decoration: none; font-size: .85rem; }
+  .back-link:hover { color: #9a9087; }
+  #file-count { margin-top: .5rem; font-size: .82rem; color: #9a9087; }
+</style>
+{% endblock %}
+
+{% block content %}
+  <div class="upload-wrap">
+    <h1>Bulk Upload</h1>
+    <p class="note">Select multiple images. Metadata can be added afterwards via the Admin panel.</p>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div id="file-count"></div>
+      <button type="submit">Upload all</button>
+    </form>
+
+    <a href="{% url 'gallery:gallery' %}" class="back-link">← Back to gallery</a>
+  </div>
+
+  <script>
+    const input = document.querySelector('input[type=file]');
+    const count = document.getElementById('file-count');
+    input && input.addEventListener('change', () => {
+      count.textContent = input.files.length
+        ? `${input.files.length} file(s) selected`
+        : '';
+    });
+  </script>
+{% endblock %}

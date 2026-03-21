@@ -2,6 +2,7 @@ calmjs.parse
 crispy-bootstrap5
 csscompressor
 Django==5.2
+django-cleanup
 django_compressor
 django-crispy-forms
 django-debug-toolbar

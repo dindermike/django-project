@@ -1,0 +1,40 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block pretitle %}
+    <h1>Upload Multiple Images</h1>
+{% endblock %}
+
+{% block content %}
+  <div id="content-main">
+    <p style="color:#666;margin-bottom:1rem;">
+      Select multiple images. You can add metadata to each image afterwards in the standard edit view.
+    </p>
+
+    {% if cl.formset and cl.formset.errors %}
+        <p class="errornote">
+          {% blocktranslate count counter=cl.formset.total_error_count %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktranslate %}
+        </p>
+
+        {{ cl.formset.non_form_errors }}
+    {% endif %}
+
+    <div class="module{% if cl.has_filters %} filtered{% endif %}" id="changelist">
+      <div class="changelist-form-container">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+        
+          <div style="margin-bottom:1rem;">
+            <label><strong>Images</strong></label><br />
+            {{ form.images }}
+            {% comment %}<!-- <input type="file" name="{{ form.images.name }}" allow_multiple_selected="" required id="{{ form.images.id_for_label }}"> -->{% endcomment %}
+          </div>
+
+          <input type="submit" value="Upload images" class="default" />
+
+          <a href="../" style="margin-left:1rem;">&larr; Back to image list</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

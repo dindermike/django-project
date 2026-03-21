@@ -62,8 +62,11 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
 
     # Internal Apps
+    'gallery',
     'mikedinder',
     'rest_api',
+
+    'django_cleanup.apps.CleanupConfig',  # Must Come AFTER Apps with ImageField, Put Last to be Safe
 ]
 
 MIDDLEWARE = [
@@ -82,10 +85,11 @@ ROOT_URLCONF = 'urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -203,6 +207,13 @@ COMPRESS_OFFLINE = env.bool('COMPRESS', default=False)
 COMPRESS_ROOT = STATIC_ROOT
 
 COMPRESS_OFFLINE_CONTEXT = {}
+
+# IMAGE PROCESSING
+DATA_UPLOAD_MAX_NUMBER_FILES = 100  # If you upload many small files
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 100  # The maximum number of parameters that may be received via GET or POST
+DATA_UPLOAD_MAX_MEMORY_SIZE = 20971520   # 20 MB per request, if you upload one massive file
+FILE_UPLOAD_MAX_MEMORY_SIZE = 20971520   # 20 MB per file, threshold for how uploaded files are handled internally
+
 
 # DEFAULT PRIMARY KEY FIELD TYPE
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
