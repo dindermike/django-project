@@ -17,6 +17,18 @@ class GalleryView(ListView):
     context_object_name = 'images'
     queryset = Image.objects.all()
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['branded_title'] = 'Gallery'
+        context['meta_description'] = 'Mike Dinder Gallery - A personal photo gallery page to demonstrate image ' \
+            'upload capabilities.'
+        context['page_class'] = 'gallery-page'
+        context['page_id'] = 'gallery-page'
+        context['title'] = 'Gallery: Example Photo Gallery'
+
+        return context
+
 
 class ImageUploadView(CreateView):
     """
