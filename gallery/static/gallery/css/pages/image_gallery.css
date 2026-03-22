@@ -1,0 +1,51 @@
+/* Image Gallery Page Only Styles */
+#gallery-page .gallery-header {
+    text-align: center;
+    padding: 3em 1em 1.5em;
+}
+
+#gallery-page .gallery-header h1 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(2em, 5vw, 3.5em);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #f0ede8;
+}
+
+#gallery-page .gallery-header p {
+    margin-top: 0.5em;
+    color: #9a9087;
+    font-style: italic;
+}
+
+#gallery-page .upload-links {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 0.75em 1em 2em;
+}
+
+#gallery-page .upload-links a {
+    padding: 0.5em 1.25em;
+    border: 1px solid #4a4540;
+    border-radius: 3px;
+    color: #c8bfb5;
+    text-decoration: none;
+    font-size: 0.875em;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, color 0.2s;
+}
+
+#gallery-page .upload-links a:hover {
+    background: #2a2520;
+    color: #f0ede8;
+}
+
+#gallery-page #slider {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}

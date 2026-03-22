@@ -1,0 +1,51 @@
+{% load static %}
+
+<div class="gallery-header">
+    <h1>Gallery</h1>
+    {% if images %}<p>{{ images|length }} image{{ images|length|pluralize }}</p>{% endif %}
+</div>
+
+{% if debug %}
+    <nav class="upload-links">
+        <a href="{% url 'gallery:upload' %}">+ Upload image</a>
+        <a href="{% url 'gallery:bulk_upload' %}">+ Bulk upload</a>
+    </nav>
+{% endif %}
+
+{% if images %}
+    <div id="slider">
+        <div class="slides-container">
+            {% for img in images %}
+                <div class="slide">
+                    <img src="{{ img.image.url }}" alt="{{ img.title|default:'Gallery image' }}" loading="lazy" />
+
+                    {% if img.title or img.subtitle or img.date or img.location %}
+                        <div class="slide-caption">
+                            {% if img.title %}
+                                <div class="title">{{ img.title }}</div>
+                            {% endif %}
+
+                            {% if img.subtitle %}
+                                <div class="subtitle">{{ img.subtitle }}</div>
+                            {% endif %}
+
+                            {% if img.date or img.location %}
+                                <div class="meta">
+                                    {% if img.date %}{{ img.date|date:"F j, Y" }}{% endif %}
+                                    {% if img.date and img.location %} &mdash; {% endif %}
+                                    {% if img.location %}{{ img.location }}{% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% else %}
+    <div class="empty-state">
+        <p>
+            No images yet. <a href="{% url 'gallery:upload' %}" style="color: #c8bfb5;">Upload the first one.</a>
+        </p>
+    </div>
+{% endif %}

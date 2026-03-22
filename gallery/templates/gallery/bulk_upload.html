@@ -1,51 +1,55 @@
-{% extends "gallery/base.html" %}
+{% extends 'mikedinder/base/base_1.html' %}
+{% load compress static %}
 
-{% block title %}Bulk Upload{% endblock %}
+{% comment %}<!-- META INFORMATION -->{% endcomment %}
+{% block page_title1 %}{{ title }}{% endblock %}
+{% block page_title2 %}{{ title }}{% endblock %}
+{% block page_title3 %}{{ title }}{% endblock %}
+{% block page_id %}{{ page_id }}{% endblock %}
+{% block page_class %}{{ block.super }} {{ page_class }} sub-page image-upload-page{% endblock %}
+{% block meta_description1 %}{{ meta_description }}{% endblock %}
+{% block meta_description2 %}{{ meta_description }}{% endblock %}
+{% block meta_description3 %}{{ meta_description }}{% endblock %}
+{% block social_img1 %}{% static '/gallery/images/Upload.png' %}{% endblock %}
+{% block social_img2 %}{% static '/gallery/images/Upload.png' %}{% endblock %}
+{% block social_img3 %}{% static '/gallery/images/Upload.png' %}{% endblock %}
+{% block social_url %}{{ request.path }}{% endblock %}
 
-{% block extra_head %}
-<style>
-  body { font-family: Georgia, serif; background: #0f0f0f; color: #f0ede8; }
-  .upload-wrap {
-    max-width: 520px; margin: 3rem auto; padding: 2rem;
-    background: #1a1815; border: 1px solid #2e2a26; border-radius: 6px;
-  }
-  h1 { font-size: 1.75rem; font-weight: 400; margin-bottom: .5rem; letter-spacing: .06em; }
-  .note { color: #9a9087; font-size: .875rem; margin-bottom: 1.5rem; font-style: italic; }
-  label { display: block; margin-bottom: .4rem; font-size: .875rem; color: #9a9087; }
-  input[type=file] { margin-bottom: 1.25rem; color: #c8bfb5; }
-  button {
-    padding: .65rem 1.5rem; background: #c8bfb5; color: #0f0f0f;
-    border: none; border-radius: 4px; cursor: pointer; font-size: .9rem;
-  }
-  button:hover { background: #f0ede8; }
-  .back-link { display: block; margin-top: 1rem; color: #6b6560; text-decoration: none; font-size: .85rem; }
-  .back-link:hover { color: #9a9087; }
-  #file-count { margin-top: .5rem; font-size: .82rem; color: #9a9087; }
-</style>
+{% comment %}<!-- ASSETS -->{% endcomment %}
+{% block head_stylesheets %}
+    {% compress css %}
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/common.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/nav.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/hero.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/footer.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/gallery/css/pages/image_upload.css' %}" />
+    {% endcompress %}
+{% endblock %}
+{% block js_scripts %}
+    {% compress js %}
+        <script src="{% static '/mikedinder/js/theme.js' %}"></script>
+    {% endcompress %}
 {% endblock %}
 
-{% block content %}
-  <div class="upload-wrap">
-    <h1>Bulk Upload</h1>
-    <p class="note">Select multiple images. Metadata can be added afterwards via the Admin panel.</p>
+{% comment %}<!-- PAGE SPECIFIC HEADER -->{% endcomment %}
+{% block header %}
+    {% include "mikedinder/common/header.html" with branded_title=branded_title %}
+{% endblock %}
 
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <div id="file-count"></div>
-      <button type="submit">Upload all</button>
-    </form>
+{% comment %}<!-- BODY CONTENT -->{% endcomment %}
+{% block body_content %}
+    {% comment %}<!-- HERO SECTION -->{% endcomment %}
+    {% include "gallery/pages/bulk_upload/hero.html" %}
 
-    <a href="{% url 'gallery:gallery' %}" class="back-link">← Back to gallery</a>
-  </div>
+    <div class="section-divider" aria-hidden="true"></div>
 
-  <script>
-    const input = document.querySelector('input[type=file]');
-    const count = document.getElementById('file-count');
-    input && input.addEventListener('change', () => {
-      count.textContent = input.files.length
-        ? `${input.files.length} file(s) selected`
-        : '';
-    });
-  </script>
+    {% comment %}<!-- BULK UPLOAD SECTION -->{% endcomment %}
+    {% include "gallery/pages/bulk_upload/form.html" %}
+
+    <div class="section-divider" aria-hidden="true"></div>
+{% endblock %}
+
+{% comment %}<!-- PAGE SPECIFIC FOOTER -->{% endcomment %}
+{% block footer %}
+    {% include "mikedinder/common/footer.html" with branded_title=branded_title %}
 {% endblock %}

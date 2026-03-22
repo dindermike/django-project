@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="upload-wrap">
+    <h1>Bulk Upload</h1>
+    <p class="note">Select multiple images. Metadata can be added afterwards via the Admin panel.</p>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- {{ form.as_p }} -->
+        <p>
+            <label for="id_images">Select Images (Hold Ctrl / ⌘ to Select Multiple):</label>
+            <input type="file" name="images" allow_multiple_selected="" required="" multiple="" id="id_images">
+        </p>
+
+        <div id="file-count"></div>
+
+        <button type="submit">Upload all</button>
+    </form>
+
+    <a href="{% url 'gallery:gallery' %}" class="back-link">← Back to gallery</a>
+</div>
+
+<script type="text/javascript">
+    const input = document.querySelector('input[type=file]');
+    const count = document.getElementById('file-count');
+    input && input.addEventListener('change', () => {
+        count.textContent = input.files.length
+            ? `${input.files.length} file(s) selected`
+            : '';
+    });
+</script>

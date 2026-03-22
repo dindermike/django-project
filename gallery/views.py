@@ -39,6 +39,17 @@ class ImageUploadView(CreateView):
     template_name = 'gallery/upload.html'
     success_url = reverse_lazy('gallery:gallery')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['branded_title'] = 'Upload'
+        context['meta_description'] = 'Mike Dinder Upload - A page for uploading a single image at a time.'
+        context['page_class'] = 'upload-page'
+        context['page_id'] = 'upload-page'
+        context['title'] = 'Upload: A Single File'
+
+        return context
+
     def form_valid(self, form):
         messages.success(self.request, 'Image Uploaded Successfully.')
 
@@ -52,6 +63,17 @@ class BulkImageUploadView(FormView):
     form_class = BulkImageUploadForm
     template_name = 'gallery/bulk_upload.html'
     success_url = reverse_lazy('gallery:gallery')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['branded_title'] = 'Bulk Upload'
+        context['meta_description'] = 'Mike Dinder Upload - A page for uploading multiple images all at once.'
+        context['page_class'] = 'bulk-upload-page'
+        context['page_id'] = 'bulk-upload-page'
+        context['title'] = 'Bulk UploadUpload: Multiple Images At A Time'
+
+        return context
 
     def form_valid(self, form):
         files = self.request.FILES.getlist('images')

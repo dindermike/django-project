@@ -24,8 +24,8 @@
         <link rel="icon" type="image/png" sizes="512x512" href="{% static '/mikedinder/images/android-chrome-512x512.png' %}">
 
         <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
         <!-- Font Awesome -->
@@ -65,6 +65,14 @@
 
     <body id="{% block page_id %}{% endblock %}" class="{% block page_class %}base-template-1{% endblock %}{% if form.errors %} has-form-errors{% endif %}">
         {% comment %}<!-- SKIP LINK is in <head> already via CSS -->{% endcomment %}
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
         {% block site_container %}
             {% comment %}<!-- LOADER -->{% endcomment %}

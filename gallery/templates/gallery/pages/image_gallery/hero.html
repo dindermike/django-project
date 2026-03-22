@@ -1,0 +1,23 @@
+{% load static %}
+
+<!-- ==================== HERO ==================== -->
+<section id="hero" aria-labelledby="hero-heading">
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+        <div class="hero-badge" aria-label="Status: actively maintained">
+            <span class="dot" aria-hidden="true"></span>
+            ACTIVELY MAINTAINED &bull; EST. 2026
+        </div>
+
+        <h1 class="hero-title" id="hero-heading">
+            <span class="line1">DJANGO</span>
+            <span class="line2">GALLERY</span>
+            <span class="line3">&mdash; Custom Photo Gallery</span>
+        </h1>
+
+        <p class="hero-desc">
+            &emsp;This is a custom photo gallery developed to allow a user to upload a single image or a bulk set of images. Upon upload images will be resized if they are larger than <em>1200px</em> wide to allow for a maximum of only <em>1200px</em> wide. This is to ensure the gallery does not become too heavy on assets when a user visits this page. Additionally, images are compressed and optimized to 60% quality and if they are not of the approved image file extensions, they will be converted to a standard <em>JPG</em>. Other accepted formats such as <em>PNG</em> images are optimized using lossless optimization. Color modes such as <em>RGBA/P</em> are converted to a standard <em>RGB</em>. This is also to ensure that the physical file size is not too large and can reduce them down to the low <em>KB</em> range. If we have a gallery with 200 images all around <em>20MB</em> in size, that would mean our page when loading will want to load a minimum of almost <em>4GB</em> of data. That is far too much for any web page and especially mobile devices. Additionally, this would relate to increased cost for server data storage in maintaining the cost of your website.
+        </p>
+    </div>
+</section>

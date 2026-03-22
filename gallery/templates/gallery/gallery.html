@@ -1,189 +1,55 @@
-{% extends "gallery/base.html" %}
-{% load static %}
+{% extends 'mikedinder/base/base_1.html' %}
+{% load compress static %}
 
-{% block title %}Photo Gallery{% endblock %}
+{% comment %}<!-- META INFORMATION -->{% endcomment %}
+{% block page_title1 %}{{ title }}{% endblock %}
+{% block page_title2 %}{{ title }}{% endblock %}
+{% block page_title3 %}{{ title }}{% endblock %}
+{% block page_id %}{{ page_id }}{% endblock %}
+{% block page_class %}{{ block.super }} {{ page_class }} sub-page{% endblock %}
+{% block meta_description1 %}{{ meta_description }}{% endblock %}
+{% block meta_description2 %}{{ meta_description }}{% endblock %}
+{% block meta_description3 %}{{ meta_description }}{% endblock %}
+{% block social_img1 %}{% static '/gallery/images/Image.png' %}{% endblock %}
+{% block social_img2 %}{% static '/gallery/images/Image.png' %}{% endblock %}
+{% block social_img3 %}{% static '/gallery/images/Image.png' %}{% endblock %}
+{% block social_url %}{{ request.path }}{% endblock %}
 
-{% block extra_head %}
-  {#
-    ── iosSlider ─────────────────────────────────────────────────────────────
-    Download iosSlider from https://iosscripts.com/iosslider/ and place the
-    files in your static directory, then update the paths below.
-    ──────────────────────────────────────────────────────────────────────── #}
-  <link  rel="stylesheet" href="{% static 'gallery/css/iosslider.css' %}" />
-
-  <style>
-    /* ── reset / base ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Georgia', serif;
-      background: #0f0f0f;
-      color: #f0ede8;
-      min-height: 100vh;
-    }
-
-    /* ── page header ── */
-    .gallery-header {
-      text-align: center;
-      padding: 3rem 1rem 1.5rem;
-    }
-    .gallery-header h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-weight: 400;
-      color: #f0ede8;
-    }
-    .gallery-header p {
-      margin-top: .5rem;
-      color: #9a9087;
-      font-style: italic;
-    }
-
-    /* ── upload links ── */
-    .upload-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: .75rem 1rem 2rem;
-    }
-    .upload-links a {
-      padding: .5rem 1.25rem;
-      border: 1px solid #4a4540;
-      border-radius: 3px;
-      color: #c8bfb5;
-      text-decoration: none;
-      font-size: .875rem;
-      letter-spacing: .05em;
-      transition: background .2s, color .2s;
-    }
-    .upload-links a:hover { background: #2a2520; color: #f0ede8; }
-
-    /* ── slider container ── */
-    #iosSlider {
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;      /* required by iosSlider */
-    }
-
-    /* ── each slide ── */
-    .slide {
-      width: 100%;
-      position: relative;
-    }
-    .slide img {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 70vh;
-      object-fit: cover;
-    }
-
-    /* ── caption overlay ── */
-    .slide-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,.72));
-      padding: 2rem 1.5rem 1.25rem;
-    }
-    .slide-caption .title    { font-size: 1.25rem; font-weight: 600; }
-    .slide-caption .subtitle { font-size: .9rem;  color: #c8bfb5; margin-top: .2rem; }
-    .slide-caption .meta     { font-size: .78rem; color: #9a9087; margin-top: .5rem; }
-
-    /* ── empty state ── */
-    .empty-state {
-      text-align: center;
-      padding: 5rem 1rem;
-      color: #6b6560;
-    }
-  </style>
+{% comment %}<!-- ASSETS -->{% endcomment %}
+{% block head_stylesheets %}
+    {% compress css %}
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/common.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/nav.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/hero.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/mikedinder/css/footer.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/gallery/css/pages/image_gallery.css' %}" />
+    {% endcompress %}
+{% endblock %}
+{% block js_scripts %}
+    {% compress js %}
+        <script src="{% static '/mikedinder/js/theme.js' %}"></script>
+    {% endcompress %}
 {% endblock %}
 
-{% block content %}
-  <header class="gallery-header">
-    <h1>Gallery</h1>
-    {% if images %}<p>{{ images|length }} image{{ images|length|pluralize }}</p>{% endif %}
-  </header>
-
-  <nav class="upload-links">
-    <a href="{% url 'gallery:upload' %}">+ Upload image</a>
-    <a href="{% url 'gallery:bulk_upload' %}">+ Bulk upload</a>
-  </nav>
-
-  {% if images %}
-    {#
-      ── iosSlider markup ──────────────────────────────────────────────────
-      iosSlider expects: a wrapper div (#iosSlider) containing child divs
-      (.slides-container) each of which holds individual slide divs.
-      Adjust class names to match whichever version you downloaded.
-      ──────────────────────────────────────────────────────────────────── #}
-    <div id="iosSlider">
-      <div class="slides-container">
-        {% for img in images %}
-          <div class="slide">
-            <img
-              src="{{ img.image.url }}"
-              alt="{{ img.title|default:'Gallery image' }}"
-              loading="lazy"
-            />
-
-            {% if img.title or img.subtitle or img.date or img.location %}
-              <div class="slide-caption">
-                {% if img.title    %}<div class="title">{{ img.title }}</div>{% endif %}
-                {% if img.subtitle %}<div class="subtitle">{{ img.subtitle }}</div>{% endif %}
-                {% if img.date or img.location %}
-                  <div class="meta">
-                    {% if img.date     %}{{ img.date|date:"F j, Y" }}{% endif %}
-                    {% if img.date and img.location %} &mdash; {% endif %}
-                    {% if img.location %}{{ img.location }}{% endif %}
-                  </div>
-                {% endif %}
-              </div>
-            {% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-
-  {% else %}
-    <div class="empty-state">
-      <p>No images yet. <a href="{% url 'gallery:upload' %}" style="color:#c8bfb5;">Upload the first one.</a></p>
-    </div>
-  {% endif %}
+{% comment %}<!-- PAGE SPECIFIC HEADER -->{% endcomment %}
+{% block header %}
+    {% include "mikedinder/common/header.html" with branded_title=branded_title %}
 {% endblock %}
 
-{% block extra_scripts %}
-  {#
-    Download jQuery and iosSlider JS, place in static/gallery/js/, update paths.
-    iosSlider docs: https://iosscripts.com/iosslider/
-  #}
-  <script src="{% static 'gallery/js/jquery.min.js' %}"></script>
-  <script src="{% static 'gallery/js/iosslider.min.js' %}"></script>
+{% comment %}<!-- BODY CONTENT -->{% endcomment %}
+{% block body_content %}
+    {% comment %}<!-- HERO SECTION -->{% endcomment %}
+    {% include "gallery/pages/image_gallery/hero.html" %}
 
-  <script>
-    $(document).ready(function () {
-      $('#iosSlider').iosSlider({
-        // ── core behaviour ──────────────────────────────────────────────
-        snapToChildren   : true,
-        desktopClickDrag : true,
+    <div class="section-divider" aria-hidden="true"></div>
 
-        // ── auto-advance ─────────────────────────────────────────────────
-        autoSlide        : true,
-        autoSlideTimer   : 5000,  // ms between slides
-        autoSlideTransTimer: 800,
+    {% comment %}<!-- CONTACT INFO SECTION -->{% endcomment %}
+    {% include "gallery/pages/image_gallery/slider.html" %}
 
-        // ── keyboard / nav ───────────────────────────────────────────────
-        keyboardControls : true,
+    <div class="section-divider" aria-hidden="true"></div>
+{% endblock %}
 
-        // ── callbacks (wire to caption updates here if needed) ──────────
-        onSlideChange    : function (args) {
-          // args.currentSlideNumber, args.totalSlides, etc.
-          // console.log('Slide', args.currentSlideNumber, 'of', args.totalSlides);
-        },
-      });
-    });
-  </script>
+{% comment %}<!-- PAGE SPECIFIC FOOTER -->{% endcomment %}
+{% block footer %}
+    {% include "mikedinder/common/footer.html" with branded_title=branded_title %}
 {% endblock %}

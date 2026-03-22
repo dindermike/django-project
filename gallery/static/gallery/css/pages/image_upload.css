@@ -1,0 +1,110 @@
+/* Image Upload Page Only Styles */
+.image-upload-page .upload-wrap {
+    max-width: 560px;
+    margin: 3em auto;
+    padding: 2em;
+    background: #1a1815;
+    border: 1px solid #2e2a26;
+    border-radius: 6px;
+}
+
+.image-upload-page h1 {
+    font-family: Georgia, serif;
+    font-size: 1.75em;
+    font-weight: 400;
+    margin-bottom: 1.5em;
+    letter-spacing: 0.06em;
+    color: #f0ede8;
+}
+
+.image-upload-page label {
+    font-family: Georgia, serif;
+    display: block;
+    margin-bottom: 0.4em;
+    font-size: 0.875em;
+    color: #9a9087;
+}
+
+.image-upload-page input[type=file] {
+    font-family: Georgia, serif;
+    margin-bottom: 1.25em;
+    color: #c8bfb5;
+}
+
+.image-upload-page input[type=text],
+.image-upload-page input[type=date],
+.image-upload-page input[type=number],
+.image-upload-page textarea {
+    font-family: Georgia, serif;
+    width: 100%;
+    padding: 0.6em 0.75em;
+    background: #0f0f0f;
+    border: 1px solid #3a3530;
+    border-radius: 4px;
+    color: #f0ede8;
+    font-size: 0.9em;
+    margin-bottom: 1em;
+}
+
+.image-upload-page textarea {
+    font-family: Georgia, serif;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.image-upload-page button {
+    font-family: Georgia, serif;
+    padding: 0.65em 1.5em;
+    background: #c8bfb5;
+    color: #0f0f0f;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.image-upload-page button:hover,
+.image-upload-page button:active,
+.image-upload-page button:focus {
+    background: #f0ede8;
+}
+
+.image-upload-page .back-link {
+    font-family: Georgia, serif;
+    display: block;
+    margin-top: 1em;
+    color: #6b6560;
+    text-decoration: none;
+    font-size: 0.85em;
+}
+
+.image-upload-page .back-link:hover,
+.image-upload-page .back-link:active,
+.image-upload-page .back-link:focus {
+    color: #9a9087;
+}
+
+.image-upload-page .note {
+    font-family: Georgia, serif;
+    color: #9a9087;
+    font-size: 0.875em;
+    margin-bottom: 1.5em;
+    font-style: italic;
+}
+
+.image-upload-page #file-count {
+    font-family: Georgia, serif;
+    margin-top: 0.5em;
+    font-size: 0.82em;
+    color: #9a9087;
+}
+
+.image-upload-page .errorlist {
+    font-family: Georgia, serif;
+    color: #f87171;
+    list-style: none;
+    padding: 0;
+    font-size: 0.82em;
+    margin-top: -0.75em;
+    margin-bottom: 0.75em;
+}
